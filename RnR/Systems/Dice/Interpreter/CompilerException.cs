@@ -16,9 +16,8 @@ namespace RnR.Systems.Dice.Interpreter
 		{
 		}
 
-		public CompilerException (Exception e)
+		public CompilerException (Exception e) : this ("An internal compiler exception has ocurred", e)
 		{
-			this.e = e;
 		}
 
 		public CompilerException (string message, Exception innerException) : base (message, innerException)

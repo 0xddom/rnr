@@ -8,6 +8,7 @@
     <RootNamespace>RnR</RootNamespace>
     <AssemblyName>RnR</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ApplicationManifest>Add.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,9 @@
     <Folder Include="Systems\" />
     <Folder Include="Systems\Dice\" />
     <Folder Include="Systems\Dice\Interpreter\" />
+    <Folder Include="Systems\Dice\VM\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Systems\Dice\VM\Instructions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Systems\Dice\Interpreter\LexemeIterator.cs" />
@@ -39,6 +43,30 @@
     <Compile Include="Systems\Dice\Interpreter\Tokenizer.cs" />
     <Compile Include="Systems\Dice\Interpreter\SyntaxException.cs" />
     <Compile Include="Application.cs" />
+    <Compile Include="Systems\Dice\Interpreter\Associativity.cs" />
+    <Compile Include="Systems\Dice\Interpreter\Op.cs" />
+    <Compile Include="Systems\Dice\Interpreter\Compiler.cs" />
+    <Compile Include="Systems\Dice\VM\InstructionIterator.cs" />
+    <Compile Include="Systems\Dice\Interpreter\CompilerException.cs" />
+    <Compile Include="Utils\Stack.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Instruction.cs" />
+    <Compile Include="Systems\Dice\VM\Context.cs" />
+    <Compile Include="Utils\Stackable.cs" />
+    <Compile Include="Systems\Dice\InMemoryProgram.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Nop.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Halt.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Div.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Add.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Mul.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Pop.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Push.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Roll.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Sub.cs" />
+    <Compile Include="Systems\Dice\VM\Instructions\Times.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

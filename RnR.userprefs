@@ -5,23 +5,21 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.RnR PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RnR\Application.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RnR\Systems\Dice\Interpreter\Tokenizer.cs">
     <Files>
-      <File FileName="RnR\Systems\Dice\Interpreter\Lexeme.cs" Line="12" Column="23" />
-      <File FileName="RnR\Systems\Dice\Interpreter\TokenType.cs" Line="10" Column="10" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Tokens.cs" Line="11" Column="31" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Tokenizer.cs" Line="29" Column="3" />
-      <File FileName="RnR.Tests\Systems\Dice\Interpreter\TokenizerTests.cs" Line="29" Column="38" />
-      <File FileName="RnR.Tests\Test.cs" Line="8" Column="11" />
-      <File FileName="RnR\Systems\Dice\Interpreter\SyntaxException.cs" Line="21" Column="119" />
-      <File FileName="RnR\Application.cs" Line="6" Column="27" />
+      <File FileName="RnR\Systems\Dice\Interpreter\Compiler.cs" Line="69" Column="6" />
+      <File FileName="RnR\Systems\Dice\InMemoryProgram.cs" Line="5" Column="27" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Nop.cs" Line="2" Column="43" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Halt.cs" Line="13" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Div.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Add.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Mul.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Pop.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Push.cs" Line="20" Column="45" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Roll.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Sub.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Times.cs" Line="18" Column="3" />
+      <File FileName="RnR\Systems\Dice\Interpreter\Tokenizer.cs" Line="86" Column="8" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="RnR" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
 </Properties>
