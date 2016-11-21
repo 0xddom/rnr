@@ -26,5 +26,19 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Systems\" />
+    <Folder Include="Systems\Dice\" />
+    <Folder Include="Systems\Dice\Interpreter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Systems\Dice\Interpreter\LexemeIterator.cs" />
+    <Compile Include="Systems\Dice\Interpreter\Lexeme.cs" />
+    <Compile Include="Systems\Dice\Interpreter\TokenType.cs" />
+    <Compile Include="Systems\Dice\Interpreter\Tokens.cs" />
+    <Compile Include="Systems\Dice\Interpreter\Tokenizer.cs" />
+    <Compile Include="Systems\Dice\Interpreter\SyntaxException.cs" />
+    <Compile Include="Application.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

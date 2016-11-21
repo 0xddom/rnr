@@ -1,13 +1,27 @@
 ﻿<Properties StartupConfiguration="{5D1482D6-6957-48F1-B567-644550668852}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RnR.Tests/Test.cs">
-    <Files>
-      <File FileName="RnR.Tests/Test.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.RnR PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RnR\Application.cs">
+    <Files>
+      <File FileName="RnR\Systems\Dice\Interpreter\Lexeme.cs" Line="12" Column="23" />
+      <File FileName="RnR\Systems\Dice\Interpreter\TokenType.cs" Line="10" Column="10" />
+      <File FileName="RnR\Systems\Dice\Interpreter\Tokens.cs" Line="11" Column="31" />
+      <File FileName="RnR\Systems\Dice\Interpreter\Tokenizer.cs" Line="29" Column="3" />
+      <File FileName="RnR.Tests\Systems\Dice\Interpreter\TokenizerTests.cs" Line="29" Column="38" />
+      <File FileName="RnR.Tests\Test.cs" Line="8" Column="11" />
+      <File FileName="RnR\Systems\Dice\Interpreter\SyntaxException.cs" Line="21" Column="119" />
+      <File FileName="RnR\Application.cs" Line="6" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="RnR" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>
