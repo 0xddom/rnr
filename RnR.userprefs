@@ -5,21 +5,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.RnR PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RnR\Systems\Dice\Interpreter\Tokenizer.cs">
-    <Files>
-      <File FileName="RnR\Systems\Dice\Interpreter\Compiler.cs" Line="69" Column="6" />
-      <File FileName="RnR\Systems\Dice\InMemoryProgram.cs" Line="5" Column="27" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Nop.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Halt.cs" Line="13" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Div.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Add.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Mul.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Pop.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Push.cs" Line="20" Column="45" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Roll.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Sub.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Times.cs" Line="18" Column="3" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Tokenizer.cs" Line="86" Column="8" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
 </Properties>

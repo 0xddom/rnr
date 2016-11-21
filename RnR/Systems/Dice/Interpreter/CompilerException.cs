@@ -6,8 +6,6 @@ namespace RnR.Systems.Dice.Interpreter
 	[Serializable]
 	class CompilerException : Exception
 	{
-		Exception e;
-
 		public CompilerException ()
 		{
 		}

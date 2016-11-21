@@ -59,7 +59,7 @@ namespace RnR
 		public int R2 { get { return r2; } set { r2 = value; } }
 		public int R3 { get { return r3; } set { r3 = value; } }
 		public int R4 { get { return r4; } set { r4 = value; } }
-		public int R5 { get { return r5; } set { r6 = value; } }
+		public int R5 { get { return r5; } set { r5 = value; } }
 		public int R6 { get { return r6; } set { r6 = value; } }
 		public int R7 { get { return r7; } set { r7 = value; } }
 		public int R8 { get { return r8; } set { r8 = value; } }
