@@ -1,13 +1,9 @@
 ﻿using System;
 namespace RnR.Systems.Dice.VM.Instructions
 {
-	public class Nop : Instruction
+	public class Nop : AbstractInstruction
 	{
-		public Nop ()
-		{
-		}
-
-		public void Execute (Context context)
+		public override void Execute (Context context)
 		{
 		}
 

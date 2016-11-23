@@ -1,5 +1,5 @@
 ﻿using System;
-namespace RnR
+namespace RnR.Utils
 {
 	public interface Stackable<T>
 	{

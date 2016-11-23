@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using RnR.Systems.Dice.VM;
+using RnR.Systems.Dice.VM.Instructions;
 
 namespace RnR.Systems.Dice
 {

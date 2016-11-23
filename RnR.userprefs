@@ -5,32 +5,19 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.RnR PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RnR\Systems\Dice\VM\Instructions\Times.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RnR\Systems\Dice\VM\Instructions\Push.cs">
     <Files>
-      <File FileName="RnR\Systems\Dice\VM\InstructionIterator.cs" Line="2" Column="30" />
-      <File FileName="RnR\Systems\Dice\VM\Context.cs" Line="4" Column="30" />
-      <File FileName="RnR\Systems\Dice\InMemoryProgram.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Associativity.cs" Line="2" Column="39" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Compiler.cs" Line="7" Column="39" />
-      <File FileName="RnR\Systems\Dice\Interpreter\CompilerException.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Lexeme.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\LexemeIterator.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Op.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\SyntaxException.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Tokenizer.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\Tokens.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\Interpreter\TokenType.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Add.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Div.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Instruction.cs" Line="4" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Mul.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Halt.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Nop.cs" Line="1" Column="1" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Pop.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Push.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Roll.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Sub.cs" Line="2" Column="43" />
-      <File FileName="RnR\Systems\Dice\VM\Instructions\Times.cs" Line="2" Column="43" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Add.cs" Line="22" Column="1" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\AbstractInstruction.cs" Line="10" Column="12" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Div.cs" Line="10" Column="4" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Mul.cs" Line="10" Column="4" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Sub.cs" Line="18" Column="35" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Times.cs" Line="20" Column="2" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Roll.cs" Line="13" Column="23" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Pop.cs" Line="6" Column="19" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Halt.cs" Line="4" Column="21" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Nop.cs" Line="6" Column="3" />
+      <File FileName="RnR\Systems\Dice\VM\Instructions\Push.cs" Line="13" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>

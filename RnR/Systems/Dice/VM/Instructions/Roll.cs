@@ -1,15 +1,19 @@
-﻿using System;
+﻿using RnR.Systems.Dice.VM.Types;
+
 namespace RnR.Systems.Dice.VM.Instructions
 {
-	public class Roll : Instruction
+	public class Roll : AbstractInstruction
 	{
-		public Roll ()
+		public override void Execute (Context context)
 		{
-		}
+			var sides = (IntegerType)context.Pop ();
+			var nDices = (IntegerType)context.Pop ();
 
-		public void Execute (Context context)
-		{
-			throw new NotImplementedException ();
+			context.Push (
+				new DiceRollType (
+					DiceOperations.Dice.roll (
+						(int)nDices.GetValue (), 
+						(int)sides.GetValue ())));
 		}
 
 		public override string ToString ()

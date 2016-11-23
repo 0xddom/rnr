@@ -1,7 +1,9 @@
 ﻿using System;
+using RnR.Systems.Dice.VM.Types;
+
 namespace RnR.Systems.Dice.VM.Instructions
 {
-	public class Push : Instruction
+	public class Push : AbstractInstruction
 	{
 		private int value;
 
@@ -10,9 +12,9 @@ namespace RnR.Systems.Dice.VM.Instructions
 			this.value = value;
 		}
 
-		public void Execute (Context context)
+		public override void Execute (Context context)
 		{
-			throw new NotImplementedException ();
+			context.Push (new IntegerType (value));
 		}
 
 		public override string ToString ()

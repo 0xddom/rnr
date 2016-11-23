@@ -1,15 +1,16 @@
 ﻿using System;
+using RnR.Systems.Dice.VM.Types;
+
 namespace RnR.Systems.Dice.VM.Instructions
 {
-	public class Sub : Instruction
+	public class Sub : AbstractInstruction
 	{
-		public Sub ()
+		public override void Execute (Context context)
 		{
-		}
+			SubstraibleType op1 = (SubstraibleType)PopAndCast (context, typeof (SubstraibleType));
+			SubstraibleType op2 = (SubstraibleType)PopAndCast (context, typeof (SubstraibleType));
 
-		public void Execute (Context context)
-		{
-			throw new NotImplementedException ();
+			context.Push (new NumberType (op2.GetSubstraibleValue () - op1.GetSubstraibleValue ()));
 		}
 
 		public override string ToString ()

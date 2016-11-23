@@ -1,15 +1,11 @@
 ﻿using System;
 namespace RnR.Systems.Dice.VM.Instructions
 {
-	public class Pop : Instruction
+	public class Pop : AbstractInstruction
 	{
-		public Pop ()
+		public override void Execute (Context context)
 		{
-		}
-
-		public void Execute (Context context)
-		{
-			throw new NotImplementedException ();
+			context.Pop ();
 		}
 
 		public override string ToString ()

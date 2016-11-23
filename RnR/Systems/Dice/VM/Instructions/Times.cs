@@ -1,13 +1,9 @@
 ﻿using System;
 namespace RnR.Systems.Dice.VM.Instructions
 {
-	public class Times : Instruction
+	public class Times : AbstractInstruction
 	{
-		public Times ()
-		{
-		}
-
-		public void Execute (Context context)
+		public override void Execute (Context context)
 		{
 			throw new NotImplementedException ();
 		}

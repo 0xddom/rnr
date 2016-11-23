@@ -1,11 +1,12 @@
 ﻿using System;
+using RnR.Systems.Dice.VM.Types;
 using RnR.Utils;
 
 namespace RnR.Systems.Dice.VM
 {
-	public class Context : Stackable<Type>
+	public class Context : Stackable<VMType>
 	{
-		private Stack<Type> stack;
+		private Stack<VMType> stack;
 		#region Registers
 		private int
 			ip,
@@ -29,23 +30,23 @@ namespace RnR.Systems.Dice.VM
 
 		public Context ()
 		{
-			stack = new Stack<Type> ();
+			stack = new Stack<VMType> ();
 
 		}
 
-		public void Push (Type type)
+		public void Push (VMType type)
 		{
 			stack.Push (type);
 			sp++;
 		}
 
-		public Type Pop ()
+		public VMType Pop ()
 		{
 			sp--;
 			return stack.Pop ();
 		}
 
-		public Type Peek ()
+		public VMType Peek ()
 		{
 			return stack.Peek ();
 		}
