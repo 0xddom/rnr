@@ -1,5 +1,5 @@
 ﻿using System;
-namespace RnR
+namespace RnR.Systems.Dice.Interpreter
 {
 	public enum Associativity
 	{

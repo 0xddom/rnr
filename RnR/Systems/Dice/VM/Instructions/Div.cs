@@ -1,5 +1,5 @@
 ﻿using System;
-namespace RnR
+namespace RnR.Systems.Dice.VM.Instructions
 {
 	public class Div : Instruction
 	{

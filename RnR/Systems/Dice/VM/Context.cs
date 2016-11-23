@@ -1,7 +1,7 @@
 ﻿using System;
 using RnR.Utils;
 
-namespace RnR
+namespace RnR.Systems.Dice.VM
 {
 	public class Context : Stackable<Type>
 	{

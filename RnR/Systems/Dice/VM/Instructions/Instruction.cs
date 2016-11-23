@@ -1,5 +1,7 @@
 ﻿using System;
-namespace RnR
+using RnR.Systems.Dice.VM;
+
+namespace RnR.Systems.Dice.VM.Instructions
 {
 	public interface Instruction
 	{
