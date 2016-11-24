@@ -10,12 +10,19 @@ namespace RnR.Tests.Systems.D20.FloorElements
 	[TestFixture()]
 	public class MoneyGrassTests
 	{
+		MoneyGrass grass;
+
+		[SetUp]
+		public void SetUp ()
+		{
+			grass = new MoneyGrass (20);
+		}
+
 		[Test ()]
 		public void GrassApplyToPlayerGameActor ()
 		{
 			var player = new PlayerGameActor ();
 			player.Money = 200;
-			var grass = new MoneyGrass (20);
 
 			var returnedPlayer = grass.OnStep (player);
 
@@ -27,7 +34,6 @@ namespace RnR.Tests.Systems.D20.FloorElements
 		{
 			var other = new EnemyMock ();
 			other.Money = 200;
-			var grass = new MoneyGrass (20);
 
 			var returnedActor = grass.OnStep (other);
 
@@ -39,7 +45,6 @@ namespace RnR.Tests.Systems.D20.FloorElements
 		{
 			var player = new PlayerGameActor ();
 			player.Money = 200;
-			var grass = new MoneyGrass (20);
 
 			var returnedPlayer = grass.OnStep (player);
 			returnedPlayer = grass.OnStep (returnedPlayer);

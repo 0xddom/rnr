@@ -77,6 +77,9 @@
     <Compile Include="Systems\D20\Contest.cs" />
     <Compile Include="Systems\D20\Challenge.cs" />
     <Compile Include="Systems\D20\Challenger.cs" />
+    <Compile Include="Systems\D20\CantParticipateInContestException.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractDamageTrap.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractEffectTrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

@@ -5,15 +5,17 @@ using RnR.Systems.D20.Effects;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class StuntTrap : AbstractMagicalTrap
+	public class StuntTrap : AbstractEffectTrap
 	{
-		public StuntTrap () : base(new StuntEffect())
+		public StuntTrap (int rate) 
+			: base (SkillType.DETECT_MAGIC, new StuntEffect(), rate)
 		{
 		}
 
-		public override AbstractGameActor OnStep (AbstractGameActor target)
+		protected override AbstractGameActor ApplyEffect (AbstractGameActor target)
 		{
-			throw new NotImplementedException ();
+			Effect.Target = target;
+			return Effect;
 		}
 	}
 }

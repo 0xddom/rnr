@@ -5,15 +5,25 @@ namespace RnR.Systems.D20
 {
 	public class Contest
 	{
-		private SkillType usedSkill;
 		private Challenge challenge;
 		private Challenger challenger;
 
-		public Contest (SkillType usedSkill, Challenge challenge, Challenger challenger)
+		public Contest (Challenge challenge, Challenger challenger)
 		{
 			this.challenge = challenge;
 			this.challenger = challenger;
-			this.usedSkill = usedSkill;
 		}
-	}
+
+		public void Resolve ()
+		{
+			try {
+				if (challenge.CanParticipate (challenger)) {
+					int result = Dice.Dice.Roll (1, 20).Sum + challenger.GetSkill (challenge.GetSkill ()).Value;
+					challenge.ContestFinished (challenger, result > challenge.GetChallengeRate ());
+				}
+			} catch (CantParticipateInContestException) {
+				// Ignore
+			}
+		}
+}
 }

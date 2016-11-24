@@ -5,15 +5,17 @@ using RnR.Systems.D20.Effects;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class SpikeTrap : AbstractMechanicalTrap
+	public class SpikeTrap : AbstractDamageTrap
 	{
-		public SpikeTrap () : base (new SpikeEffect())
+		public SpikeTrap (int dices, int damage, int rate) 
+			: base (SkillType.DODGE_TRAP, dices, damage, rate)
 		{
 		}
 
-		public override AbstractGameActor OnStep (AbstractGameActor target)
+		protected override AbstractGameActor ApplyEffect (AbstractGameActor target)
 		{
-			throw new NotImplementedException ();
+			target.HitPoints -= CalculateDamage();
+			return target;
 		}
 	}
 }

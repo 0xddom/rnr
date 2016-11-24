@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RnR.Systems.D20.Base.Actors
 {
-	public abstract class AbstractGameActor
+	public abstract class AbstractGameActor : Challenger
 	{
 		#region Class attributes
 
@@ -13,6 +13,7 @@ namespace RnR.Systems.D20.Base.Actors
 		protected int maxHitPoints;
 		protected Dictionary<Attributes, Attribute> attributes;
 		protected TrapEffect activeTrapEffects;
+		protected Dictionary<SkillType, Skill> skills;
 
 		#endregion
 
@@ -42,5 +43,11 @@ namespace RnR.Systems.D20.Base.Actors
 		#endregion
 
 		public bool IsDead () { return hitPoints == 0; }
+
+		public Skill GetSkill (SkillType type)
+		{
+			if (skills.ContainsKey (type)) return skills [type];
+			else throw new CantParticipateInContestException(this);
+		}
 	}
 }

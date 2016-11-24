@@ -5,15 +5,20 @@ using RnR.Systems.D20.Effects;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class ExhaustionTrap : AbstractMagicalTrap
+	public class ExhaustionTrap : AbstractDamageTrap
 	{
-		public ExhaustionTrap () : base (new ExhaustionEffect())
+		public ExhaustionTrap (int dices, int damage, int rate) 
+			: base (SkillType.DETECT_MAGIC, dices, damage, rate)
 		{
 		}
 
-		public override AbstractGameActor OnStep (AbstractGameActor target)
+		protected override AbstractGameActor ApplyEffect (AbstractGameActor target)
 		{
-			throw new NotImplementedException ();
+			if (target is PlayerGameActor) {
+				var player = (PlayerGameActor)target;
+				player.Hunger -= CalculateDamage();
+			}
+			return target;
 		}
 	}
 }

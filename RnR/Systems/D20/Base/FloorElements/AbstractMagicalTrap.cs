@@ -5,8 +5,13 @@ namespace RnR.Systems.D20.Base.FloorElements
 {
 	public abstract class AbstractMagicalTrap : AbstractTrap
 	{
-		public AbstractMagicalTrap (TrapEffect effect) : base(effect)
+		public AbstractMagicalTrap (int c) : base(c)
 		{
+		}
+
+		public override SkillType GetSkill ()
+		{
+			return SkillType.DETECT_MAGIC;
 		}
 	}
 }
