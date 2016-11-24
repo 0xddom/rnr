@@ -8,13 +8,13 @@ namespace RnR.Systems.D20.Base.FloorElements
 	/// </summary>
 	public abstract class AbstractEffectTrap : AbstractTrap
 	{
-		private TrapEffect effect;
+		private GameActorDecorator effect;
 
-		public AbstractEffectTrap (SkillType skill, TrapEffect effect, int rate) : base(skill, rate)
+		public AbstractEffectTrap (SkillType skill, GameActorDecorator effect, int rate) : base(skill, rate)
 		{
 			this.effect = effect;
 		}
 
-		public TrapEffect Effect { get { return effect; } }
+		public GameActorDecorator Effect { get { return effect; } }
 	}
 }

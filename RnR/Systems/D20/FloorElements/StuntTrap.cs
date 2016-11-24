@@ -8,11 +8,11 @@ namespace RnR.Systems.D20.FloorElements
 	public class StuntTrap : AbstractEffectTrap
 	{
 		public StuntTrap (int rate) 
-			: base (SkillType.DETECT_MAGIC, new StuntEffect(), rate)
+			: base (SkillType.DETECT_MAGIC, new StuntEffect(null), rate)
 		{
 		}
 
-		protected override AbstractGameActor ApplyEffect (AbstractGameActor target)
+		protected override GameActor ApplyEffect (GameActor target)
 		{
 			Effect.Target = target;
 			return Effect;

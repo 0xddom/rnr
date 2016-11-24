@@ -8,7 +8,8 @@ namespace RnR.Systems.D20
 		private int hunger;
 		private int level;
 
-		public PlayerGameActor ()
+		public PlayerGameActor (int str, int dex, int con, int _int, int wis, int cha) 
+			: base (str, dex, con, _int, wis, cha)
 		{
 		}
 
@@ -21,7 +22,7 @@ namespace RnR.Systems.D20
 
 		public int MaxHunger {
 			get {
-				return attributes [Attributes.CON].Mod * 10;
+				return CON.Mod * 10;
 			}
 		}
 	}

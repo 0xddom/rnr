@@ -9,14 +9,14 @@ namespace RnR.Systems.D20.Base.FloorElements
 		private int challengeRate;
 		private bool applied;
 		private SkillType skill;
-		private AbstractGameActor victim;
+		private GameActor victim;
 
 		public AbstractTrap (SkillType skill, int challengeRate)
 		{
 			this.challengeRate = challengeRate;
-			this.applied = false;
+			applied = false;
 			this.skill = skill;
-			Disarm ();
+			Arm ();
 		}
 
 		public void Arm ()
@@ -29,12 +29,12 @@ namespace RnR.Systems.D20.Base.FloorElements
 			armed = false;
 		}
 
-		public AbstractGameActor OnStep (AbstractGameActor target)
+		public GameActor OnStep (GameActor target)
 		{
 			if (armed) {
 				Contest contest = new Contest (this, target);
 				contest.Resolve ();
-				armed = false;
+				Disarm ();
 				if (applied) {
 					return victim;
 				}
@@ -46,7 +46,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 
 		public void ContestFinished (Challenger challenger, bool challengerWon)
 		{
-			AbstractGameActor aga = (AbstractGameActor)challenger;
+			GameActor aga = (GameActor)challenger;
 			if (!challengerWon) {
 				victim = ApplyEffect (aga);
 				applied = true;
@@ -55,7 +55,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 
 		public bool CanParticipate (Challenger challenger)
 		{
-			return challenger is AbstractGameActor;
+			return challenger is GameActor;
 		}
 
 		public int GetChallengeRate () { return challengeRate; }
@@ -64,6 +64,6 @@ namespace RnR.Systems.D20.Base.FloorElements
 			return skill;
 		}
 
-		protected abstract AbstractGameActor ApplyEffect (AbstractGameActor target);
+		protected abstract GameActor ApplyEffect (GameActor target);
 	}
 }

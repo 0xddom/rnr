@@ -7,11 +7,11 @@ namespace RnR.Systems.D20.FloorElements
 {
 	public class PoisonTrap : AbstractEffectTrap
 	{
-		public PoisonTrap (int rate) : base (SkillType.DODGE_TRAP, new PoisonEffect (), rate)
+		public PoisonTrap (int rate) : base (SkillType.DODGE_TRAP, new PoisonEffect (null), rate)
 		{
 		}
 
-		protected override AbstractGameActor ApplyEffect (AbstractGameActor target)
+		protected override GameActor ApplyEffect (GameActor target)
 		{
 			Effect.Target = target;
 			return Effect;

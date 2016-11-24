@@ -17,7 +17,13 @@ namespace RnR.Systems.D20
 		public void Resolve ()
 		{
 			try {
+#if DEBUG
+				System.Console.WriteLine ("Before check if can participate");
+				#endif
 				if (challenge.CanParticipate (challenger)) {
+					#if DEBUG
+				System.Console.WriteLine ("It can");
+#endif
 					int result = Dice.Dice.Roll (1, 20).Sum + challenger.GetSkill (challenge.GetSkill ()).Value;
 					challenge.ContestFinished (challenger, result > challenge.GetChallengeRate ());
 				}

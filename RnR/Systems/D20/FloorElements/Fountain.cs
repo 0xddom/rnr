@@ -6,7 +6,7 @@ namespace RnR.Systems.D20.FloorElements
 {
 	public class Fountain : AbstractFloorElement, OnStepListener
 	{
-		public AbstractGameActor OnStep (AbstractGameActor target)
+		public GameActor OnStep (GameActor target)
 		{
 			if (target is PlayerGameActor) {
 				target.HitPoints = target.MaxHitPoints;

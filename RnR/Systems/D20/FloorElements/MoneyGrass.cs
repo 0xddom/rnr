@@ -13,7 +13,7 @@ namespace RnR.Systems.D20.FloorElements
 			this.amount = amount;
 		}
 
-		protected override void ApplyAction (AbstractGameActor target)
+		protected override void ApplyAction (GameActor target)
 		{
 			target.Money += amount;
 		}

@@ -5,7 +5,7 @@ namespace RnR.Tests.Mocks.Systems.D20.Enemies
 {
 	public class EnemyMock : AbstractEnemyActor
 	{
-		public EnemyMock ()
+		public EnemyMock () : base(0,0,0,0,0,0)
 		{
 		}
 	}

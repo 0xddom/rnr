@@ -35,6 +35,10 @@
     <Compile Include="Systems\D20\Base\Actors\AttributeTests.cs" />
     <Compile Include="Systems\D20\FloorElements\MoneyGrassTests.cs" />
     <Compile Include="Mocks\Systems\D20\Enemies\EnemyMock.cs" />
+    <Compile Include="Systems\D20\FloorElements\DamageTrapTests.cs" />
+    <Compile Include="Mocks\Systems\D20\PlayerMock.cs" />
+    <Compile Include="Systems\Dice\DiceTests.cs" />
+    <Compile Include="Systems\D20\Base\Actors\ActorsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -55,6 +59,7 @@
     <Folder Include="Mocks\Systems\" />
     <Folder Include="Mocks\Systems\D20\" />
     <Folder Include="Mocks\Systems\D20\Enemies\" />
+    <Folder Include="Systems\Dice\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

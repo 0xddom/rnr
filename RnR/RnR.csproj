@@ -46,17 +46,12 @@
     <Compile Include="Systems\D20\Base\Actors\Attributes.cs" />
     <Compile Include="Systems\D20\Base\Actors\SkillType.cs" />
     <Compile Include="Systems\D20\Base\Actors\Skill.cs" />
-    <Compile Include="Systems\D20\Base\Actors\PotionEffect.cs" />
-    <Compile Include="Systems\D20\Base\Actors\JewelEffect.cs" />
     <Compile Include="Systems\D20\Base\Actors\GameActorDecorator.cs" />
-    <Compile Include="Systems\D20\Base\Actors\TrapEffect.cs" />
     <Compile Include="Systems\D20\Base\Actors\AbstractEnemyActor.cs" />
     <Compile Include="Systems\D20\Base\Actors\AttributeDecorator.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractFloorElement.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractGrass.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractTrap.cs" />
-    <Compile Include="Systems\D20\Base\FloorElements\AbstractMechanicalTrap.cs" />
-    <Compile Include="Systems\D20\Base\FloorElements\AbstractMagicalTrap.cs" />
     <Compile Include="Systems\D20\FloorElements\Chest.cs" />
     <Compile Include="Systems\D20\FloorElements\Door.cs" />
     <Compile Include="Systems\D20\FloorElements\FoodGrass.cs" />
@@ -71,8 +66,6 @@
     <Compile Include="Systems\D20\Base\FloorElements\Looteable.cs" />
     <Compile Include="Systems\D20\PlayerGameActor.cs" />
     <Compile Include="Systems\D20\Effects\PoisonEffect.cs" />
-    <Compile Include="Systems\D20\Effects\SpikeEffect.cs" />
-    <Compile Include="Systems\D20\Effects\ExhaustionEffect.cs" />
     <Compile Include="Systems\D20\Effects\StuntEffect.cs" />
     <Compile Include="Systems\D20\Contest.cs" />
     <Compile Include="Systems\D20\Challenge.cs" />
@@ -80,6 +73,7 @@
     <Compile Include="Systems\D20\CantParticipateInContestException.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractDamageTrap.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractEffectTrap.cs" />
+    <Compile Include="Systems\D20\Base\Actors\GameActor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

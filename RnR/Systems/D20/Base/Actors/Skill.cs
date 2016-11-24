@@ -19,5 +19,6 @@
 		public string Name { get { return name; } }
 
 		public int Value { get { return baseValue + attribute.Mod; } }
+		public SkillType Type { get { return type; } }
 	}
 }
