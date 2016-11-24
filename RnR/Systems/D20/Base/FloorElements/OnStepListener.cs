@@ -5,6 +5,6 @@ namespace RnR.Systems.D20.Base.FloorElements
 {
 	public interface OnStepListener
 	{
-		AbstractGameActor OnStep (AbstractGameActor target);
+		GameActor OnStep (GameActor target);
 	}
 }

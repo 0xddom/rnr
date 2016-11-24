@@ -2,7 +2,8 @@
 {
 	public abstract class AbstractEnemyActor : AbstractGameActor
 	{
-		public AbstractEnemyActor ()
+		public AbstractEnemyActor (int str, int dex, int con, int _int, int wis, int cha)
+			: base (str, dex, con, _int, wis, cha)
 		{
 		}
 	}

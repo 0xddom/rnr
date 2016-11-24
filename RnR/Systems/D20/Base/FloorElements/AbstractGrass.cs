@@ -12,7 +12,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 			picked = false;
 		}
 
-		public AbstractGameActor OnStep (AbstractGameActor target)
+		public GameActor OnStep (GameActor target)
 		{
 			if (!picked && target is PlayerGameActor) {
 				ApplyAction (target);
@@ -21,6 +21,6 @@ namespace RnR.Systems.D20.Base.FloorElements
 			return target;
 		}
 
-		protected abstract void ApplyAction (AbstractGameActor target);
+		protected abstract void ApplyAction (GameActor target);
 	}
 }

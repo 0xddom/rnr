@@ -7,11 +7,18 @@
 		private string name;
 		private int baseValue;
 
-		public Skill ()
+		public Skill (SkillType type, string name, int baseValue, Attribute attribute)
 		{
+			this.attribute = attribute;
+			this.type = type;
+			this.name = name;
+			this.baseValue = baseValue;
 		}
 
-		public int BaseValue { get { return baseValue; } }
+		public int BaseValue { get { return baseValue; } set { this.baseValue = value; } }
 		public string Name { get { return name; } }
+
+		public int Value { get { return baseValue + attribute.Mod; } }
+		public SkillType Type { get { return type; } }
 	}
 }

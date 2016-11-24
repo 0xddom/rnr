@@ -3,6 +3,7 @@ using NUnit.Framework;
 using RnR.Systems.D20;
 using RnR.Systems.D20.Base.Actors;
 using RnR.Systems.D20.FloorElements;
+using RnR.Tests.Mocks.Systems.D20;
 using RnR.Tests.Mocks.Systems.D20.Enemies;
 
 namespace RnR.Tests.Systems.D20.FloorElements
@@ -10,12 +11,19 @@ namespace RnR.Tests.Systems.D20.FloorElements
 	[TestFixture()]
 	public class MoneyGrassTests
 	{
+		MoneyGrass grass;
+
+		[SetUp]
+		public void SetUp ()
+		{
+			grass = new MoneyGrass (20);
+		}
+
 		[Test ()]
 		public void GrassApplyToPlayerGameActor ()
 		{
-			var player = new PlayerGameActor ();
+			var player = new PlayerMock ();
 			player.Money = 200;
-			var grass = new MoneyGrass (20);
 
 			var returnedPlayer = grass.OnStep (player);
 
@@ -27,7 +35,6 @@ namespace RnR.Tests.Systems.D20.FloorElements
 		{
 			var other = new EnemyMock ();
 			other.Money = 200;
-			var grass = new MoneyGrass (20);
 
 			var returnedActor = grass.OnStep (other);
 
@@ -37,9 +44,8 @@ namespace RnR.Tests.Systems.D20.FloorElements
 		[Test ()]
 		public void GrassCantBePickedTwice ()
 		{
-			var player = new PlayerGameActor ();
+			var player = new PlayerMock ();
 			player.Money = 200;
-			var grass = new MoneyGrass (20);
 
 			var returnedPlayer = grass.OnStep (player);
 			returnedPlayer = grass.OnStep (returnedPlayer);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RnR.Systems.Dice.DiceOperations
+namespace RnR.Systems.Dice
 {
 	public class DiceRoll
 	{

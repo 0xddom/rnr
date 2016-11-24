@@ -5,15 +5,16 @@ using RnR.Systems.D20.Effects;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class PoisonTrap : AbstractMechanicalTrap
+	public class PoisonTrap : AbstractEffectTrap
 	{
-		public PoisonTrap () : base(new PoisonEffect())
+		public PoisonTrap (int rate) : base (SkillType.DODGE_TRAP, new PoisonEffect (null), rate)
 		{
 		}
 
-		public override AbstractGameActor OnStep (AbstractGameActor target)
+		protected override GameActor ApplyEffect (GameActor target)
 		{
-			throw new NotImplementedException ();
+			Effect.Target = target;
+			return Effect;
 		}
 	}
 }

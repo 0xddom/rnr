@@ -3,15 +3,20 @@ using RnR.Systems.D20.Base.Actors;
 
 namespace RnR.Systems.D20.Base.FloorElements
 {
-	public abstract class AbstractTrap : AbstractFloorElement, OnStepListener
+	public abstract class AbstractTrap : AbstractFloorElement, OnStepListener, Challenge
 	{
-		protected TrapEffect effect;
 		protected bool armed;
+		private int challengeRate;
+		private bool applied;
+		private SkillType skill;
+		private GameActor victim;
 
-		public AbstractTrap (TrapEffect effect)
+		public AbstractTrap (SkillType skill, int challengeRate)
 		{
-			this.effect = effect;
-			Disarm ();
+			this.challengeRate = challengeRate;
+			applied = false;
+			this.skill = skill;
+			Arm ();
 		}
 
 		public void Arm ()
@@ -24,8 +29,41 @@ namespace RnR.Systems.D20.Base.FloorElements
 			armed = false;
 		}
 
-		public abstract AbstractGameActor OnStep (AbstractGameActor target);
+		public GameActor OnStep (GameActor target)
+		{
+			if (armed) {
+				Contest contest = new Contest (this, target);
+				contest.Resolve ();
+				Disarm ();
+				if (applied) {
+					return victim;
+				}
+			}
+			return target;
+		}
 
 		public bool Armed { get { return armed; } }
+
+		public void ContestFinished (Challenger challenger, bool challengerWon)
+		{
+			GameActor aga = (GameActor)challenger;
+			if (!challengerWon) {
+				victim = ApplyEffect (aga);
+				applied = true;
+			}
+		}
+
+		public bool CanParticipate (Challenger challenger)
+		{
+			return challenger is GameActor;
+		}
+
+		public int GetChallengeRate () { return challengeRate; }
+		public SkillType GetSkill ()
+		{
+			return skill;
+		}
+
+		protected abstract GameActor ApplyEffect (GameActor target);
 	}
 }
