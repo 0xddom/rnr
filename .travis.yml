@@ -1,9 +1,21 @@
+os:
+  - linux
+  - osx
+  
+sudo: false
+
 language: csharp
 solution: RnR.sln
+
 install:
   - nuget restore RnR.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+
 script:
   - xbuild /p:Configuration=Release RnR.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./RnR.Tests/bin/Release/RnR.Tests.dll
+
+notifications:
+  on_success: never
+  on_failure: always
 

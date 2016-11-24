@@ -14,7 +14,8 @@ namespace RnR.Systems.Dice.DiceOperations
 		{
 			this.dices = dices;
 			this.sides = sides;
-			CalculateSum ();
+			this.sum = -1;
+			//CalculateSum ();
 		}
 
 		private void CalculateSum ()
@@ -24,7 +25,8 @@ namespace RnR.Systems.Dice.DiceOperations
 
 		public int Sum {
 			get {
-				CalculateSum ();
+				// Lazily calculate the sum. But calculate it only once
+				if (sum == -1) CalculateSum ();
 				return sum;
 			}
 		}
