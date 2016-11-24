@@ -12,5 +12,6 @@
 		}
 
 		public int BaseValue { get { return baseValue; } }
+		public string Name { get { return name; } }
 	}
 }
