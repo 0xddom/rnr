@@ -32,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
+    <Compile Include="Systems\D20\Base\Actors\AttributeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -41,6 +42,13 @@
       <Project>{5D1482D6-6957-48F1-B567-644550668852}</Project>
       <Name>RnR</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Systems\" />
+    <Folder Include="Systems\D20\" />
+    <Folder Include="Systems\D20\Base\" />
+    <Folder Include="Systems\D20\Base\Actors\" />
+    <Folder Include="Mocks\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

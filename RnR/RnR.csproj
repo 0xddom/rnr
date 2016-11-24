@@ -28,6 +28,9 @@
     <Folder Include="Systems\" />
     <Folder Include="Systems\Dice\" />
     <Folder Include="Utils\" />
+    <Folder Include="Systems\D20\" />
+    <Folder Include="Systems\D20\Base\" />
+    <Folder Include="Systems\D20\Base\Actors\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -35,6 +38,17 @@
     <Compile Include="Utils\Stackable.cs" />
     <Compile Include="Systems\Dice\Dice.cs" />
     <Compile Include="Systems\Dice\DiceRoll.cs" />
+    <Compile Include="Systems\D20\Base\Actors\AbstractGameActor.cs" />
+    <Compile Include="Systems\D20\Base\Actors\Attribute.cs" />
+    <Compile Include="Systems\D20\Base\Actors\Attributes.cs" />
+    <Compile Include="Systems\D20\Base\Actors\SkillType.cs" />
+    <Compile Include="Systems\D20\Base\Actors\Skill.cs" />
+    <Compile Include="Systems\D20\Base\Actors\PotionEffect.cs" />
+    <Compile Include="Systems\D20\Base\Actors\JewelEffect.cs" />
+    <Compile Include="Systems\D20\Base\Actors\GameActorDecorator.cs" />
+    <Compile Include="Systems\D20\Base\Actors\TrapEffect.cs" />
+    <Compile Include="Systems\D20\Base\Actors\AbstractEnemyActor.cs" />
+    <Compile Include="Systems\D20\Base\Actors\AttributeDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
