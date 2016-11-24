@@ -27,51 +27,14 @@
   <ItemGroup>
     <Folder Include="Systems\" />
     <Folder Include="Systems\Dice\" />
-    <Folder Include="Systems\Dice\Interpreter\" />
-    <Folder Include="Systems\Dice\VM\" />
     <Folder Include="Utils\" />
-    <Folder Include="Systems\Dice\VM\Instructions\" />
-    <Folder Include="Systems\Dice\VM\Types\" />
-    <Folder Include="Systems\Dice\DiceOperations\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Systems\Dice\Interpreter\LexemeIterator.cs" />
-    <Compile Include="Systems\Dice\Interpreter\Lexeme.cs" />
-    <Compile Include="Systems\Dice\Interpreter\TokenType.cs" />
-    <Compile Include="Systems\Dice\Interpreter\Tokens.cs" />
-    <Compile Include="Systems\Dice\Interpreter\Tokenizer.cs" />
-    <Compile Include="Systems\Dice\Interpreter\SyntaxException.cs" />
     <Compile Include="Application.cs" />
-    <Compile Include="Systems\Dice\Interpreter\Associativity.cs" />
-    <Compile Include="Systems\Dice\Interpreter\Op.cs" />
-    <Compile Include="Systems\Dice\Interpreter\Compiler.cs" />
-    <Compile Include="Systems\Dice\VM\InstructionIterator.cs" />
-    <Compile Include="Systems\Dice\Interpreter\CompilerException.cs" />
     <Compile Include="Utils\Stack.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Instruction.cs" />
-    <Compile Include="Systems\Dice\VM\Context.cs" />
     <Compile Include="Utils\Stackable.cs" />
-    <Compile Include="Systems\Dice\InMemoryProgram.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Nop.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Halt.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Div.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Add.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Mul.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Pop.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Push.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Roll.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Sub.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\Times.cs" />
-    <Compile Include="Systems\Dice\VM\Types\VMType.cs" />
-    <Compile Include="Systems\Dice\VM\Types\SubstraibleType.cs" />
-    <Compile Include="Systems\Dice\VM\Types\AddableType.cs" />
-    <Compile Include="Systems\Dice\VM\Types\IntegerType.cs" />
-    <Compile Include="Systems\Dice\VM\Types\NumberType.cs" />
-    <Compile Include="Systems\Dice\VM\Types\DiceRollType.cs" />
-    <Compile Include="Systems\Dice\DiceOperations\DiceRoll.cs" />
-    <Compile Include="Systems\Dice\DiceOperations\Dice.cs" />
-    <Compile Include="Systems\Dice\VM\Instructions\AbstractInstruction.cs" />
-    <Compile Include="Systems\Dice\VM\VMRuntimeException.cs" />
+    <Compile Include="Systems\Dice\Dice.cs" />
+    <Compile Include="Systems\Dice\DiceRoll.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

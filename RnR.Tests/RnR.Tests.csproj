@@ -32,15 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
-    <Compile Include="Systems\Dice\Interpreter\TokenizerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Systems\" />
-    <Folder Include="Systems\Dice\" />
-    <Folder Include="Systems\Dice\Interpreter\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RnR\RnR.csproj">
