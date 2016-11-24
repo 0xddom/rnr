@@ -31,6 +31,8 @@
     <Folder Include="Systems\D20\" />
     <Folder Include="Systems\D20\Base\" />
     <Folder Include="Systems\D20\Base\Actors\" />
+    <Folder Include="Systems\D20\Base\FloorElements\" />
+    <Folder Include="Systems\D20\FloorElements\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -49,6 +51,24 @@
     <Compile Include="Systems\D20\Base\Actors\TrapEffect.cs" />
     <Compile Include="Systems\D20\Base\Actors\AbstractEnemyActor.cs" />
     <Compile Include="Systems\D20\Base\Actors\AttributeDecorator.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractFloorElement.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractGrass.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractTrap.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractMechanicalTrap.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractMagicalTrap.cs" />
+    <Compile Include="Systems\D20\FloorElements\Chest.cs" />
+    <Compile Include="Systems\D20\FloorElements\Door.cs" />
+    <Compile Include="Systems\D20\FloorElements\FoodGrass.cs" />
+    <Compile Include="Systems\D20\FloorElements\MoneyGrass.cs" />
+    <Compile Include="Systems\D20\FloorElements\SpikeTrap.cs" />
+    <Compile Include="Systems\D20\FloorElements\PoisonTrap.cs" />
+    <Compile Include="Systems\D20\FloorElements\StuntTrap.cs" />
+    <Compile Include="Systems\D20\FloorElements\ExhaustionTrap.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\OnStepListener.cs" />
+    <Compile Include="Systems\D20\FloorElements\Fountain.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\Lockable.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\Looteable.cs" />
+    <Compile Include="Systems\D20\PlayerGameActor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
