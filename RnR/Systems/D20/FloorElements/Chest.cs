@@ -3,7 +3,7 @@ using RnR.Systems.D20.Base.FloorElements;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class Chest : AbstractFloorElement
+	public class Chest : AbstractFloorElement, Lockable, Looteable
 	{
 		public Chest ()
 		{

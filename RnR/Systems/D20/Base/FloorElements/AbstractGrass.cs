@@ -5,10 +5,22 @@ namespace RnR.Systems.D20.Base.FloorElements
 {
 	public abstract class AbstractGrass : AbstractFloorElement, OnStepListener
 	{
+		protected bool picked;
+
 		public AbstractGrass ()
 		{
+			picked = false;
 		}
 
-		public abstract AbstractGameActor OnStep (AbstractGameActor target);
+		public AbstractGameActor OnStep (AbstractGameActor target)
+		{
+			if (!picked && target is PlayerGameActor) {
+				ApplyAction (target);
+				picked = true;
+			}
+			return target;
+		}
+
+		protected abstract void ApplyAction (AbstractGameActor target);
 	}
 }

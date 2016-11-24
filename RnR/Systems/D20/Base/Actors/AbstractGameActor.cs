@@ -30,14 +30,17 @@ namespace RnR.Systems.D20.Base.Actors
 		public int CHA { get { return attributes [Attributes.CHA].Value; } }
 
 		public string Name { get { return name; } }
-		public int Money { get { return money; } set { this.money = value; } }
+		public int Money { get { return money; } set { money = value; } }
 		public int HitPoints {
 			get { return hitPoints; }
 			set {
 				Math.Max (0, Math.Min (value, maxHitPoints));
 			}
 		}
+		public int MaxHitPoints { get { return hitPoints; } }
 
 		#endregion
+
+		public bool IsDead () { return hitPoints == 0; }
 	}
 }

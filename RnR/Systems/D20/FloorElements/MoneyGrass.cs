@@ -6,23 +6,16 @@ namespace RnR.Systems.D20.FloorElements
 {
 	public class MoneyGrass : AbstractGrass
 	{
-		private int amount;
-		private bool picked;
+		int amount;
 
 		public MoneyGrass (int amount)
 		{
 			this.amount = amount;
-			this.picked = false;
 		}
 
-		public override AbstractGameActor OnStep (AbstractGameActor target)
+		protected override void ApplyAction (AbstractGameActor target)
 		{
-			// Only apply to player actor
-			if (!picked && target is PlayerGameActor) {
-				target.Money += amount;
-				this.picked = false;
-			}
-			return target;
+			target.Money += amount;
 		}
 	}
 }

@@ -8,8 +8,10 @@ namespace RnR.Systems.D20.Base.FloorElements
 		protected TrapEffect effect;
 		protected bool armed;
 
-		public AbstractTrap ()
+		public AbstractTrap (TrapEffect effect)
 		{
+			this.effect = effect;
+			Disarm ();
 		}
 
 		public void Arm ()

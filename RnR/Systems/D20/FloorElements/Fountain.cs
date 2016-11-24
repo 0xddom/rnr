@@ -6,13 +6,12 @@ namespace RnR.Systems.D20.FloorElements
 {
 	public class Fountain : AbstractFloorElement, OnStepListener
 	{
-		public Fountain ()
-		{
-		}
-
 		public AbstractGameActor OnStep (AbstractGameActor target)
 		{
-			throw new NotImplementedException ();
+			if (target is PlayerGameActor) {
+				target.HitPoints = target.MaxHitPoints;
+			}
+			return target;
 		}
 	}
 }

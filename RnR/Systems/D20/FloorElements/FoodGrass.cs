@@ -2,6 +2,7 @@
 using RnR.Systems.D20.Base.Actors;
 using RnR.Systems.D20.Base.FloorElements;
 
+// XXX: Pending for objects implementation
 namespace RnR.Systems.D20.FloorElements
 {
 	public class FoodGrass : AbstractGrass
@@ -10,9 +11,8 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		public override AbstractGameActor OnStep (AbstractGameActor target)
+		protected override void ApplyAction (AbstractGameActor target)
 		{
-			throw new NotImplementedException ();
 		}
 	}
 }

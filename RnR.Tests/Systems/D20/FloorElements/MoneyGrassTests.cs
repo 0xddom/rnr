@@ -33,5 +33,20 @@ namespace RnR.Tests.Systems.D20.FloorElements
 
 			Assert.AreEqual (returnedActor.Money, 200);
 		}
+
+		[Test ()]
+		public void GrassCantBePickedTwice ()
+		{
+			var player = new PlayerGameActor ();
+			player.Money = 200;
+			var grass = new MoneyGrass (20);
+
+			var returnedPlayer = grass.OnStep (player);
+			returnedPlayer = grass.OnStep (returnedPlayer);
+
+			// If picked twice should be 240
+			Assert.AreEqual (returnedPlayer.Money, 220); 
+
+		}
 	}
 }
