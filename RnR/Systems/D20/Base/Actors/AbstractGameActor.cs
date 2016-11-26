@@ -67,7 +67,7 @@ namespace RnR.Systems.D20.Base.Actors
 		public Skill GetSkill (SkillType type)
 		{
 			if (skills.ContainsKey (type)) return skills [type];
-			else throw new CantParticipateInContestException(this);
+			throw new CantParticipateInContestException (this);
 		}
 	}
 }
