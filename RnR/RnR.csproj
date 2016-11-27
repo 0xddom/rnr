@@ -34,6 +34,7 @@
     <Folder Include="Systems\D20\Base\FloorElements\" />
     <Folder Include="Systems\D20\FloorElements\" />
     <Folder Include="Systems\D20\Effects\" />
+    <Folder Include="Systems\D20\Base\Objects\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -74,6 +75,25 @@
     <Compile Include="Systems\D20\Base\FloorElements\AbstractDamageTrap.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractEffectTrap.cs" />
     <Compile Include="Systems\D20\Base\Actors\GameActor.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractAmmo.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractArmor.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractEarring.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractFood.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractGameObject.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractJewel.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractJunk.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractNecklace.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractPotion.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractRangedWeapon.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractRing.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractTrapSetup.cs" />
+    <Compile Include="Systems\D20\Base\Objects\AbstractWeapon.cs" />
+    <Compile Include="Systems\D20\Base\Objects\EdibleObject.cs" />
+    <Compile Include="Systems\D20\Base\Objects\EquipableObject.cs" />
+    <Compile Include="Systems\D20\Base\Objects\GameObject.cs" />
+    <Compile Include="Systems\D20\Base\Objects\UsableObject.cs" />
+    <Compile Include="Systems\D20\Base\Objects\WeaponCategory.cs" />
+    <Compile Include="Systems\D20\Base\Objects\WeaponType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

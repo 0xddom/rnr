@@ -2,7 +2,7 @@
 using System;
 
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
     public abstract class AbstractPotion : AbstractGameObject , EdibleObject 
@@ -12,7 +12,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
         private PotionEffect effect;
 
 
-        public void AbstractPotion(string name, string description, int weight, int price, PotionEffect effect)
+        public AbstractPotion(string name, string description, int weight, int price, PotionEffect effect)
 		{
 			this.effect = effect;
         }

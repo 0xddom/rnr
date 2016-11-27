@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
 	public abstract class AbstractArmor : AbstractGameObject, EquipableObject
@@ -21,7 +21,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
 			return maxDex;
 		}
 
-		public void AbstractArmor(string name, string description, int weight, int price, int bonus, int maxDex)
+		public AbstractArmor(string name, string description, int weight, int price, int bonus, int maxDex)
 		{
 			this.bonus = bonus;
 			this.maxDex = maxDex;

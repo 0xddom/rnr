@@ -2,7 +2,7 @@
 using System;
 
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
 
@@ -20,7 +20,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
         }
 
 
-        public void AbstractJewel(string name, string description, int weight, int price, JewelEffect effect) 
+        public AbstractJewel(string name, string description, int weight, int price, JewelEffect effect) 
 		{
 			this.effect = effect;
         }

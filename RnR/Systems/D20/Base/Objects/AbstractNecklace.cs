@@ -2,7 +2,7 @@
 using System;
 
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
     public abstract class AbstractNecklace : AbstractJewel 
@@ -10,7 +10,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
 
 
 
-        public void AbstractNecklace(string name, string description, int weight, int price, JewelEffect effect) 
+        public AbstractNecklace(string name, string description, int weight, int price, JewelEffect effect) 
 		{
             
         }

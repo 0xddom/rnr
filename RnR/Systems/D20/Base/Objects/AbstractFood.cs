@@ -2,7 +2,7 @@
 using System;
 
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
     public abstract class AbstractFood : AbstractGameObject , EdibleObject 
@@ -13,7 +13,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
         private int energyGain;
 
 
-        public void AbstractFood(string name, string description, int weight, int price, int eneryGain)
+        public AbstractFood(string name, string description, int weight, int price, int eneryGain)
 		{
 			this.energyGain = eneryGain;
 

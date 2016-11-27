@@ -1,5 +1,5 @@
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
     public enum WeaponType 

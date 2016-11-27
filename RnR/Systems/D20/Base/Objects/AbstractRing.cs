@@ -1,7 +1,7 @@
 
 using System;
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
     public abstract class AbstractRing : AbstractJewel 
@@ -9,7 +9,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
 
 
 
-        public void AbstractRing(string name, string description, int weight, int price, JewelEffect effect) 
+        public AbstractRing(string name, string description, int weight, int price, JewelEffect effect) 
 		{
 
         }

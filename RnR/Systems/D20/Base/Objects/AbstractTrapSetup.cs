@@ -2,7 +2,7 @@
 using System;
 
 
-namespace RnR.Systems.D20.BasePackage.GameObject
+namespace RnR.Systems.D20.Base.Objects;
 {
 
     public abstract class AbstractTrapSetup : AbstractGameObject , UsableObject 
@@ -20,7 +20,7 @@ namespace RnR.Systems.D20.BasePackage.GameObject
         }
 
 
-        public void AbstractTrapSetup(string name, string description, int weight, int price, AbstractTrap trap) 
+        public AbstractTrapSetup(string name, string description, int weight, int price, AbstractTrap trap) 
 		{
 			this.trap = trap;
         }
