@@ -17,7 +17,7 @@ namespace RnR.Systems.D20.Base.Objects
 			}
         }
 
-		public abstract void OnEquip (ref GameActor target);
+		public abstract GameActor OnEquip (GameActor target);
 
 		public AbstractJewel(string name, string description, int weight, int price, GameActorDecorator effect) 
 			: base(name, description, weight, price)

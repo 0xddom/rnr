@@ -20,5 +20,25 @@
 
 		public int Value { get { return baseValue + attribute.Mod; } }
 		public SkillType Type { get { return type; } }
+
+		public Skill Clone ()
+		{
+			return new Skill (type, name, baseValue, attribute);
+		}
+
+		public Attributes AttributeType {
+			get {
+				return attribute.Type;
+			}
+		}
+
+		public Attribute Attribute {
+			get {
+				return attribute;
+			}
+			set {
+				attribute = value;
+			}
+		}
 	}
 }

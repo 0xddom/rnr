@@ -1,5 +1,6 @@
 
 using System;
+using RnR.Systems.D20.Base.Actors;
 
 namespace RnR.Systems.D20.Base.Objects
 {
@@ -32,5 +33,15 @@ namespace RnR.Systems.D20.Base.Objects
 			this.ammo = ammo;
 		}
 
-    }
+		public override GameActor OnEquip (GameActor target)
+		{
+			target.EquipedWeapon = this;
+			if (target.EquipedAmmo != null)
+				ammo = target.EquipedAmmo;
+			else
+				ammo = (AbstractAmmo)target.Inventory.Find ((GameObject obj) => obj is AbstractAmmo) ?? null; // XXX: Add null-class here?
+			return target;
+		}
+
+	}
 }

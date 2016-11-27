@@ -6,11 +6,26 @@ namespace RnR.Systems.D20.Base.Actors
 {
 	public abstract class GameActorDecorator : GameActor
 	{
+		public static void Remove (GameActor target, GameActorDecorator decorator)
+		{
+			if (target is GameActorDecorator) {
+				var i = target;
+				while (i != null && i is GameActorDecorator && (i as GameActorDecorator).Target != decorator) {
+					i = (i as GameActorDecorator).Target;
+				}
+				(i as GameActorDecorator).Target = ((i as GameActorDecorator).Target as GameActorDecorator).Target;
+			}
+		}
+
 		protected GameActor target;
 
 		public GameActorDecorator (GameActor target)
 		{
 			this.target = target;
+		}
+
+		public GameActorDecorator () : this(null)
+		{
 		}
 
 		public GameActor Target {
@@ -23,22 +38,22 @@ namespace RnR.Systems.D20.Base.Actors
 		}
 
 		// By default there is no effect
-		public Attribute CHA {
-			get {
-				return target.CHA;
-			}
+		public virtual Attribute CHA() {
+			//get {
+				return target.CHA();
+			//}
 		}
 
-		public Attribute CON {
-			get {
-				return target.CON;
-			}
+		public virtual Attribute CON() {
+			//get {
+				return target.CON();
+			//}
 		}
 
-		public Attribute DEX {
-			get {
-				return target.DEX;
-			}
+		public virtual Attribute DEX() {
+			//get {
+				return target.DEX();
+			//}
 		}
 
 		public int HitPoints {
@@ -51,10 +66,10 @@ namespace RnR.Systems.D20.Base.Actors
 			}
 		}
 
-		public Attribute INT {
-			get {
-				return target.INT;
-			}
+		public virtual Attribute INT() {
+			//get {
+			return target.INT();
+			//}
 		}
 
 		public int MaxHitPoints {
@@ -73,16 +88,16 @@ namespace RnR.Systems.D20.Base.Actors
 			}
 		}
 
-		public Attribute STR {
-			get {
-				return target.STR;
-			}
+		public virtual Attribute STR() {
+			//get {
+			return target.STR();
+			//}
 		}
 
-		public Attribute WIS {
-			get {
-				return target.WIS;
-			}
+		public virtual Attribute WIS() {
+			//get {
+			return target.WIS();
+			//}
 		}
 
 		public AbstractAmmo EquipedAmmo {
@@ -114,6 +129,7 @@ namespace RnR.Systems.D20.Base.Actors
 				target.EquipedArmor = value;
 			}
 		}
+
 
 		public AbstractRing EquipedRing {
 			get {
@@ -153,7 +169,33 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public Skill GetSkill (SkillType type)
 		{
-			return target.GetSkill (type);
+			Skill s = target.GetSkill (type).Clone ();
+			switch (s.AttributeType) {
+			case Attributes.CHA:
+				s.Attribute = CHA ();
+				break;
+			case Attributes.CON:
+				s.Attribute = CON ();
+				break;
+			case Attributes.DEX:
+				s.Attribute = DEX ();
+				break;
+			case Attributes.INT:
+				s.Attribute = INT ();
+				break;
+			case Attributes.STR:
+				s.Attribute = STR ();
+				break;
+			case Attributes.WIS:
+				s.Attribute = WIS ();
+				break;
+			}
+			return s;
+		}
+
+		public GameActor Equip (EquipableObject obj)
+		{
+			return target.Equip (obj);
 		}
 	}
 }

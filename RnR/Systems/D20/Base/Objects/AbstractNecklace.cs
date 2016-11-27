@@ -12,5 +12,17 @@ namespace RnR.Systems.D20.Base.Objects
 		{
         }
 
+		public override GameActor OnEquip (GameActor target)
+		{
+			// Remove previously equiped earring effect
+			if (target.EquipedNecklace != null) {
+				GameActorDecorator decorator = target.EquipedNecklace.Effect;
+				if (decorator != null) GameActorDecorator.Remove (target, decorator);
+			}
+
+			target.EquipedNecklace = this;
+			Effect.Target = target;
+			return Effect;
+		}
     }
 }

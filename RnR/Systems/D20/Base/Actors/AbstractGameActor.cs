@@ -60,12 +60,12 @@ namespace RnR.Systems.D20.Base.Actors
 
 		#region Getter & Setters
 
-		public Attribute STR { get { return _STR; } }
-		public Attribute CON { get { return _CON; } }
-		public Attribute DEX { get { return _DEX; } }
-		public Attribute INT { get { return _INT; } }
-		public Attribute WIS { get { return _WIS; } }
-		public Attribute CHA { get { return _CHA; } }
+		public Attribute STR() { /*get {*/ return _STR; } //}
+		public Attribute CON() { /*get {*/ return _CON; } //}
+		public Attribute DEX() { /*get {*/ return _DEX; } //}
+		public Attribute INT() {/* get {*/ return _INT; } //}
+		public Attribute WIS() { /*get {*/ return _WIS; } //}
+		public Attribute CHA() { /*get {*/ return _CHA; } //}
 
 		public string Name { get { return name; } }
 		public int Money { get { return money; } set { money = value; } }
@@ -88,57 +88,55 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public AbstractWeapon EquipedWeapon {
 			get {
-				throw new NotImplementedException ();
+				return equipedWeapon;
 			}
-
 			set {
-				throw new NotImplementedException ();
+				equipedWeapon = value;
 			}
 		}
 
 		public AbstractArmor EquipedArmor {
 			get {
-				throw new NotImplementedException ();
+				return equipedArmor;
 			}
-
 			set {
-				throw new NotImplementedException ();
+				equipedArmor = value;
 			}
 		}
 
 		public AbstractRing EquipedRing {
 			get {
-				throw new NotImplementedException ();
+				return equipedRing;
 			}
 
 			set {
-				throw new NotImplementedException ();
+				equipedRing = value;
 			}
 		}
 
 		public AbstractEarring EquipedEarring {
 			get {
-				throw new NotImplementedException ();
+				return equipedEarring;
 			}
 
 			set {
-				throw new NotImplementedException ();
+				equipedEarring = value;
 			}
 		}
 
 		public AbstractNecklace EquipedNecklace {
 			get {
-				throw new NotImplementedException ();
+				return equipedNecklace;
 			}
 
 			set {
-				throw new NotImplementedException ();
+				equipedNecklace = value;
 			}
 		}
 
 		public List<GameObject> Inventory {
 			get {
-				throw new NotImplementedException ();
+				return inventory;
 			}
 		}
 
@@ -150,6 +148,12 @@ namespace RnR.Systems.D20.Base.Actors
 		{
 			if (skills.ContainsKey (type)) return skills [type];
 			throw new CantParticipateInContestException (this);
+		}
+
+		public GameActor Equip (EquipableObject obj)
+		{
+			GameActor self = this;
+			return obj.OnEquip (self);
 		}
 	}
 }

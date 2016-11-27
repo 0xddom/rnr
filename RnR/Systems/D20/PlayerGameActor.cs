@@ -3,10 +3,11 @@ using RnR.Systems.D20.Base.Actors;
 
 namespace RnR.Systems.D20
 {
+	// XXX: Put here delegation instead of inheritance?
 	public class PlayerGameActor : AbstractGameActor
 	{
 		private int hunger;
-		private int level;
+		//private int level;
 
 		public PlayerGameActor (int str, int dex, int con, int _int, int wis, int cha) 
 			: base (str, dex, con, _int, wis, cha)
@@ -22,7 +23,7 @@ namespace RnR.Systems.D20
 
 		public int MaxHunger {
 			get {
-				return CON.Mod * 10;
+				return CON().Mod * 10;
 			}
 		}
 	}

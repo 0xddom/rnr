@@ -23,7 +23,7 @@ namespace RnR.Systems.D20.Base.Objects
 			this.trap = trap;
         }
 
-		public void OnUse (ref GameActor target)
+		public GameActor OnUse (GameActor target)
 		{
 			throw new NotImplementedException ();
 		}

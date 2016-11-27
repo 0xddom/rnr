@@ -6,7 +6,6 @@ namespace RnR.Systems.D20.Base.Objects
 
 	public abstract class AbstractArmor : AbstractGameObject, EquipableObject
 	{
-
 		private int bonus;
 		private int maxDex;
 
@@ -32,6 +31,10 @@ namespace RnR.Systems.D20.Base.Objects
 			
 		}
 
-		public abstract void OnEquip (ref GameActor target);
+		public GameActor OnEquip (GameActor target)
+		{
+			target.EquipedArmor = this;
+			return target;
+		}
 	}
 }
