@@ -152,8 +152,7 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public GameActor Equip (EquipableObject obj)
 		{
-			GameActor self = this;
-			return obj.OnEquip (self);
+			return obj.OnEquip (this);
 		}
 	}
 }

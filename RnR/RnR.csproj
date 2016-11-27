@@ -93,6 +93,7 @@
     <Compile Include="Systems\D20\Base\Objects\UsableObject.cs" />
     <Compile Include="Systems\D20\Base\Objects\WeaponCategory.cs" />
     <Compile Include="Systems\D20\Base\Objects\WeaponType.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\AbstractLockableFloorElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
