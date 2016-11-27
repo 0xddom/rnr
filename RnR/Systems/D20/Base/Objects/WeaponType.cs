@@ -1,11 +1,9 @@
 
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
-
-    public enum WeaponType 
+	public enum WeaponType
 	{
-		/* RANGED 
-		 * MELEE
-		 * /
-    }
+		RANGED,
+		CQC
+	}
 }

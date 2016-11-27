@@ -1,6 +1,7 @@
 ﻿using System;
+using RnR.Systems.D20.Base.Actors;
 
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
 
 	public abstract class AbstractArmor : AbstractGameObject, EquipableObject
@@ -9,24 +10,28 @@ namespace RnR.Systems.D20.Base.Objects;
 		private int bonus;
 		private int maxDex;
 
-
-		public int getBonus()
+		public int Bonus
 		{
-			return bonus;
+			get {
+				return bonus;
+			}
 		}
 
-
-		public int getMaxDex()
+		public int MaxDex
 		{
-			return maxDex;
+			get {
+				return maxDex;
+			}
 		}
 
-		public AbstractArmor(string name, string description, int weight, int price, int bonus, int maxDex)
+		AbstractArmor (string name, string description, int weight, int price, int bonus, int maxDex) 
+			: base(name,description, weight, price)
 		{
 			this.bonus = bonus;
 			this.maxDex = maxDex;
 			
 		}
 
+		public abstract void OnEquip (ref GameActor target);
 	}
 }

@@ -1,47 +1,61 @@
 
 using System;
+using RnR.Systems.D20.Base.Actors;
 
-
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
 
     public abstract class AbstractWeapon : AbstractGameObject , EquipableObject 
 	{
-
         private WeaponType type;
         private WeaponCategory category;
         private int criticRange;
         private int criticMultiplier;
-        private DiceExpression damage;
+        private int damage;
+		private int dices;
 
-
-        public WeaponType getType() 
+		public AbstractWeapon (string name, string description, int weight, int price, WeaponType type, WeaponCategory category, int criticRange, int criticMultiplier, int dices, int damage) 
+			: base(name, description, weight, price)
 		{
-			return type;
+			this.type = type;
+			this.category = category;
+			this.criticRange = criticRange;
+			this.criticMultiplier = criticMultiplier;
+			this.dices = dices;
+			this.damage = damage;
+		}
+
+        public WeaponType Type
+		{
+			get {
+				return type;
+			}
         }
 
-        public WeaponCategory getCategory() 
+        public WeaponCategory Category
 		{
-			return category;
+			get {
+				return category;
+			}
         }
 
-
-        public int getCriticRange() 
+        public int CriticRange
 		{
-			return criticRange;
+			get {
+				return criticRange;
+			}
         }
 
-
-        public int getCriticMultiplier()
+        public int CriticMultiplier
 		{
-			return criticMultiplier;
+			get {
+				return criticMultiplier;
+			}
         }
 
-
-        public string getDamage() 
+		public void OnEquip (ref GameActor target)
 		{
-			return damage;  //DiceExpresion
-        }
-
-    }
+			throw new NotImplementedException ();
+		}
+	}
 }

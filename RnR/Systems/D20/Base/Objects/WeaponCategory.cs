@@ -1,7 +1,6 @@
 
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
-
     public enum WeaponCategory 
 	{
         SIMPLE,

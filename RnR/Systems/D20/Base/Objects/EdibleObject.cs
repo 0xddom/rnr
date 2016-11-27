@@ -1,15 +1,11 @@
 
 using System;
+using RnR.Systems.D20.Base.Actors;
 
-
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
-
     public interface EdibleObject 
 	{
-
-
-        public void onEat(AbstractGameActor target);
-
+        void OnEat(ref GameActor target);
     }
 }
