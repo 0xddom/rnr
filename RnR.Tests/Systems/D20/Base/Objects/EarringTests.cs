@@ -56,9 +56,22 @@ namespace RnR.Tests.Systems.D20.Base.Objects
 			var dexEarring = new MockEarring (new DEXPlusOne (player));
 
 			Assert.AreEqual (10, player.DEX().Value);
-			player.Equip(dexEarring);
-			Assert.AreEqual (11, player.DEX ().Value);
+			var returnedPlayer = player.Equip(dexEarring);
+			Assert.AreEqual (11, returnedPlayer.DEX ().Value);
+		}
 
+		[Test ()]
+		public void TestEarringIsReplaces ()
+		{
+			var player = new PlayerMock ();
+			var dexEarring = new MockEarring (new DEXPlusOne (player));
+			var strEarring = new MockEarring (new STRPlusOne (player));
+
+			var returnedPlayer = player.Equip (dexEarring);
+			Assert.AreEqual (11, returnedPlayer.DEX ().Value);
+			returnedPlayer = returnedPlayer.Equip (strEarring);
+			Assert.AreEqual (11, returnedPlayer.STR ().Value);
+			Assert.AreEqual (10, returnedPlayer.DEX ().Value);
 		}
 	}
 }

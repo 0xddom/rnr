@@ -27,7 +27,6 @@ namespace RnR.Systems.D20.Base.Actors
 
 		List<GameObject> Inventory { get; }
 
-		void Equip (EquipableObject obj);
-
+		GameActor Equip (EquipableObject obj);
 	}
 }

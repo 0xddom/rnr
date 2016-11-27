@@ -15,7 +15,7 @@ namespace RnR.Systems.D20.Base.Objects
 			this.energyGain = eneryGain;
         }
 
-		public void OnEat (ref GameActor target)
+		public GameActor OnEat (GameActor target)
 		{
 			throw new NotImplementedException ();
 		}

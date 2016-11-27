@@ -21,12 +21,13 @@ namespace RnR.Systems.D20.Base.Objects
 			this.rounds = rounds;
 		}
 
-		public void OnEquip (ref GameActor target)
+		public GameActor OnEquip (GameActor target)
 		{
 			target.EquipedAmmo = this;
 			if (target.EquipedWeapon != null && target.EquipedWeapon is AbstractRangedWeapon) {
 				((AbstractRangedWeapon)target.EquipedWeapon).Ammo = this;
 			}
+			return target;
 		}
 
 		public bool CanFire ()

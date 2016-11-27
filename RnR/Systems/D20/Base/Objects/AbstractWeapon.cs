@@ -53,7 +53,7 @@ namespace RnR.Systems.D20.Base.Objects
 			}
         }
 
-		public void OnEquip (ref GameActor target)
+		public GameActor OnEquip (GameActor target)
 		{
 			throw new NotImplementedException ();
 		}

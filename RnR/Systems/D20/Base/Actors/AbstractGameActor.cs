@@ -150,10 +150,10 @@ namespace RnR.Systems.D20.Base.Actors
 			throw new CantParticipateInContestException (this);
 		}
 
-		public void Equip (EquipableObject obj)
+		public GameActor Equip (EquipableObject obj)
 		{
 			GameActor self = this;
-			obj.OnEquip (ref self);
+			return obj.OnEquip (self);
 		}
 	}
 }

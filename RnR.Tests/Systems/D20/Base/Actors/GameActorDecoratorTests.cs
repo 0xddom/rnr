@@ -59,5 +59,16 @@ namespace RnR.Tests.Systems.D20.Base.Actors
 			GameActorDecorator.Remove (deco4, deco2);
 			Assert.AreEqual (13, deco4.STR ().Value);
 		}
+
+		[Test ()]
+		public void TestDecoratorsAffectSkills ()
+		{
+			var player = new PlayerMock ();
+			var deco = new STRPlusOne (player);
+			player.AddSkill (new Skill (SkillType.PINLOCK, "Pinlock", 0, player.STR ()));
+
+			Assert.AreEqual (10, player.GetSkill (SkillType.PINLOCK).Attribute.Value);
+			Assert.AreEqual (11, deco.GetSkill (SkillType.PINLOCK).Attribute.Value);
+		}
 	}
 }

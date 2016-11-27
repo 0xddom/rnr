@@ -165,12 +165,33 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public Skill GetSkill (SkillType type)
 		{
-			return target.GetSkill (type);
+			Skill s = target.GetSkill (type).Clone ();
+			switch (s.AttributeType) {
+			case Attributes.CHA:
+				s.Attribute = CHA ();
+				break;
+			case Attributes.CON:
+				s.Attribute = CON ();
+				break;
+			case Attributes.DEX:
+				s.Attribute = DEX ();
+				break;
+			case Attributes.INT:
+				s.Attribute = INT ();
+				break;
+			case Attributes.STR:
+				s.Attribute = STR ();
+				break;
+			case Attributes.WIS:
+				s.Attribute = WIS ();
+				break;
+			}
+			return s;
 		}
 
-		public void Equip (EquipableObject obj)
+		public GameActor Equip (EquipableObject obj)
 		{
-			target.Equip (obj);
+			return target.Equip (obj);
 		}
 	}
 }
