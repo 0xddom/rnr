@@ -1,29 +1,28 @@
 
 using System;
+using RnR.Systems.D20.Base.Actors;
 
-
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
 
 
     public abstract class AbstractJewel : AbstractGameObject , EquipableObject
 	{
+		private GameActorDecorator effect;
 
-
-        private JewelEffect effect;
-
-
-        public JewelEffect getEffect() 
+        public GameActorDecorator Effect
 		{
-
-			return effect;
+			get {
+				return effect;
+			}
         }
 
+		public abstract void OnEquip (ref GameActor target);
 
-        public AbstractJewel(string name, string description, int weight, int price, JewelEffect effect) 
+		public AbstractJewel(string name, string description, int weight, int price, GameActorDecorator effect) 
+			: base(name, description, weight, price)
 		{
 			this.effect = effect;
         }
-
     }
 }

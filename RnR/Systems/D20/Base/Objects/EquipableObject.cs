@@ -1,14 +1,11 @@
 
 using System;
+using RnR.Systems.D20.Base.Actors;
 
-
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
-
     public interface EquipableObject 
 	{
-
-        public void onEquip(AbstractGameActor target);
-
+		void OnEquip(ref GameActor target);
     }
 }

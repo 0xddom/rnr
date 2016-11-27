@@ -2,17 +2,25 @@
 using System;
 
 
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
-
-    public interface GameObject 
+	public interface GameObject
 	{
+		bool IsEquipable { get; }
+		bool IsUsable { get; }
+		bool IsEdible { get; }
 
-        public bool isEquipable();
-
-        public bool isUsable();
-
-        public bool isEdible();
-
-    }
+		string Name {
+			get;
+		}
+		string Description {
+			get;
+		}
+		int Weight {
+			get;
+		}
+		int Price {
+			get;
+		}
+	}
 }

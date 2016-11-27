@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using RnR.Systems.D20.Base.Objects;
+
 namespace RnR.Systems.D20.Base.Actors
 {
 	public abstract class GameActorDecorator : GameActor
@@ -79,6 +82,72 @@ namespace RnR.Systems.D20.Base.Actors
 		public Attribute WIS {
 			get {
 				return target.WIS;
+			}
+		}
+
+		public AbstractAmmo EquipedAmmo {
+			get {
+				return target.EquipedAmmo;
+			}
+
+			set {
+				target.EquipedAmmo = value;
+			}
+		}
+
+		public AbstractWeapon EquipedWeapon {
+			get {
+				return target.EquipedWeapon;
+			}
+
+			set {
+				target.EquipedWeapon = value;
+			}
+		}
+
+		public AbstractArmor EquipedArmor {
+			get {
+				return target.EquipedArmor;
+			}
+
+			set {
+				target.EquipedArmor = value;
+			}
+		}
+
+		public AbstractRing EquipedRing {
+			get {
+				return target.EquipedRing;
+			}
+
+			set {
+				target.EquipedRing = value;
+			}
+		}
+
+		public AbstractEarring EquipedEarring {
+			get {
+				return target.EquipedEarring;
+			}
+
+			set {
+				target.EquipedEarring = value;
+			}
+		}
+
+		public AbstractNecklace EquipedNecklace {
+			get {
+				return target.EquipedNecklace;
+			}
+
+			set {
+				target.EquipedNecklace = value;
+			}
+		}
+
+		public List<GameObject> Inventory {
+			get {
+				return target.Inventory;
 			}
 		}
 

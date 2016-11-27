@@ -1,14 +1,32 @@
 ﻿using System;
 
 
-namespace RnR.Systems.D20.Base.Objects;
+namespace RnR.Systems.D20.Base.Objects
 {
-	public class AbstractGameObject
+	public class AbstractGameObject : GameObject
 	{
 		private string name;
 		private string description;
 		private int weight;
 		private int price;
+
+		public bool IsEquipable {
+			get {
+				return false;
+			}
+		}
+
+		public bool IsUsable {
+			get {
+				return false;
+			}
+		}
+
+		public bool IsEdible {
+			get {
+				return false;
+			}
+		}
 
 		public AbstractGameObject(string name, string description, int weight, int price)
 		{
@@ -18,21 +36,29 @@ namespace RnR.Systems.D20.Base.Objects;
 			this.price = price;
 
 		}
-		public string GetName()
+		public string Name
 		{
-			return name;
+			get {
+				return name;
+			}
 		}
-		public string GetDescription()
+		public string Description
 		{
-			return description;
+			get {
+				return description;
+			}
 		}
-		public int GetWeight()
+		public int Weight
 		{
-			return weight;
+			get {
+				return weight;
+			}
 		}
-		public int GetPrice()
+		public int Price
 		{
-			return price;
+			get {
+				return price;
+			}
 		}
 
 	}

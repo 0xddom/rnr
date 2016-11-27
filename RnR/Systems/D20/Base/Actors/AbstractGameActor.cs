@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using RnR.Systems.D20.Base.Objects;
 
 namespace RnR.Systems.D20.Base.Actors
 {
@@ -15,11 +16,27 @@ namespace RnR.Systems.D20.Base.Actors
 
 		protected Attribute _STR, _DEX, _CON, _INT, _WIS, _CHA;
 
+		protected AbstractRing equipedRing;
+		protected AbstractAmmo equipedAmmo;
+		protected AbstractArmor equipedArmor;
+		protected AbstractWeapon equipedWeapon;
+		protected AbstractNecklace equipedNecklace;
+		protected AbstractEarring equipedEarring;
+
+		protected List<GameObject> inventory;
+
 		#endregion
 
 		public AbstractGameActor ()
 		{
 			skills = new Dictionary<SkillType, Skill> ();
+			inventory = new List<GameObject> ();
+			equipedAmmo = null;
+			equipedRing = null;
+			equipedArmor = null;
+			equipedWeapon = null;
+			equipedEarring = null;
+			equipedNecklace = null;
 		}
 
 		/// <summary>
@@ -59,6 +76,71 @@ namespace RnR.Systems.D20.Base.Actors
 			}
 		}
 		public int MaxHitPoints { get { return maxHitPoints; } }
+
+		public AbstractAmmo EquipedAmmo {
+			get {
+				return equipedAmmo;
+			}
+			set {
+				equipedAmmo = value;
+			}
+		}
+
+		public AbstractWeapon EquipedWeapon {
+			get {
+				throw new NotImplementedException ();
+			}
+
+			set {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public AbstractArmor EquipedArmor {
+			get {
+				throw new NotImplementedException ();
+			}
+
+			set {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public AbstractRing EquipedRing {
+			get {
+				throw new NotImplementedException ();
+			}
+
+			set {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public AbstractEarring EquipedEarring {
+			get {
+				throw new NotImplementedException ();
+			}
+
+			set {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public AbstractNecklace EquipedNecklace {
+			get {
+				throw new NotImplementedException ();
+			}
+
+			set {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public List<GameObject> Inventory {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
 
 		#endregion
 
