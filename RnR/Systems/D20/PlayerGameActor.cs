@@ -22,7 +22,7 @@ namespace RnR.Systems.D20
 
 		public int MaxHunger {
 			get {
-				return CON.Mod * 10;
+				return CON().Mod * 10;
 			}
 		}
 	}

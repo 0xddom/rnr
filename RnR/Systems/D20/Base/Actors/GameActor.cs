@@ -6,12 +6,12 @@ namespace RnR.Systems.D20.Base.Actors
 {
 	public interface GameActor : Challenger
 	{
-		Attribute STR { get; }
-		Attribute DEX { get; }
-		Attribute CON { get; }
-		Attribute INT { get; }
-		Attribute WIS { get; }
-		Attribute CHA { get; }
+		Attribute STR ();
+		Attribute DEX ();
+		Attribute CON ();
+		Attribute INT ();
+		Attribute WIS ();
+		Attribute CHA ();
 
 		int HitPoints { get; set; }
 		int MaxHitPoints { get; }
@@ -26,6 +26,8 @@ namespace RnR.Systems.D20.Base.Actors
 		AbstractNecklace EquipedNecklace { get; set; }
 
 		List<GameObject> Inventory { get; }
+
+		void Equip (EquipableObject obj);
 
 	}
 }

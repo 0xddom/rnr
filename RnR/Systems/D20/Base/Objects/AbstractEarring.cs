@@ -14,7 +14,15 @@ namespace RnR.Systems.D20.Base.Objects
 
 		public override void OnEquip (ref GameActor target)
 		{
-			throw new NotImplementedException ();
+			// Remove previously equiped earring effect
+			if (target.EquipedEarring != null) {
+				GameActorDecorator decorator = target.EquipedEarring.Effect;
+				if (decorator != null) GameActorDecorator.Remove (target, decorator);
+			}
+
+			target.EquipedEarring = this;
+			Effect.Target = target;
+			target = Effect.Target;
 		}
 	}
 }

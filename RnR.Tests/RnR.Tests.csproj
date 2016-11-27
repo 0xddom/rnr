@@ -39,6 +39,8 @@
     <Compile Include="Mocks\Systems\D20\PlayerMock.cs" />
     <Compile Include="Systems\Dice\DiceTests.cs" />
     <Compile Include="Systems\D20\Base\Actors\ActorsTests.cs" />
+    <Compile Include="Systems\D20\Base\Actors\GameActorDecoratorTests.cs" />
+    <Compile Include="Systems\D20\Base\Objects\EarringTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -60,6 +62,7 @@
     <Folder Include="Mocks\Systems\D20\" />
     <Folder Include="Mocks\Systems\D20\Enemies\" />
     <Folder Include="Systems\Dice\" />
+    <Folder Include="Systems\D20\Base\Objects\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
