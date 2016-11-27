@@ -1,5 +1,3 @@
-
-using System;
 using RnR.Systems.D20.Base.Actors;
 
 namespace RnR.Systems.D20.Base.Objects
@@ -12,12 +10,15 @@ namespace RnR.Systems.D20.Base.Objects
         public AbstractFood(string name, string description, int weight, int price, int eneryGain) 
 			: base(name, description, weight, price)
 		{
-			this.energyGain = eneryGain;
+			energyGain = eneryGain;
         }
 
 		public GameActor OnEat (GameActor target)
 		{
-			throw new NotImplementedException ();
+			if (target is PlayerGameActor){
+				(target as PlayerGameActor).Hunger += energyGain;
+			}
+			return target;
 		}
 
 

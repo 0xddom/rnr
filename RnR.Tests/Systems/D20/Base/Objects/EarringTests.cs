@@ -61,7 +61,7 @@ namespace RnR.Tests.Systems.D20.Base.Objects
 		}
 
 		[Test ()]
-		public void TestEarringIsReplaces ()
+		public void TestEarringReplaces ()
 		{
 			var player = new PlayerMock ();
 			var dexEarring = new MockEarring (new DEXPlusOne (player));

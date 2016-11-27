@@ -24,6 +24,10 @@ namespace RnR.Systems.D20.Base.Actors
 			this.target = target;
 		}
 
+		public GameActorDecorator () : this(null)
+		{
+		}
+
 		public GameActor Target {
 			get {
 				return target;

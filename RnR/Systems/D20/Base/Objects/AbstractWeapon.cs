@@ -53,9 +53,10 @@ namespace RnR.Systems.D20.Base.Objects
 			}
         }
 
-		public GameActor OnEquip (GameActor target)
+		public virtual GameActor OnEquip (GameActor target)
 		{
-			throw new NotImplementedException ();
+			target.EquipedWeapon = this;
+			return target;
 		}
 	}
 }

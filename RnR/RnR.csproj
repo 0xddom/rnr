@@ -49,7 +49,6 @@
     <Compile Include="Systems\D20\Base\Actors\Skill.cs" />
     <Compile Include="Systems\D20\Base\Actors\GameActorDecorator.cs" />
     <Compile Include="Systems\D20\Base\Actors\AbstractEnemyActor.cs" />
-    <Compile Include="Systems\D20\Base\Actors\AttributeDecorator.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractFloorElement.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractGrass.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractTrap.cs" />

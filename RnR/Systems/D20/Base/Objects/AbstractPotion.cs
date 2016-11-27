@@ -16,7 +16,8 @@ namespace RnR.Systems.D20.Base.Objects
 
 		public GameActor OnEat (GameActor target)
 		{
-			throw new NotImplementedException ();
+			effect.Target = target;
+			return effect;
 		}
 	}
 }
