@@ -35,6 +35,7 @@
     <Folder Include="Systems\D20\FloorElements\" />
     <Folder Include="Systems\D20\Effects\" />
     <Folder Include="Systems\D20\Base\Objects\" />
+    <Folder Include="World\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Systems\D20\Base\Objects\WeaponCategory.cs" />
     <Compile Include="Systems\D20\Base\Objects\WeaponType.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractLockableFloorElement.cs" />
+    <Compile Include="Systems\D20\FloorElements\CantInspectException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
