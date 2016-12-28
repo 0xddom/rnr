@@ -3,6 +3,10 @@ using System.Collections;
 
 namespace RnR.Utils
 {
+    /// <summary>
+    ///   Mono didn't know about the class Stack<T> in System.Collections.Generic,
+    ///   so, I implemented a wrapper for type safety.
+    /// </summary>
 	public class Stack<T> : Stackable<T>
 	{
 		private Stack innerStack;
