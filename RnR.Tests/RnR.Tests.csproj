@@ -29,6 +29,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RogueSharp">
+      <HintPath>..\packages\RogueSharp.3.0.0\lib\portable-net40+sl50+win+wpa81+wp80\RogueSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
@@ -41,6 +44,8 @@
     <Compile Include="Systems\D20\Base\Actors\ActorsTests.cs" />
     <Compile Include="Systems\D20\Base\Actors\GameActorDecoratorTests.cs" />
     <Compile Include="Systems\D20\Base\Objects\EarringTests.cs" />
+    <Compile Include="World\Generators\SimpleFloorGenerationStrategyTests.cs" />
+    <Compile Include="World\RectangleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

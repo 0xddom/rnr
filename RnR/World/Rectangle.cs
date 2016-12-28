@@ -71,12 +71,12 @@ namespace RnR.World
 			return Left <= point.X && point.X <= Right && Bottom <= point.Y && point.Y <= Top; 
 		}
 
-		public bool Intersects (Rectangle other)
+		public bool Intersects (Rectangle o)
 		{
-			return other.Left <= Right &&
-				   Left <= other.Right &&
-				   other.Top <= Bottom &&
-				   Top <= other.Bottom;
+			return !(Right < o.Left ||
+				o.Right < Left ||
+				Top < o.Bottom ||
+				o.Top < Bottom);
 		}
 	}
 }

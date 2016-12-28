@@ -17,7 +17,6 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>anycpu</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -37,6 +36,7 @@
     <Folder Include="Systems\D20\Base\Objects\" />
     <Folder Include="World\" />
     <Folder Include="World\Generators\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
