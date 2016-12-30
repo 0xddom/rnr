@@ -37,6 +37,7 @@
     <Folder Include="World\" />
     <Folder Include="World\Generators\" />
     <Folder Include="Views\" />
+    <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="World\Generators\SimpleFloorGenerationStrategy.cs" />
     <Compile Include="World\Generators\RectangleFactory.cs" />
     <Compile Include="World\Generators\FloorGenerationConstrains.cs" />
+    <Compile Include="ApplicationDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -114,9 +116,30 @@
     <Reference Include="RogueSharp">
       <HintPath>..\packages\RogueSharp.3.0.0\lib\portable-net40+sl50+win+wpa81+wp80\RogueSharp.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\NVorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="SadConsole.Core.OpenGL">
+      <HintPath>..\packages\SadConsole.Core.MonoGameGL.5.0.5\lib\net45\SadConsole.Core.OpenGL.dll</HintPath>
+    </Reference>
+    <Reference Include="SadConsole.Controls.OpenGL">
+      <HintPath>..\packages\SadConsole.Controls.MonoGameGL.3.1.1\lib\net45\SadConsole.Controls.OpenGL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Assets\C64.font" />
+    <None Include="Assets\Cheepicus_12x12.png" />
+    <None Include="Assets\Cheepicus12.font" />
+    <None Include="Assets\IBM.font" />
+    <None Include="Assets\IBM8x16.png" />
+    <None Include="Assets\Yayo_c64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
