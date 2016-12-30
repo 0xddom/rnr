@@ -28,6 +28,8 @@ namespace RnR
 #endif
 
 		public void Run() {
+			var loop = new GameLoop();
+			loop.Run ();
 		}
 	}
 }

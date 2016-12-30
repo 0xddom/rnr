@@ -1,9 +1,14 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RnR", "RnR\RnR.csproj", "{5D1482D6-6957-48F1-B567-644550668852}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RnR.Tests", "RnR.Tests\RnR.Tests.csproj", "{2CCC3C4B-4BA2-4E01-B24B-D7B3ADDE0BC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85D94C0C-ADC3-43EC-94D1-048F338541F3}"
+	ProjectSection(SolutionItems) = preProject
+		Makefile = Makefile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +16,15 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5D1482D6-6957-48F1-B567-644550668852}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5D1482D6-6957-48F1-B567-644550668852}.Debug|x86.Build.0 = Debug|Any CPU
-		{5D1482D6-6957-48F1-B567-644550668852}.Release|x86.ActiveCfg = Release|Any CPU
-		{5D1482D6-6957-48F1-B567-644550668852}.Release|x86.Build.0 = Release|Any CPU
 		{2CCC3C4B-4BA2-4E01-B24B-D7B3ADDE0BC9}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{2CCC3C4B-4BA2-4E01-B24B-D7B3ADDE0BC9}.Debug|x86.Build.0 = Debug|Any CPU
 		{2CCC3C4B-4BA2-4E01-B24B-D7B3ADDE0BC9}.Release|x86.ActiveCfg = Release|Any CPU
 		{2CCC3C4B-4BA2-4E01-B24B-D7B3ADDE0BC9}.Release|x86.Build.0 = Release|Any CPU
+		{5D1482D6-6957-48F1-B567-644550668852}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D1482D6-6957-48F1-B567-644550668852}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D1482D6-6957-48F1-B567-644550668852}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D1482D6-6957-48F1-B567-644550668852}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

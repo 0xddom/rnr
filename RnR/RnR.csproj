@@ -109,6 +109,7 @@
     <Compile Include="World\Generators\RectangleFactory.cs" />
     <Compile Include="World\Generators\FloorGenerationConstrains.cs" />
     <Compile Include="ApplicationDelegate.cs" />
+    <Compile Include="GameLoop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
