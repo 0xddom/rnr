@@ -2,16 +2,20 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace RnR
 {
 	public class GameLoop : Game
 	{
 		private GraphicsDeviceManager graphics;
+		private Director director;
 
-		string[] FONTS = new string[] {"Cheepicus12", "IBM", "C64"};
-		int WIDTH = 80;
-		int HEIGHT = 25;
+		string[] FONTS = new string[] { "Cheepicus12", "IBM", "C64" };
+		//int WIDTH = 80;
+		//int HEIGHT = 25;
+
+		private Font font;
 
 		public GameLoop ()
 		{
@@ -19,20 +23,25 @@ namespace RnR
 			Content.RootDirectory = "Assets";
 
 			System.Console.WriteLine (Environment.CurrentDirectory);
+
+			font = GetAvailableFont ();
 		}
 
-		protected override void Initialize() 
+		protected override void Initialize ()
 		{
 			IsFixedTimeStep = true;
 			IsMouseVisible = false;
 
-			var sadConsoleComponent = new SadConsole.EngineGameComponent (this, graphics, GetAvailableFont(), WIDTH, HEIGHT, () => {
+			var sadConsoleComponent = new SadConsole.EngineGameComponent (this, graphics, font.Path, GridWidth, GridHeight, () => {
 				SadConsole.Engine.UseMouse = false;
 				SadConsole.Engine.UseKeyboard = true;
 
+				director = Director.Instance;
+				// Setup boot scene.
+
 				var defaultConsole = (SadConsole.Consoles.Console)SadConsole.Engine.ActiveConsole;
 
-				defaultConsole.Print(2, 2, "Hello world");
+				defaultConsole.Print (2, 2, "Hello world");
 			});
 
 			Components.Add (sadConsoleComponent);
@@ -40,14 +49,36 @@ namespace RnR
 			base.Initialize ();
 		}
 
-		protected override void Update(GameTime delta)
+		protected override void Update (GameTime delta)
 		{
+			director.UpdateCurrentScene (delta);
 			base.Update (delta);
 		}
 
-		protected override void Draw(GameTime delta)
+		protected override void Draw (GameTime delta)
 		{
+			director.DrawCurrentScene (delta);
 			base.Draw (delta);
+		}
+
+		private int DisplayWidth {
+			get {
+				return GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+			}
+		}
+
+		private int DisplayHeight {
+			get { 
+				return GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+			}
+		}
+
+		private int GridWidth {
+			get { return DisplayWidth / font.GlyphWidth; }
+		}
+
+		private int GridHeight {
+			get { return DisplayHeight / font.GlyphHeight; }
 		}
 
 		/// <summary>
@@ -55,10 +86,11 @@ namespace RnR
 		/// In case no font is found. Aborts the execution and exits the program.
 		/// </summary>
 		/// <returns>The available font.</returns>
-		private string GetAvailableFont() {
-			string availableFont = (new List<string> (FONTS))
-				.ConvertAll<string> ((font) => string.Format ("{0}.font", font))
-				.Find ((fontFile) => File.Exists(fontFile));
+		private Font GetAvailableFont ()
+		{
+			Font availableFont = (new List<string> (FONTS))
+				.ConvertAll<Font> ((font) => new Font(string.Format ("{0}.font", font)))
+				.Find ((font) => File.Exists (font.Path));
 
 			if (availableFont != null) {
 				return availableFont;
