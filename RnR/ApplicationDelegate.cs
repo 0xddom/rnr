@@ -1,4 +1,6 @@
 ﻿using System;
+using Lain;
+using RnR.Scenes;
 
 namespace RnR
 {
@@ -28,7 +30,10 @@ namespace RnR
 #endif
 
 		public void Run() {
-			var loop = new GameLoop();
+			var director = Director.Instance;
+			// Add boot scene
+			director.PushScene(new MainGameScene(), false);
+			var loop = new GameLoop(director);
 			loop.Run ();
 		}
 	}

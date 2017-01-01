@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Makefile = Makefile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lain", "Lain\Lain.csproj", "{8B9340C6-6920-47D9-B271-418AA9FD1895}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -24,6 +26,10 @@ Global
 		{5D1482D6-6957-48F1-B567-644550668852}.Debug|x86.Build.0 = Debug|Any CPU
 		{5D1482D6-6957-48F1-B567-644550668852}.Release|x86.ActiveCfg = Release|Any CPU
 		{5D1482D6-6957-48F1-B567-644550668852}.Release|x86.Build.0 = Release|Any CPU
+		{8B9340C6-6920-47D9-B271-418AA9FD1895}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8B9340C6-6920-47D9-B271-418AA9FD1895}.Debug|x86.Build.0 = Debug|Any CPU
+		{8B9340C6-6920-47D9-B271-418AA9FD1895}.Release|x86.ActiveCfg = Release|Any CPU
+		{8B9340C6-6920-47D9-B271-418AA9FD1895}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

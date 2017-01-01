@@ -26,7 +26,6 @@
   <ItemGroup>
     <Folder Include="Systems\" />
     <Folder Include="Systems\Dice\" />
-    <Folder Include="Utils\" />
     <Folder Include="Systems\D20\" />
     <Folder Include="Systems\D20\Base\" />
     <Folder Include="Systems\D20\Base\Actors\" />
@@ -36,13 +35,12 @@
     <Folder Include="Systems\D20\Base\Objects\" />
     <Folder Include="World\" />
     <Folder Include="World\Generators\" />
-    <Folder Include="Views\" />
     <Folder Include="Assets\" />
+    <Folder Include="Scenes\" />
+    <Folder Include="Consoles\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="Utils\Stack.cs" />
-    <Compile Include="Utils\Stackable.cs" />
     <Compile Include="Systems\Dice\Dice.cs" />
     <Compile Include="Systems\Dice\DiceRoll.cs" />
     <Compile Include="Systems\D20\Base\Actors\AbstractGameActor.cs" />
@@ -109,9 +107,11 @@
     <Compile Include="World\Generators\RectangleFactory.cs" />
     <Compile Include="World\Generators\FloorGenerationConstrains.cs" />
     <Compile Include="ApplicationDelegate.cs" />
-    <Compile Include="GameLoop.cs" />
-    <Compile Include="Director.cs" />
-    <Compile Include="Font.cs" />
+    <Compile Include="Scenes\HelloWorldScene.cs" />
+    <Compile Include="Consoles\HelloWorldConsole.cs" />
+    <Compile Include="Scenes\MainGameScene.cs" />
+    <Compile Include="Consoles\DungeonFloorConsole.cs" />
+    <Compile Include="GameState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -148,4 +148,10 @@
     <None Include="Assets\Yayo_c64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Lain\Lain.csproj">
+      <Project>{8B9340C6-6920-47D9-B271-418AA9FD1895}</Project>
+      <Name>Lain</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
