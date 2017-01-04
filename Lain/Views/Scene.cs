@@ -18,12 +18,12 @@ namespace Lain.Views
 
 		#region INode implementation
 
-		public void Update (Microsoft.Xna.Framework.GameTime delta)
+		public virtual void Update (Microsoft.Xna.Framework.GameTime delta)
 		{
 			nodes.ForEach ((node) => node.Update (delta));
 		}
 
-		public void Draw (Microsoft.Xna.Framework.GameTime delta)
+		public virtual void Draw (Microsoft.Xna.Framework.GameTime delta)
 		{
 			
 			nodes.ForEach ((node) => node.Draw (delta));

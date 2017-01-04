@@ -3,6 +3,7 @@ using Lain.Views;
 using RnR.Consoles;
 using Lain;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace RnR.Scenes
 {
@@ -46,6 +47,34 @@ namespace RnR.Scenes
 
 		public override void OnDestroy ()
 		{
+		}
+
+		public override void Update(GameTime delta) {
+			KeyboardState state = Keyboard.GetState ();
+
+			var center = dungeonFloorConsole.center;
+
+			if (state.IsKeyDown (Keys.Left)) {
+				center.X--;
+				if (center.X < 0)
+					center.X = 0;
+			} else if (state.IsKeyDown (Keys.Right)) {
+				center.X++;
+				if (center.X >= dungeonFloorConsole.floor.Width)
+					center.X = dungeonFloorConsole.floor.Width - 1;
+			} else if (state.IsKeyDown (Keys.Up)) {
+				center.Y--;
+				if (center.Y < 0)
+					center.Y = 0;
+			} else if (state.IsKeyDown (Keys.Down)) {
+				center.Y++;
+				if (center.Y >= dungeonFloorConsole.floor.Height)
+					center.Y = dungeonFloorConsole.floor.Height - 1;
+			}
+
+			dungeonFloorConsole.center = center;
+
+			base.Update (delta);
 		}
 	}
 }
