@@ -51,30 +51,15 @@ namespace RnR.Consoles
 			while ((yEnd - yStart) < viewHeight)
 				yEnd++;
 
-			//System.Console.WriteLine ($"xStart: {xStart}\nyStart: {yStart}\nxEnd: {xEnd}\nyEnd: {yEnd}\ncenter: ({center.X},{center.Y})\nviewWidth: {viewWidth}\nviewHeight: {viewHeight}");
-			//System.Console.WriteLine ($"xEnd - xStart: {xEnd-xStart}\nyEnd - yStart: {yEnd-yStart}");
-
 			for (int x = xStart, i = 0; x < xEnd; x++, i++) {
 				for (int y = yStart, j = 0; y < yEnd; y++, j++) {
-					//System.Console.WriteLine ("=====================================================================");
-					//System.Console.WriteLine ($"xStart: {xStart}\nyStart: {yStart}\nxEnd: {xEnd}\nyEnd: {yEnd}\ncenter: ({center.X},{center.Y})\nviewWidth: {viewWidth}\nviewHeight: {viewHeight}");
-					//System.Console.WriteLine ($"xEnd - xStart: {xEnd-xStart}\nyEnd - yStart: {yEnd-yStart}");
-					//System.Console.WriteLine($"floor (Width: {floor.Width}, Height: {floor.Height} )");
-					//System.Console.WriteLine ($"(x: {x}, y: {y}, i: {i}, j: {j})");
 					if (x < 0 || y < 0 || x >= floor.Width || y >= floor.Height) {
-						//System.Console.WriteLine ("Setting default appearance");
 						SetCellAppearance (i, j, DefaultCellAppearance ());
 					} else {
-						//System.Console.WriteLine ("Calculating appearance");
 						SetCellAppearance (i, j, GetAppearanceFromCell (floor.GetCell (x, y)));
 					}
 				}
 			}
-
-			/*foreach (RogueSharp.Cell cell in floor.GetAllCells()) {
-				drawData [cell.X, cell.Y] = GetAppearanceFromCell (cell);
-				drawData [cell.X, cell.Y].CopyAppearanceTo (this [cell.X, cell.Y]);
-			}*/
 		}
 
 		private void SetCellAppearance(int x, int y, CellAppearance appearance) {
@@ -124,10 +109,7 @@ namespace RnR.Consoles
 		public override void Update ()
 		{
 			base.Update ();
-			System.Console.WriteLine ("=======================================");
-			System.Console.WriteLine ($"center: ({center.X}, {center.Y})");
 			UpdateMapData (center);
-
 		}
 	}
 }
