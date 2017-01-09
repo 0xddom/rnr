@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85D94C0C-ADC3-43EC-94D1-048F338541F3}"
 	ProjectSection(SolutionItems) = preProject
 		Makefile = Makefile
+		foods.csv = foods.csv
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lain", "Lain\Lain.csproj", "{8B9340C6-6920-47D9-B271-418AA9FD1895}"

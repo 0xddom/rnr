@@ -38,6 +38,8 @@
     <Folder Include="Assets\" />
     <Folder Include="Scenes\" />
     <Folder Include="Consoles\" />
+    <Folder Include="Systems\D20\Objects\" />
+    <Folder Include="Systems\D20\Objects\Foods\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -112,6 +114,17 @@
     <Compile Include="Scenes\MainGameScene.cs" />
     <Compile Include="Consoles\DungeonFloorConsole.cs" />
     <Compile Include="GameState.cs" />
+    <Compile Include="Systems\D20\FloorElements\FloorElementFactory.cs" />
+    <Compile Include="Systems\D20\FloorElements\RandomFloorElementFactory.cs" />
+    <Compile Include="Systems\D20\FloorElements\ChestFactory.cs" />
+    <Compile Include="Systems\D20\FloorElements\FountainFactory.cs" />
+    <Compile Include="Systems\D20\FloorElements\RandomGrassFactory.cs" />
+    <Compile Include="Systems\D20\FloorElements\RandomTrapFactory.cs" />
+    <Compile Include="Systems\D20\Objects\GameObjectFactory.cs" />
+    <Compile Include="Systems\D20\Objects\RandomFoodFactory.cs" />
+    <Compile Include="Systems\D20\Objects\Foods\EnergyDrink.cs" />
+    <Compile Include="Systems\D20\Objects\Foods\Bread.cs" />
+    <Compile Include="Systems\D20\Objects\Foods\Apple.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

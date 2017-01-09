@@ -3,7 +3,7 @@ using RnR.Systems.D20.Base.Actors;
 
 namespace RnR.Systems.D20.Base.FloorElements
 {
-	public abstract class AbstractLockableFloorElement : Lockable
+	public abstract class AbstractLockableFloorElement : AbstractFloorElement, Lockable
 	{
 		bool locked;
 		int challengeRate;

@@ -7,7 +7,8 @@ namespace RnR.Systems.D20.FloorElements
 {
 	public class PoisonTrap : AbstractEffectTrap
 	{
-		public PoisonTrap (int rate) : base (SkillType.DODGE_TRAP, new PoisonEffect (null), rate)
+		public PoisonTrap (int rate) 
+			: base (SkillType.DODGE_TRAP, new PoisonEffect (null), rate)
 		{
 		}
 

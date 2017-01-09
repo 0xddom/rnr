@@ -63,9 +63,10 @@ namespace RnR.World.Generators
 		{
 			int floorElementsCount = r.Next (FloorGenerationConstrains.MIN_FLOOR_ELEMENTS_COUNT, FloorGenerationConstrains.MAX_FLOOR_ELEMENTS_COUNT);
 			Dictionary<Point2D, AbstractFloorElement> floorElements = new Dictionary<Point2D, AbstractFloorElement> ();
+			int maxRetries = 50;
+			int retries = 0;
 
-			int i = 0;
-			while (i < floorElementsCount) {
+			while (retries < maxRetries && floorElements.Count < floorElementsCount) {
 				// Generate random element
 
 				// Choose a room
@@ -180,6 +181,7 @@ namespace RnR.World.Generators
 					retries++;
 				}
             }
+			System.Console.WriteLine ("Finished creating rooms");
         }
 
         void SetRoomProperties (Rectangle room)

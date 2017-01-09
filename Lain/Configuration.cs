@@ -7,7 +7,7 @@ namespace Lain
 {
 	public class Configuration
 	{
-		private static string[] FONTS = new string[] { /*"Cheepicus12",*/ "IBM", "C64" };
+		private static string[] FONTS = new string[] { "Cheepicus12", "IBM", "C64" };
 
 		public static Font Font { get; private set; }
 

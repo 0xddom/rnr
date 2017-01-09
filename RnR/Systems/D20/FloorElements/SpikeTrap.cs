@@ -14,9 +14,6 @@ namespace RnR.Systems.D20.FloorElements
 
 		protected override GameActor ApplyEffect (GameActor target)
 		{
-#if DEBUG
-			Console.WriteLine ("Called!!");
-			#endif
 			target.HitPoints -= CalculateDamage();
 			return target;
 		}
