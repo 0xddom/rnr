@@ -1,6 +1,7 @@
 ﻿using System;
 using RnR.Systems.D20.Base.FloorElements;
 using RnR.Systems.D20.Objects;
+using RnR.Systems.D20.Base.Objects;
 
 namespace RnR.Systems.D20.FloorElements
 {
@@ -42,7 +43,7 @@ namespace RnR.Systems.D20.FloorElements
 			// Initialize it only if a food grass is requested at least once.
 			if (foodFactory != null)
 				foodFactory = new RandomFoodFactory ();
-			return new FoodGrass (foodFactory.CreateGameObject ());
+			return new FoodGrass ((AbstractFood)foodFactory.CreateGameObject ());
 		}
 
 		AbstractGrass CreateMoneyGrass() {

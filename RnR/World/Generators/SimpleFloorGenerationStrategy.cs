@@ -74,6 +74,7 @@ namespace RnR.World.Generators
 				// Get a random coordinate in that room
 
 				// If not collide, add the element
+				retries++;
 			}
 		}
 
