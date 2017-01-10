@@ -16,7 +16,7 @@ namespace RnR.World.Generators
 		public static int MIN_ROOMS = 15;
 		public static int MAX_ROOMS = 25;
 
-		public static int MIN_FLOOR_ELEMENTS_COUNT = 10;
-		public static int MAX_FLOOR_ELEMENTS_COUNT = 25;
+		public static int MIN_FLOOR_ELEMENTS_COUNT = 30;
+		public static int MAX_FLOOR_ELEMENTS_COUNT = 50;
 	}
 }

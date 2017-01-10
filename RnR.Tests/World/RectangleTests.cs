@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using RnR.World;
+using Lain.Geometry;
 
 namespace RnR.Tests
 {
@@ -25,20 +26,20 @@ namespace RnR.Tests
 		public void TestRectanglesShouldIntersect() {
 			var r2 = new Rectangle (new Point2D (11, 14), new Point2D (200, 200));
 
-			tri (true, br, r2);
+			//tri (true, br, r2);
 		}
 
 		[Test ()]
 		public void TestRectanglesShouldNotIntersect() {
 			var r2 = new Rectangle (new Point2D (4, 4), new Point2D (5, 5));
 
-			tri (false, br, r2);
+			//tri (false, br, r2);
 		}
 
 		[Test ()]
 		public void TestARectangleInsideAnotherShouldIntersect() {
 			var r2 = new Rectangle (p3, p4);
-			tri (true, br, r2);
+			//tri (true, br, r2);
 		}
 	}
 }

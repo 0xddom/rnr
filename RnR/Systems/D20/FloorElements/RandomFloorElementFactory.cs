@@ -6,10 +6,10 @@ namespace RnR.Systems.D20.FloorElements
 	public class RandomFloorElementFactory : FloorElementFactory
 	{
 		// 0.2 + 0.1 + 0.6 + 0.1 == 1
-		private double CHEST_PROB = 0.2;
-		private double TRAP_PROB = 0.1;
-		private double GRASS_PROG = 0.6;
-		private double FOUNTAIN_PROB = 0.1;
+		private double CHEST_PROB = 0.1;
+		private double TRAP_PROB = 0.05;
+		private double GRASS_PROG = 0.8;
+		private double FOUNTAIN_PROB = 0.05;
 
 		Random r;
 

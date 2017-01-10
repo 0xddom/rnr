@@ -1,4 +1,7 @@
 ﻿using System;
+using Lain.Geometry;
+
+
 namespace RnR.World
 {
 	public class Rectangle : Shape
@@ -56,13 +59,13 @@ namespace RnR.World
 
 		public int Top {
 			get {
-				return Math.Max (P1.Y, P2.Y);
+				return Math.Min (P1.Y, P2.Y);
 			}
 		}
 
 		public int Bottom {
 			get {
-				return Math.Min (P1.Y, P2.Y);
+				return Math.Max (P1.Y, P2.Y);
 			}
 		}
 

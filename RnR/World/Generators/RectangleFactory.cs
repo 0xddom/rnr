@@ -1,4 +1,7 @@
 ﻿using System;
+using Lain.Geometry;
+
+
 namespace RnR.World.Generators
 {
 	public class RectangleFactory

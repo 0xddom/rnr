@@ -98,7 +98,6 @@
     <Compile Include="Systems\D20\Base\Objects\WeaponType.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractLockableFloorElement.cs" />
     <Compile Include="Systems\D20\FloorElements\CantInspectException.cs" />
-    <Compile Include="World\Point2D.cs" />
     <Compile Include="World\Rectangle.cs" />
     <Compile Include="World\Shape.cs" />
     <Compile Include="World\DungeonFloor.cs" />
@@ -125,6 +124,8 @@
     <Compile Include="Systems\D20\Objects\Foods\EnergyDrink.cs" />
     <Compile Include="Systems\D20\Objects\Foods\Bread.cs" />
     <Compile Include="Systems\D20\Objects\Foods\Apple.cs" />
+    <Compile Include="Systems\D20\FloorElements\Stair.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\StairDirection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

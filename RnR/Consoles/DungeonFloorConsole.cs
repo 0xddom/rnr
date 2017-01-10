@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Lain.Utils;
+using Lain.Geometry;
+using RnR.Systems.D20.FloorElements;
 
 namespace RnR.Consoles
 {
@@ -16,7 +18,15 @@ namespace RnR.Consoles
 		int viewHeight;
 		CellAppearance[,] drawData;
 
-		public Point2D center;
+		private Point2D center;
+
+		public Point2D Center {
+			set {
+				center = value;
+				UpdateMapData (value);
+			}
+			get { return center; }
+		}
 
 		public DungeonFloorConsole (DungeonFloor floor, int w, int h) 
 			: base(Math.Max(floor.Width, w),Math.Max(floor.Height, h))
@@ -33,6 +43,8 @@ namespace RnR.Consoles
 			TextSurface.RenderArea = new Microsoft.Xna.Framework.Rectangle (0, 0, viewWidth, viewHeight);
 
 			center = new Point2D (20, 10);
+
+			System.Console.WriteLine ($"Floor has {floor.FloorElements.Count} elements");
 
 			UpdateMapData (center);
 		}
@@ -71,8 +83,20 @@ namespace RnR.Consoles
 			return new CellAppearance (Color.Black, Color.Black, 0);
 		}
 
+		private bool StairIsAtCell(RogueSharp.Cell cell, Stair stair) {
+			return stair.Position.X == cell.X && stair.Position.Y == cell.Y;
+		}
+
 		private CellAppearance GetAppearanceFromCell(RogueSharp.Cell cell) {
+			if (floor.UpStair != null && StairIsAtCell (cell, floor.UpStair))
+				return floor.UpStair.Appearance ();
+			if (StairIsAtCell (cell, floor.DownStair))
+				return floor.DownStair.Appearance ();
 			if (cell.IsWalkable) {
+				var p = new Point2D (cell.X, cell.Y);
+				if (floor.FloorElements.ContainsKey (p)) {
+					return floor.FloorElements [p].Appearance ();
+				}
 				return new CellAppearance (Color.DarkGray, Color.Transparent, 46);
 			} else {
 				if (CellHasWalkableNeighbour (cell))
@@ -109,7 +133,7 @@ namespace RnR.Consoles
 		public override void Update ()
 		{
 			base.Update ();
-			UpdateMapData (center);
+			//UpdateMapData (center);
 		}
 	}
 }

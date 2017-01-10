@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using RogueSharp.Algorithms;
 using RnR.Systems.D20.Base.FloorElements;
+using RnR.Systems.D20.FloorElements;
+using Lain.Geometry;
 
 namespace RnR.World.Generators
 {
@@ -62,32 +64,51 @@ namespace RnR.World.Generators
 		void AddFloorElements (List<Rectangle> rooms)
 		{
 			int floorElementsCount = r.Next (FloorGenerationConstrains.MIN_FLOOR_ELEMENTS_COUNT, FloorGenerationConstrains.MAX_FLOOR_ELEMENTS_COUNT);
-			Dictionary<Point2D, AbstractFloorElement> floorElements = new Dictionary<Point2D, AbstractFloorElement> ();
 			int maxRetries = 50;
 			int retries = 0;
 
-			while (retries < maxRetries && floorElements.Count < floorElementsCount) {
+			FloorElementFactory factory = new RandomFloorElementFactory ();
+
+			while (retries < maxRetries && newFloor.FloorElements.Count < floorElementsCount) {
 				// Generate random element
+				var newElement = factory.CreateFloorElement ();
 
 				// Choose a room
+				var randomRoom = rooms[r.Next(rooms.Count)];
 
 				// Get a random coordinate in that room
+				int x = r.Next(randomRoom.Left, randomRoom.Right);
+				int y = r.Next (randomRoom.Top, randomRoom.Bottom);
+				var p = new Point2D (x, y);
 
-				// If not collide, add the element
-				retries++;
+				if (!newFloor.FloorElements.ContainsKey (p)) {
+					newFloor.FloorElements.Add (p, newElement);
+				} else {
+					retries++;
+				}
+			}
+
+			System.Console.WriteLine ($"ELEMENTS ({newFloor.FloorElements.Count}):");
+			foreach (var element in newFloor.FloorElements) {
+				System.Console.WriteLine ($"@ ({element.Key.X},{element.Key.Y}) there is an element of type {element.Value.GetType().Name}");
 			}
 		}
 
 		void SetupStairs(int level, List<Rectangle> rooms) {
 			int upStairsRoom = -1;
-			int downStairsRoom;
+			int downStairsRoom, x, y;
+			Point2D p;
 
 			if (level > 0) {
-				// Add up stairs
 				upStairsRoom = RandomRoomIndex (rooms);
 				newFloor.StartRoomIndex = upStairsRoom;
 
-				// Add up stair
+				// TODO: Add up stair
+				x = r.Next(rooms[upStairsRoom].Left, rooms[upStairsRoom].Right);
+				y = r.Next (rooms[upStairsRoom].Top, rooms[upStairsRoom].Bottom);
+				p = new Point2D (x, y);
+
+				newFloor.UpStair = new Stair (StairDirection.UP, p);
 			} else {
 				newFloor.StartRoomIndex = RandomRoomIndex (rooms);
 			}
@@ -96,7 +117,12 @@ namespace RnR.World.Generators
 				downStairsRoom = RandomRoomIndex (rooms);
 			} while(downStairsRoom == upStairsRoom);
 
-			// Add down stair
+			// TODO: Add down stair
+			x = r.Next(rooms[downStairsRoom].Left, rooms[downStairsRoom].Right);
+			y = r.Next (rooms[downStairsRoom].Top, rooms[downStairsRoom].Bottom);
+			p = new Point2D (x, y);
+
+			newFloor.DownStair = new Stair (StairDirection.DOWN, p);
 		}
 
 		void ConnectRooms(out EdgeWeightedDigraph graph, List<Rectangle> rooms)
@@ -188,7 +214,7 @@ namespace RnR.World.Generators
         void SetRoomProperties (Rectangle room)
         {
             for (int i = room.Left; i < room.Right; i++)
-                for (int j = room.Bottom; j < room.Top; j++)
+                for (int j = room.Top; j < room.Bottom; j++)
                     newFloor.SetCellProperties (i, j, true, true, true);
         }
 

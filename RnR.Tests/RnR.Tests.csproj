@@ -55,6 +55,10 @@
       <Project>{5D1482D6-6957-48F1-B567-644550668852}</Project>
       <Name>RnR</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lain\Lain.csproj">
+      <Project>{8B9340C6-6920-47D9-B271-418AA9FD1895}</Project>
+      <Name>Lain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Systems\" />

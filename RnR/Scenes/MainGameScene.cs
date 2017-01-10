@@ -52,7 +52,7 @@ namespace RnR.Scenes
 		public override void Update(GameTime delta) {
 			KeyboardState state = Keyboard.GetState ();
 
-			var center = dungeonFloorConsole.center;
+			var center = dungeonFloorConsole.Center;
 
 			if (state.IsKeyDown (Keys.Left)) {
 				center.X--;
@@ -72,7 +72,7 @@ namespace RnR.Scenes
 					center.Y = dungeonFloorConsole.floor.Height - 1;
 			}
 
-			dungeonFloorConsole.center = center;
+			dungeonFloorConsole.Center = center;
 
 			base.Update (delta);
 		}

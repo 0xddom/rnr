@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using RnR.Systems.D20.Base.FloorElements;
 using RnR.Systems.D20.Base.Objects;
+using SadConsole;
+using Microsoft.Xna.Framework;
 
 namespace RnR.Systems.D20.FloorElements
 {
@@ -23,6 +25,10 @@ namespace RnR.Systems.D20.FloorElements
 		{
 			if (IsLocked) throw new CantInspectException ();
 			return objects;
+		}
+
+		public override CellAppearance Appearance() {
+			return new CellAppearance (Color.Yellow, Color.Transparent, 99);
 		}
 	}
 }

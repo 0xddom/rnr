@@ -63,10 +63,16 @@
     <Compile Include="IMessageReceiver.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Utils\Pair.cs" />
+    <Compile Include="Drawable.cs" />
+    <Compile Include="Utils\NumberUtils.cs" />
+    <Compile Include="Geometry\Point2D.cs" />
+    <Compile Include="Positionable.cs" />
+    <Compile Include="FrameCounter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Utils\" />
     <Folder Include="Views\" />
+    <Folder Include="Geometry\" />
   </ItemGroup>
 </Project>

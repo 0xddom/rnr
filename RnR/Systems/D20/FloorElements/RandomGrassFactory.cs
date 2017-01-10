@@ -41,7 +41,7 @@ namespace RnR.Systems.D20.FloorElements
 
 		AbstractGrass CreateFoodGrass() {
 			// Initialize it only if a food grass is requested at least once.
-			if (foodFactory != null)
+			if (foodFactory == null)
 				foodFactory = new RandomFoodFactory ();
 			return new FoodGrass ((AbstractFood)foodFactory.CreateGameObject ());
 		}

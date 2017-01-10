@@ -1,5 +1,7 @@
 ﻿using System;
 using RnR.Systems.D20.Base.Actors;
+using SadConsole;
+using Microsoft.Xna.Framework;
 
 namespace RnR.Systems.D20.Base.FloorElements
 {
@@ -22,5 +24,14 @@ namespace RnR.Systems.D20.Base.FloorElements
 		}
 
 		protected abstract void ApplyAction (GameActor target);
+
+		#region implemented abstract members of AbstractFloorElement
+
+		public override SadConsole.CellAppearance Appearance ()
+		{
+			return new CellAppearance (Color.Green, Color.Transparent, 34);
+		}
+
+		#endregion
 	}
 }

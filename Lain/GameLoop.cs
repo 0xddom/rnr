@@ -14,6 +14,8 @@ namespace Lain
 		private Director director;
 		private Color background;
 
+		private FrameCounter frameCounter = new FrameCounter();
+
 		public GameLoop (Director director)
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -50,6 +52,11 @@ namespace Lain
 
 		protected override void Draw (GameTime delta)
 		{
+			var deltaTime = (float)delta.ElapsedGameTime.TotalSeconds;
+
+			frameCounter.Update(deltaTime);
+			//System.Console.WriteLine ("FPS: " + frameCounter.AverageFramesPerSecond);
+
 			director.Draw (delta);
 			base.Draw (delta);
 		}
