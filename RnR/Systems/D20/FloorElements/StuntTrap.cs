@@ -4,6 +4,7 @@ using RnR.Systems.D20.Base.FloorElements;
 using RnR.Systems.D20.Effects;
 using SadConsole;
 using Microsoft.Xna.Framework;
+using RnR.Consoles;
 
 namespace RnR.Systems.D20.FloorElements
 {
@@ -22,11 +23,17 @@ namespace RnR.Systems.D20.FloorElements
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance ()
+		public override SadConsole.CellAppearance Appearance (bool inFov)
 		{
-			if (this.Armed)
-				return new CellAppearance (Color.DarkGray, Color.Transparent, 46);
-			return new CellAppearance (Color.MediumSpringGreen, Color.Transparent, 116);
+			if (inFov) {
+				if (this.Armed)
+					return new FloorInFovAppearance ();
+				return new CellAppearance (Color.LightBlue, Color.Transparent, 116);
+			} else {
+				if (this.Armed)
+					return new FloorAppearance ();
+				return new CellAppearance (Color.LightBlue, Color.Transparent, 116);
+			}
 		}
 
 		#endregion

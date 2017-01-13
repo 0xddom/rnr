@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class Fountain : AbstractFloorElement, OnStepListener
+	public class Fountain : AbstractFloorElement, Stepable
 	{
 		public GameActor OnStep (GameActor target)
 		{
@@ -18,9 +18,12 @@ namespace RnR.Systems.D20.FloorElements
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance ()
+		public override SadConsole.CellAppearance Appearance (bool inFov)
 		{
-			return new CellAppearance (Color.CornflowerBlue, Color.Transparent, 102);
+			if (inFov) {
+				return new CellAppearance (Color.CornflowerBlue, Color.Transparent, 102);
+			} else
+				return new CellAppearance (Color.DarkBlue, Color.Transparent, 102);
 		}
 
 		#endregion

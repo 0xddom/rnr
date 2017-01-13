@@ -40,6 +40,7 @@
     <Folder Include="Consoles\" />
     <Folder Include="Systems\D20\Objects\" />
     <Folder Include="Systems\D20\Objects\Foods\" />
+    <Folder Include="Actions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -63,7 +64,6 @@
     <Compile Include="Systems\D20\FloorElements\PoisonTrap.cs" />
     <Compile Include="Systems\D20\FloorElements\StuntTrap.cs" />
     <Compile Include="Systems\D20\FloorElements\ExhaustionTrap.cs" />
-    <Compile Include="Systems\D20\Base\FloorElements\OnStepListener.cs" />
     <Compile Include="Systems\D20\FloorElements\Fountain.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\Lockable.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\Looteable.cs" />
@@ -126,6 +126,21 @@
     <Compile Include="Systems\D20\Objects\Foods\Apple.cs" />
     <Compile Include="Systems\D20\FloorElements\Stair.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\StairDirection.cs" />
+    <Compile Include="World\Directions.cs" />
+    <Compile Include="Consoles\FloorInFovAppearance.cs" />
+    <Compile Include="Consoles\FloorAppearance.cs" />
+    <Compile Include="Consoles\WallInFovAppearance.cs" />
+    <Compile Include="Consoles\WallAppearance.cs" />
+    <Compile Include="Consoles\GameLogConsole.cs" />
+    <Compile Include="Actions\ExitAction.cs" />
+    <Compile Include="Actions\MoveUpAction.cs" />
+    <Compile Include="Actions\MoveLeftAction.cs" />
+    <Compile Include="Actions\MoveRightAction.cs" />
+    <Compile Include="Actions\MoveDownAction.cs" />
+    <Compile Include="Actions\TryUseStairs.cs" />
+    <Compile Include="Actions\LogCurrentFloor.cs" />
+    <Compile Include="Actions\MoveAction.cs" />
+    <Compile Include="Systems\D20\Base\FloorElements\Stepable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -151,6 +166,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

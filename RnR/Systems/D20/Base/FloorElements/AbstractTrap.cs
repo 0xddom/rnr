@@ -3,7 +3,7 @@ using RnR.Systems.D20.Base.Actors;
 
 namespace RnR.Systems.D20.Base.FloorElements
 {
-	public abstract class AbstractTrap : AbstractFloorElement, OnStepListener, Challenge
+	public abstract class AbstractTrap : AbstractFloorElement, Stepable, Challenge
 	{
 		protected bool armed;
 		private int challengeRate;

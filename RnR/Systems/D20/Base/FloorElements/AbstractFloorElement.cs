@@ -11,7 +11,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 
 		#region Drawable implementation
 
-		public abstract SadConsole.CellAppearance Appearance ();
+		public abstract SadConsole.CellAppearance Appearance (bool inFov);
 
 		#endregion
 	}

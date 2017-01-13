@@ -6,7 +6,7 @@ using Lain.Geometry;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class Stair : OnStepListener, Drawable, Positionable
+	public class Stair : Stepable, Drawable, Positionable
 	{
 		public StairDirection Direction { get; private set; }
 
@@ -18,10 +18,12 @@ namespace RnR.Systems.D20.FloorElements
 
 		#region Drawable implementation
 
-		public SadConsole.CellAppearance Appearance ()
+		public SadConsole.CellAppearance Appearance (bool inFov)
 		{
 			int glyphIndex = Direction == StairDirection.DOWN ? 242 : 94;
-			return new SadConsole.CellAppearance (Color.DarkGray, Color.Transparent, glyphIndex);
+			if (inFov)
+				return new SadConsole.CellAppearance (Color.Orange, Color.Transparent, glyphIndex);
+			return new SadConsole.CellAppearance (Color.DarkOrange, Color.Transparent, glyphIndex);
 		}
 
 		#endregion

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace RnR.Systems.D20.Base.FloorElements
 {
-	public abstract class AbstractGrass : AbstractFloorElement, OnStepListener
+	public abstract class AbstractGrass : AbstractFloorElement, Stepable
 	{
 		protected bool picked;
 
@@ -27,9 +27,12 @@ namespace RnR.Systems.D20.Base.FloorElements
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance ()
+		public override SadConsole.CellAppearance Appearance (bool inFov)
 		{
-			return new CellAppearance (Color.Green, Color.Transparent, 34);
+			if (inFov) 
+				return new CellAppearance (Color.Green, Color.Transparent, 34);
+			else
+				return new CellAppearance (Color.DarkGreen, Color.Transparent, 34);
 		}
 
 		#endregion

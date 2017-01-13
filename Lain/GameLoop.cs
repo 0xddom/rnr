@@ -7,15 +7,39 @@ using Lain.Views;
 
 namespace Lain
 {
+	/// <summary>
+	/// Game loop.
+	/// 
+	/// This class is in charge of initialization of the resources of the game and the update cycle (aka game loop).
+	/// </summary>
 	public class GameLoop : Game, IMessageReceiver
 	{
+		/// <summary>
+		/// The graphics manager.
+		/// 
+		/// MonoGame dependency
+		/// </summary>
 		private GraphicsDeviceManager graphics;
 
+		/// <summary>
+		/// The director.
+		/// </summary>
 		private Director director;
+
+		/// <summary>
+		/// The background color.
+		/// </summary>
 		private Color background;
 
+		/// <summary>
+		/// The frame counter.
+		/// </summary>
 		private FrameCounter frameCounter = new FrameCounter();
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Lain.GameLoop"/> class.
+		/// </summary>
+		/// <param name="director">The director for the components tree.</param>
 		public GameLoop (Director director)
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -27,6 +51,9 @@ namespace Lain
 			director.AddReceiver (this);
 		}
 
+		/// <summary>
+		/// Initialize the game resources and libraries.
+		/// </summary>
 		protected override void Initialize ()
 		{
 			IsFixedTimeStep = true;
@@ -42,20 +69,29 @@ namespace Lain
 			base.Initialize ();
 		}
 
+		/// <summary>
+		/// Update to the specified delta.
+		/// </summary>
+		/// <param name="delta">Delta.</param>
 		protected override void Update (GameTime delta)
 		{
-			GraphicsDevice.Clear (background);
+			
 
 			director.Update (delta);
 			base.Update (delta);
 		}
 
+		/// <summary>
+		/// Draw to the specified delta.
+		/// </summary>
+		/// <param name="delta">Delta.</param>
 		protected override void Draw (GameTime delta)
 		{
 			var deltaTime = (float)delta.ElapsedGameTime.TotalSeconds;
 
 			frameCounter.Update(deltaTime);
-			//System.Console.WriteLine ("FPS: " + frameCounter.AverageFramesPerSecond);
+
+			GraphicsDevice.Clear (background);
 
 			director.Draw (delta);
 			base.Draw (delta);
@@ -63,6 +99,12 @@ namespace Lain
 
 		#region IMessageReceiver implementation
 
+		/// <summary>
+		/// Receives the message. Only responds to SetBackground.
+		/// </summary>
+		/// <returns><c>true</c>, if message was received and was SetBackground, <c>false</c> otherwise.</returns>
+		/// <param name="message">Message.</param>
+		/// <param name="data">Data.</param>
 		public bool ReceiveMessage (Message message, object[] data)
 		{
 			switch (message) {
@@ -76,11 +118,19 @@ namespace Lain
 
 		#endregion
 
+		/// <summary>
+		/// Sets the background color.
+		/// </summary>
+		/// <param name="color">Color.</param>
 		void SetBackground (Color color)
 		{
 			background = color;
 		}
 
+		/// <summary>
+		/// This class can't send messages.
+		/// </summary>
+		/// <param name="receiver">Receiver.</param>
 		public void AddReceiver (IMessageReceiver receiver)
 		{
 		}

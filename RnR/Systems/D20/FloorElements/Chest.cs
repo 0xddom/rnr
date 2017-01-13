@@ -27,8 +27,11 @@ namespace RnR.Systems.D20.FloorElements
 			return objects;
 		}
 
-		public override CellAppearance Appearance() {
-			return new CellAppearance (Color.Yellow, Color.Transparent, 99);
+		public override CellAppearance Appearance(bool inFov) {
+			if (inFov)
+				return new CellAppearance (Color.LightYellow, Color.Transparent, 99);
+			else
+				return new CellAppearance (Color.Yellow, Color.Transparent, 99);
 		}
 	}
 }

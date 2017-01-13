@@ -14,9 +14,12 @@ namespace RnR.Systems.D20.FloorElements
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance ()
+		public override SadConsole.CellAppearance Appearance (bool inFov)
 		{
-			return new CellAppearance (Color.MediumSpringGreen, Color.Transparent, 20);
+			if (inFov)
+				return new CellAppearance (Color.White, Color.Transparent, IsLocked ? 19: 22);
+			else
+				return new CellAppearance (Color.DarkGray, Color.Transparent, IsLocked ? 19: 22);
 		}
 
 		#endregion

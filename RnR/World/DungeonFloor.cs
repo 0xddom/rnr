@@ -41,5 +41,32 @@ namespace RnR.World
 		public int Level { get { return level; } }
 
 		public Dictionary<Point2D, AbstractFloorElement> FloorElements { get { return floorElements; } }
+
+		private bool CheckPositionIsWalkable(Point2D pos) {
+			if (GetCell (pos.X, pos.Y).IsWalkable) {
+				if (floorElements.ContainsKey (pos)) {
+					var e = floorElements [pos];
+					return !(e is Chest || e is Door);
+				} else {
+					return true;
+				}
+			} else {
+				return false;
+			}
+		}
+
+		public bool CanGoToDirection(Directions direction, Point2D position) {
+			switch (direction) {
+			case Directions.DOWN:
+				return CheckPositionIsWalkable (new Point2D(position.X, position.Y + 1));
+			case Directions.LEFT:
+				return CheckPositionIsWalkable (new Point2D(position.X - 1, position.Y));
+			case Directions.RIGHT:
+				return CheckPositionIsWalkable (new Point2D(position.X + 1, position.Y));
+			case Directions.UP:
+				return CheckPositionIsWalkable (new Point2D(position.X, position.Y - 1));
+			}
+			return false;
+		}
 	}
 }

@@ -77,21 +77,29 @@ namespace RnR.World.Generators
 				var randomRoom = rooms[r.Next(rooms.Count)];
 
 				// Get a random coordinate in that room
-				int x = r.Next(randomRoom.Left, randomRoom.Right);
-				int y = r.Next (randomRoom.Top, randomRoom.Bottom);
+				int x = r.Next(randomRoom.Left + 1, randomRoom.Right - 1);
+				int y = r.Next (randomRoom.Top + 1, randomRoom.Bottom - 1);
 				var p = new Point2D (x, y);
 
-				if (!newFloor.FloorElements.ContainsKey (p)) {
+				if (CheckPointIsNotTaken (p)) {
 					newFloor.FloorElements.Add (p, newElement);
 				} else {
 					retries++;
 				}
 			}
+		}
 
-			System.Console.WriteLine ($"ELEMENTS ({newFloor.FloorElements.Count}):");
-			foreach (var element in newFloor.FloorElements) {
-				System.Console.WriteLine ($"@ ({element.Key.X},{element.Key.Y}) there is an element of type {element.Value.GetType().Name}");
-			}
+		bool CheckPointIsNotTaken(Point2D p) {
+			// The point is not taken by another floor element.
+			bool p1 = !newFloor.FloorElements.ContainsKey (p);
+			// The point is not taken by the up stairs.
+			bool p2 = (newFloor.UpStair == null) ? 
+				true :
+				!p.Equals(newFloor.UpStair.Position);
+			// The point is not taken by the down stairs.
+			bool p3 = !p.Equals(newFloor.DownStair.Position);
+
+			return p1 && p2 && p3;
 		}
 
 		void SetupStairs(int level, List<Rectangle> rooms) {
@@ -103,7 +111,6 @@ namespace RnR.World.Generators
 				upStairsRoom = RandomRoomIndex (rooms);
 				newFloor.StartRoomIndex = upStairsRoom;
 
-				// TODO: Add up stair
 				x = r.Next(rooms[upStairsRoom].Left, rooms[upStairsRoom].Right);
 				y = r.Next (rooms[upStairsRoom].Top, rooms[upStairsRoom].Bottom);
 				p = new Point2D (x, y);
@@ -117,7 +124,6 @@ namespace RnR.World.Generators
 				downStairsRoom = RandomRoomIndex (rooms);
 			} while(downStairsRoom == upStairsRoom);
 
-			// TODO: Add down stair
 			x = r.Next(rooms[downStairsRoom].Left, rooms[downStairsRoom].Right);
 			y = r.Next (rooms[downStairsRoom].Top, rooms[downStairsRoom].Bottom);
 			p = new Point2D (x, y);
@@ -189,8 +195,8 @@ namespace RnR.World.Generators
 			int maxRetries = 50;
             while (retries < maxRetries && rooms.Count < roomsCount) {
                 var center = new Point2D (
-					r.Next (FloorGenerationConstrains.MAX_ROOM_WIDTH / 2, FloorWidth - FloorGenerationConstrains.MAX_ROOM_WIDTH / 2),
-					r.Next (FloorGenerationConstrains.MAX_ROOM_HEIGHT / 2, FloorHeight - FloorGenerationConstrains.MAX_ROOM_HEIGHT / 2)
+					r.Next (FloorGenerationConstrains.MAX_ROOM_WIDTH / 2 + 1, FloorWidth - FloorGenerationConstrains.MAX_ROOM_WIDTH / 2 - 1),
+					r.Next (FloorGenerationConstrains.MAX_ROOM_HEIGHT / 2 + 1, FloorHeight - FloorGenerationConstrains.MAX_ROOM_HEIGHT / 2 - 1)
                 );
 
                 var rect = RectangleFactory.CreateRandomSizeRectangle (center,
@@ -208,24 +214,23 @@ namespace RnR.World.Generators
 					retries++;
 				}
             }
-			System.Console.WriteLine ("Finished creating rooms");
         }
 
         void SetRoomProperties (Rectangle room)
         {
             for (int i = room.Left; i < room.Right; i++)
                 for (int j = room.Top; j < room.Bottom; j++)
-                    newFloor.SetCellProperties (i, j, true, true, true);
+                    newFloor.SetCellProperties (i, j, true, true, false);
         }
 
 		void SetLineXProperties (int _from, int to, int y) {
 			for (int i = _from; i < to+1; i++) 
-				newFloor.SetCellProperties (i, y, true, true, true);
+				newFloor.SetCellProperties (i, y, true, true, false);
 		}
 
 		void SetLineYProperties (int _from, int to, int x) {
 			for (int i = _from; i < to+1; i++) 
-				newFloor.SetCellProperties (x, i, true, true, true);
+				newFloor.SetCellProperties (x, i, true, true, false);
 		}
 
         int FloorWidth {

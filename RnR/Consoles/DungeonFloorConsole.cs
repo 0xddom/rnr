@@ -11,12 +11,21 @@ using RnR.Systems.D20.FloorElements;
 
 namespace RnR.Consoles
 {
+	/// <summary>
+	/// This class draws the map of the current floor.
+	/// 
+	/// The code is ugly as hell as drawing code usually is. You have been warned.
+	/// </summary>
 	public class DungeonFloorConsole : SadConsole.Consoles.Console
 	{
-		public DungeonFloor floor;
+		public delegate DungeonFloor GetFloor();
+
+		public DungeonFloor Floor { get; set; }
 		int viewWidth;
 		int viewHeight;
 		CellAppearance[,] drawData;
+
+		private CellAppearance CenterAppearance;
 
 		private Point2D center;
 
@@ -33,7 +42,7 @@ namespace RnR.Consoles
 		{
 			this.viewWidth = w;//Math.Min(floor.Width, w);
 			this.viewHeight = h;//Math.Min(floor.Height, h);
-			this.floor = floor;
+			this.Floor = floor;
 
 			//System.Console.Write (floor.ToString ());
 
@@ -42,11 +51,18 @@ namespace RnR.Consoles
 
 			TextSurface.RenderArea = new Microsoft.Xna.Framework.Rectangle (0, 0, viewWidth, viewHeight);
 
-			center = new Point2D (20, 10);
+			//center = new Point2D (20, 10);
 
-			System.Console.WriteLine ($"Floor has {floor.FloorElements.Count} elements");
+			foreach (RogueSharp.Cell cell in Floor.GetAllCells ()) {
+				if (cell.IsWalkable) {
+					center = new Point2D (cell.X, cell.Y);
+					break;
+				}
+			}
 
-			UpdateMapData (center);
+			CenterAppearance = new CellAppearance (Color.Blue, Color.Transparent, 64);
+
+			//UpdateMapData (center);
 		}
 
 		public void UpdateMapData(Point2D center) {
@@ -65,16 +81,17 @@ namespace RnR.Consoles
 
 			for (int x = xStart, i = 0; x < xEnd; x++, i++) {
 				for (int y = yStart, j = 0; y < yEnd; y++, j++) {
-					if (x < 0 || y < 0 || x >= floor.Width || y >= floor.Height) {
+					if (x < 0 || y < 0 || x >= Floor.Width || y >= Floor.Height) {
 						SetCellAppearance (i, j, DefaultCellAppearance ());
 					} else {
-						SetCellAppearance (i, j, GetAppearanceFromCell (floor.GetCell (x, y)));
+						SetCellAppearance (i, j, GetAppearanceFromCell (Floor.GetCell (x, y)));
 					}
 				}
 			}
 		}
 
 		private void SetCellAppearance(int x, int y, CellAppearance appearance) {
+			//System.Console.Write (appearance.GlyphIndex);
 			drawData [x, y] = appearance;
 			drawData [x, y].CopyAppearanceTo (this [x, y]);
 		}
@@ -88,21 +105,38 @@ namespace RnR.Consoles
 		}
 
 		private CellAppearance GetAppearanceFromCell(RogueSharp.Cell cell) {
-			if (floor.UpStair != null && StairIsAtCell (cell, floor.UpStair))
-				return floor.UpStair.Appearance ();
-			if (StairIsAtCell (cell, floor.DownStair))
-				return floor.DownStair.Appearance ();
-			if (cell.IsWalkable) {
-				var p = new Point2D (cell.X, cell.Y);
-				if (floor.FloorElements.ContainsKey (p)) {
-					return floor.FloorElements [p].Appearance ();
+			//System.Console.Write (",");
+			if (center.X == cell.X && center.Y == cell.Y)
+				return CenterAppearance;
+
+			if (cell.IsExplored) {
+				if (Floor.UpStair != null && StairIsAtCell (cell, Floor.UpStair))
+					return Floor.UpStair.Appearance (cell.IsInFov);
+
+				if (StairIsAtCell (cell, Floor.DownStair))
+					return Floor.DownStair.Appearance (cell.IsInFov);
+			
+				if (cell.IsWalkable) {
+					var p = new Point2D (cell.X, cell.Y);
+					if (Floor.FloorElements.ContainsKey (p)) {
+						return Floor.FloorElements [p].Appearance (cell.IsInFov);
+					}
+					if (cell.IsInFov)
+						return new FloorInFovAppearance ();
+					else
+						return new FloorAppearance ();
+				} else {
+					if (CellHasWalkableNeighbour (cell)) {
+						if (cell.IsInFov)
+							return new WallInFovAppearance ();
+						else
+							return new WallAppearance ();
+					} else
+						return DefaultCellAppearance ();
 				}
-				return new CellAppearance (Color.DarkGray, Color.Transparent, 46);
 			} else {
-				if (CellHasWalkableNeighbour (cell))
-					return new CellAppearance (Color.White, Color.Gray, 176);
-				else
-					return DefaultCellAppearance ();
+				//System.Console.Write (".");
+				return DefaultCellAppearance ();
 			}
 		}
 
@@ -120,20 +154,20 @@ namespace RnR.Consoles
 		}
 
 		private bool PairIsInBounds(Pair<int,int> pair) {
-			return pair.First >= 0 && pair.Second >= 0 && floor.Width > pair.First && floor.Height > pair.Second;
+			return pair.First >= 0 && pair.Second >= 0 && Floor.Width > pair.First && Floor.Height > pair.Second;
 		}
 
 		private bool CellHasWalkableNeighbour(RogueSharp.Cell cell) {
 			return (new List<Pair<int,int>> (GetNeighboursCoordinatesFromCell (cell)))
 				.Exists ((pair) => PairIsInBounds (pair)
-				? floor.GetCell (pair.First, pair.Second).IsWalkable 
+					? Floor.GetCell (pair.First, pair.Second).IsWalkable 
 				: false);
 		}
 
 		public override void Update ()
 		{
 			base.Update ();
-			//UpdateMapData (center);
+			UpdateMapData (center);
 		}
 	}
 }

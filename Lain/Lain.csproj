@@ -64,10 +64,13 @@
     <Compile Include="Message.cs" />
     <Compile Include="Utils\Pair.cs" />
     <Compile Include="Drawable.cs" />
-    <Compile Include="Utils\NumberUtils.cs" />
     <Compile Include="Geometry\Point2D.cs" />
     <Compile Include="Positionable.cs" />
     <Compile Include="FrameCounter.cs" />
+    <Compile Include="IAction.cs" />
+    <Compile Include="TrueAction.cs" />
+    <Compile Include="FalseAction.cs" />
+    <Compile Include="AndChain.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
