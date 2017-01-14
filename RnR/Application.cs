@@ -1,20 +1,19 @@
 ﻿using System;
 namespace RnR
 {
+	/// <summary>
+	/// Application entry point.
+	/// </summary>
 	public class Application
 	{
+		/// <summary>
+		/// The entry point of the program, where the program control starts and ends.
+		/// </summary>
+		/// <param name="args">The command-line arguments.</param>
 		public static void Main(string[] args)
 		{
-#if !MACOS
-			ApplicationDelegate app = new ApplicationDelegate();
+			var app = new ApplicationDelegate();
 			app.Run ();
-#else
-			NSApplication.Init ();
-			using (var p = new NSAutoreleasePool ()) {
-				NSApplication.SharedApplication.Delegate = new ApplicationDelegate ();
-				NSApplication.Main (args);
-			}
-#endif
 		}
 	}
 }

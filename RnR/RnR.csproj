@@ -108,8 +108,6 @@
     <Compile Include="World\Generators\RectangleFactory.cs" />
     <Compile Include="World\Generators\FloorGenerationConstrains.cs" />
     <Compile Include="ApplicationDelegate.cs" />
-    <Compile Include="Scenes\HelloWorldScene.cs" />
-    <Compile Include="Consoles\HelloWorldConsole.cs" />
     <Compile Include="Scenes\MainGameScene.cs" />
     <Compile Include="Consoles\DungeonFloorConsole.cs" />
     <Compile Include="GameState.cs" />

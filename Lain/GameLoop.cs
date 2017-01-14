@@ -1,9 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using System.IO;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Lain.Views;
 
 namespace Lain
 {
@@ -34,18 +30,19 @@ namespace Lain
 		/// <summary>
 		/// The frame counter.
 		/// </summary>
-		private FrameCounter frameCounter = new FrameCounter();
+		private FrameCounter frameCounter = new FrameCounter ();
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Lain.GameLoop"/> class.
 		/// </summary>
 		/// <param name="director">The director for the components tree.</param>
-		public GameLoop (Director director)
+		public GameLoop (Director director, int w, int h)
 		{
 			graphics = new GraphicsDeviceManager (this);
+			graphics.PreferredBackBufferHeight = h;
+			graphics.PreferredBackBufferWidth = w;
+			Window.IsBorderless = true;
 			Content.RootDirectory = "Assets";
-
-			//System.Console.WriteLine (Environment.CurrentDirectory);
 
 			this.director = director;
 			director.AddReceiver (this);
@@ -75,8 +72,6 @@ namespace Lain
 		/// <param name="delta">Delta.</param>
 		protected override void Update (GameTime delta)
 		{
-			
-
 			director.Update (delta);
 			base.Update (delta);
 		}
@@ -89,7 +84,7 @@ namespace Lain
 		{
 			var deltaTime = (float)delta.ElapsedGameTime.TotalSeconds;
 
-			frameCounter.Update(deltaTime);
+			frameCounter.Update (deltaTime);
 
 			GraphicsDevice.Clear (background);
 
@@ -105,7 +100,7 @@ namespace Lain
 		/// <returns><c>true</c>, if message was received and was SetBackground, <c>false</c> otherwise.</returns>
 		/// <param name="message">Message.</param>
 		/// <param name="data">Data.</param>
-		public bool ReceiveMessage (Message message, object[] data)
+		public bool ReceiveMessage (Message message, object [] data)
 		{
 			switch (message) {
 			case Message.SetBackground:

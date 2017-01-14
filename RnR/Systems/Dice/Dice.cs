@@ -3,15 +3,26 @@ using System.Collections.Generic;
 
 namespace RnR.Systems.Dice
 {
-	public class Dice
+	/// <summary>
+	/// Represents a Dice. A dice can be rolled, thus returning DiceRoll instances.
+	/// </summary>
+	public static class Dice
 	{
-		private static Random r;
+		private static readonly Random r;
 
+		/// <summary>
+		/// Initializes the <see cref="T:RnR.Systems.Dice.Dice"/> class.
+		/// </summary>
 		static Dice ()
 		{
 			r = new Random ();
 		}
 
+		/// <summary>
+		/// Roll the specified number of dices.
+		/// </summary>
+		/// <param name="dices">Dices.</param>
+		/// <param name="sides">Sides.</param>
 		public static DiceRoll Roll (int dices, int sides)
 		{
 			List<int> dicesLst = new List<int> ();

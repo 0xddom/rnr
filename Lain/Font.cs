@@ -13,12 +13,72 @@ namespace Lain
 		/// The JSON structure of the font file.
 		/// </summary>
 		struct FontStruct {
-			public int GlyphWidth;
-			public int GlyphHeight;
-			public int GlyphPadding;
-			public string Name;
-			public string FilePath;
-			public int SolidGlyphIndex;
+			private int glyphWidth;
+			private int glyphHeight;
+			private int glyphPadding;
+			private string name;
+			private string filePath;
+			private int solidGlyphIndex;
+
+			public int GlyphHeight {
+				get {
+					return glyphHeight;
+				}
+
+				set {
+					glyphHeight = value;
+				}
+			}
+
+			public int GlyphWidth {
+				get {
+					return glyphWidth;
+				}
+
+				set {
+					glyphWidth = value;
+				}
+			}
+
+			public int GlyphPadding {
+				get {
+					return glyphPadding;
+				}
+
+				set {
+					glyphPadding = value;
+				}
+			}
+
+			public string Name {
+				get {
+					return name;
+				}
+
+				set {
+					name = value;
+				}
+			}
+
+			public string FilePath {
+				get {
+					return filePath;
+				}
+
+				set {
+					filePath = value;
+				}
+			}
+
+			public int SolidGlyphIndex {
+				get {
+					return solidGlyphIndex;
+				}
+
+				set {
+					solidGlyphIndex = value;
+				}
+			}
 		}
 
 		/// <summary>
@@ -44,8 +104,9 @@ namespace Lain
 		/// <summary>
 		/// Loads the struct from the JSON file.
 		/// </summary>
-		private void LoadStruct() {
-			fontStruct = JsonConvert.DeserializeObject<FontStruct>(File.ReadAllText(Path));
+		private void LoadStruct ()
+		{
+			fontStruct = JsonConvert.DeserializeObject<FontStruct> (File.ReadAllText (Path));
 		}
 
 		/// <summary>

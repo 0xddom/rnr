@@ -4,11 +4,19 @@ using RnR.Consoles;
 
 namespace RnR.Actions
 {
+	/// <summary>
+	/// Move to the right action.
+	/// </summary>
 	public class MoveRightAction : IAction, MoveAction
 	{
 		DungeonFloorConsole dfc;
 		GameState gs;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:RnR.Actions.MoveRightAction"/> class.
+		/// </summary>
+		/// <param name="gs">The GameState.</param>
+		/// <param name="dfc">The DungeonFloorConsole.</param>
 		public MoveRightAction (GameState gs, DungeonFloorConsole dfc)
 		{
 			this.dfc = dfc;
@@ -17,6 +25,9 @@ namespace RnR.Actions
 
 		#region IAction implementation
 
+		/// <summary>
+		/// Move the player to the right.
+		/// </summary>
 		public bool Execute ()
 		{
 			var center = dfc.Center;

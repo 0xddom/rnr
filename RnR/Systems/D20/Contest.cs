@@ -5,8 +5,8 @@ namespace RnR.Systems.D20
 {
 	public class Contest
 	{
-		private Challenge challenge;
-		private Challenger challenger;
+		private readonly Challenge challenge;
+		private readonly Challenger challenger;
 
 		public Contest (Challenge challenge, Challenger challenger)
 		{

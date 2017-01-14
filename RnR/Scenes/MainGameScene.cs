@@ -33,6 +33,9 @@ namespace RnR.Scenes
 		int WALK_DELAY = 3;
 		int delay = 0;
 
+		/// <summary>
+		/// Called when the scene is loaded.
+		/// </summary>
 		public override void OnCreate ()
 		{
 			int dungeonConsoleWidth = (int)Math.Floor (Configuration.GridWidth * 0.8);
@@ -56,18 +59,31 @@ namespace RnR.Scenes
 			dungeonFloorConsole.Update ();
 		}
 
+		/// <summary>
+		/// Called when the scene is paused.
+		/// </summary>
 		public override void OnPause ()
 		{
 		}
 
+		/// <summary>
+		/// Called when the scene is resumed.
+		/// </summary>
 		public override void OnResume ()
 		{
 		}
 
+		/// <summary>
+		/// Called when the scene is destroyed.
+		/// </summary>
 		public override void OnDestroy ()
 		{
 		}
 
+		/// <summary>
+		/// Handles the input.
+		/// </summary>
+		/// <returns>An Action corresponding to the input.</returns>
 		private IAction HandleInput() 
 		{
 			KeyboardState state = Keyboard.GetState ();
@@ -95,6 +111,10 @@ namespace RnR.Scenes
 			return action;
 		}
 
+		/// <summary>
+		/// Called during the update step in the game loop.
+		/// </summary>
+		/// <param name="delta">Delta.</param>
 		public override void Update (GameTime delta)
 		{
 			KeyboardState state = Keyboard.GetState ();

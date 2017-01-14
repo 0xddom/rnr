@@ -4,11 +4,19 @@ using RnR.Consoles;
 
 namespace RnR.Actions
 {
+	/// <summary>
+	/// Check whenever the position has a stair and use it.
+	/// </summary>
 	public class TryUseStairs : IAction
 	{
 		GameState gs;
 		DungeonFloorConsole dfc;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:RnR.Actions.TryUseStairs"/> class.
+		/// </summary>
+		/// <param name="gs">The GameState.</param>
+		/// <param name="dfc">The DungeonFloorConsole.</param>
 		public TryUseStairs (GameState gs, DungeonFloorConsole dfc)
 		{
 			this.gs = gs;
@@ -17,6 +25,9 @@ namespace RnR.Actions
 
 		#region IAction implementation
 
+		/// <summary>
+		/// Check whenever the position has a stair and use it.
+		/// </summary>
 		public bool Execute ()
 		{
 			var center = dfc.Center;
