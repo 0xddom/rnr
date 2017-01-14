@@ -10,7 +10,7 @@ namespace RnR.Systems.D20.FloorElements
 	{
 		public IGameActor OnStep (IGameActor target)
 		{
-			if (target is PlayerGameActor) {
+			if (target is GameCharacter) {
 				target.HitPoints = target.MaxHitPoints;
 			}
 			return target;

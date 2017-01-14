@@ -174,6 +174,12 @@ namespace RnR.Systems.D20.Base.Actors
 			}
 		}
 
+		public int MaxHunger {
+			get {
+				return target.MaxHunger;
+			}
+		}
+
 		public Skill GetSkill (SkillType type)
 		{
 			Skill s = target.GetSkill (type).Clone ();

@@ -8,17 +8,17 @@ namespace RnR.Systems.D20
 		int leaderPos;
 
 		public Party () 
-			: this (new List<PlayerGameActor>())
+			: this (new List<GameCharacter>())
 		{
 		}
 
-		public Party (List<PlayerGameActor> members)
+		public Party (List<GameCharacter> members)
 		{
 			Members = members;
 			leaderPos = 0;
 		}
 
-		public PlayerGameActor Leader {
+		public GameCharacter Leader {
 			get {
 				return Members [leaderPos];
 			}
@@ -28,6 +28,6 @@ namespace RnR.Systems.D20
 			}
 		}
 
-		public List<PlayerGameActor> Members { get; private set; }
+		public List<GameCharacter> Members { get; private set; }
 	}
 }

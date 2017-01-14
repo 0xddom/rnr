@@ -5,11 +5,11 @@ using RnR.Systems.D20.Base.Objects;
 namespace RnR.Systems.D20
 {
 	// XXX: Put here delegation instead of inheritance?
-	public class PlayerGameActor : IGameActor
+	public class GameCharacter : IGameActor
 	{
-		private GameActor innerActor;
+		private IGameActor innerActor;
 
-		public PlayerGameActor(GameActor gameActor)
+		public GameCharacter(GameActor gameActor)
 		{
 			this.innerActor = gameActor;
 		}
@@ -214,5 +214,19 @@ namespace RnR.Systems.D20
 		{
 			return obj.OnEquip (this);
 		}
+
+		public void AddEffect (GameActorDecorator effect)
+		{
+			effect.Target = innerActor;
+			innerActor = effect;
+
+		}
+
+		public void RemoveEffect (GameActorDecorator effect)
+		{
+			GameActorDecorator.Remove (innerActor, effect);
+
+		}
+
 	}
 }

@@ -19,6 +19,7 @@ namespace RnR.Systems.D20.Base.Actors
 		bool IsDead { get; }
 		int Money { get; set; }
 		int CA { get; }
+		int MaxHunger { get; }
 
 		AbstractWeapon EquipedWeapon { get; set; }
 		AbstractArmor EquipedArmor { get; set; }

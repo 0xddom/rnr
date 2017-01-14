@@ -15,8 +15,8 @@ namespace RnR.Systems.D20.Base.Objects
 
 		public IGameActor OnEat (IGameActor target)
 		{
-			if (target is PlayerGameActor){
-				(target as PlayerGameActor).Hunger += energyGain;
+			if (target is GameCharacter){
+				(target as GameCharacter).Hunger += energyGain;
 			}
 			return target;
 		}

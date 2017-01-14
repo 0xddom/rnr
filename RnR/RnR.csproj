@@ -67,7 +67,7 @@
     <Compile Include="Systems\D20\FloorElements\Fountain.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\Lockable.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\Looteable.cs" />
-    <Compile Include="Systems\D20\PlayerGameActor.cs" />
+    <Compile Include="Systems\D20\GameCharacter.cs" />
     <Compile Include="Systems\D20\Effects\PoisonEffect.cs" />
     <Compile Include="Systems\D20\Effects\StuntEffect.cs" />
     <Compile Include="Systems\D20\Contest.cs" />

@@ -17,8 +17,8 @@ namespace RnR.Systems.D20.FloorElements
 
 		protected override IGameActor ApplyEffect (IGameActor target)
 		{
-			if (target is PlayerGameActor) {
-				var player = (PlayerGameActor)target;
+			if (target is GameCharacter) {
+				var player = (GameCharacter)target;
 				player.Hunger -= CalculateDamage();
 			}
 			return target;

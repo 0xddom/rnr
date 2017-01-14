@@ -16,7 +16,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 
 		public IGameActor OnStep (IGameActor target)
 		{
-			if (!picked && target is PlayerGameActor) {
+			if (!picked && target is GameCharacter) {
 				ApplyAction (target);
 				picked = true;
 			}
