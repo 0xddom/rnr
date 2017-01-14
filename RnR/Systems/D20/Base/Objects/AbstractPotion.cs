@@ -14,7 +14,7 @@ namespace RnR.Systems.D20.Base.Objects
 			this.effect = effect;
         }
 
-		public GameActor OnEat (GameActor target)
+		public IGameActor OnEat (IGameActor target)
 		{
 			effect.Target = target;
 			return effect;

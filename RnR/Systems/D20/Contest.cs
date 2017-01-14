@@ -18,7 +18,7 @@ namespace RnR.Systems.D20
 		{
 			try {
 				if (challenge.CanParticipate (challenger)) {
-					int result = Dice.Dice.Roll (1, 20).Sum + challenger.GetSkill (challenge.GetSkill ()).Value;
+					int result = Dice.Dice.Roll (1, 20).Sum + challenger.GetSkill (challenge.GetSkillType ()).Value;
 					challenge.ContestFinished (challenger, result > challenge.GetChallengeRate ());
 				}
 			} catch (CantParticipateInContestException) {

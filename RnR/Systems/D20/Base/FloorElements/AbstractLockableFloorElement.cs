@@ -36,7 +36,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 			return challengeRate;
 		}
 
-		public SkillType GetSkill ()
+		public SkillType GetSkillType ()
 		{
 			return SkillType.PINLOCK;
 		}

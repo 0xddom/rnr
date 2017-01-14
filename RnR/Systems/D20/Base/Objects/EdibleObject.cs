@@ -6,6 +6,6 @@ namespace RnR.Systems.D20.Base.Objects
 {
     public interface EdibleObject 
 	{
-		GameActor OnEat(GameActor target);
+		IGameActor OnEat(IGameActor target);
     }
 }

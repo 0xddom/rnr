@@ -5,9 +5,9 @@ using RnR.Tests.Systems.D20.Base.Objects;
 
 namespace RnR.Tests.Mocks.Systems.D20
 {
-	public class PlayerMock : PlayerGameActor
+	public class PlayerMock //: PlayerGameActor
 	{
-		public PlayerMock (int maxHitPoints) : base(10,10,10,10,10,10)
+	/*	public PlayerMock (int maxHitPoints) : base(10,10,10,10,10,10)
 		{
 			this.maxHitPoints = maxHitPoints;
 			hitPoints = MaxHitPoints;
@@ -18,6 +18,6 @@ namespace RnR.Tests.Mocks.Systems.D20
 		public void AddSkill (Skill skill)
 		{
 			skills.Add (skill.Type, skill);
-		}
+		}*/
 	}
 }

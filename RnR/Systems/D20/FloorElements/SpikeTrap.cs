@@ -15,7 +15,7 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		protected override GameActor ApplyEffect (GameActor target)
+		protected override IGameActor ApplyEffect (IGameActor target)
 		{
 			target.HitPoints -= CalculateDamage();
 			return target;

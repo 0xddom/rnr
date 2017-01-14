@@ -46,7 +46,7 @@
     <Compile Include="Application.cs" />
     <Compile Include="Systems\Dice\Dice.cs" />
     <Compile Include="Systems\Dice\DiceRoll.cs" />
-    <Compile Include="Systems\D20\Base\Actors\AbstractGameActor.cs" />
+    <Compile Include="Systems\D20\Base\Actors\GameActor.cs" />
     <Compile Include="Systems\D20\Base\Actors\Attribute.cs" />
     <Compile Include="Systems\D20\Base\Actors\Attributes.cs" />
     <Compile Include="Systems\D20\Base\Actors\SkillType.cs" />
@@ -76,8 +76,7 @@
     <Compile Include="Systems\D20\CantParticipateInContestException.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractDamageTrap.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\AbstractEffectTrap.cs" />
-    <Compile Include="Systems\D20\Base\Actors\GameActor.cs" />
-    <Compile Include="Systems\D20\Base\Objects\AbstractAmmo.cs" />
+    <Compile Include="Systems\D20\Base\Actors\IGameActor.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractArmor.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractEarring.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractFood.cs" />
@@ -86,7 +85,6 @@
     <Compile Include="Systems\D20\Base\Objects\AbstractJunk.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractNecklace.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractPotion.cs" />
-    <Compile Include="Systems\D20\Base\Objects\AbstractRangedWeapon.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractRing.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractTrapSetup.cs" />
     <Compile Include="Systems\D20\Base\Objects\AbstractWeapon.cs" />

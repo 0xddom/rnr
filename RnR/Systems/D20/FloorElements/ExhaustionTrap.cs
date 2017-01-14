@@ -15,7 +15,7 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		protected override GameActor ApplyEffect (GameActor target)
+		protected override IGameActor ApplyEffect (IGameActor target)
 		{
 			if (target is PlayerGameActor) {
 				var player = (PlayerGameActor)target;

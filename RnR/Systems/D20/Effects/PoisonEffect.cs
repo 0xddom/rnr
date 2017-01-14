@@ -5,7 +5,7 @@ namespace RnR.Systems.D20.Effects
 {
 	public class PoisonEffect : GameActorDecorator
 	{
-		public PoisonEffect (GameActor target) 
+		public PoisonEffect (IGameActor target) 
 			: base(target)
 		{
 		}

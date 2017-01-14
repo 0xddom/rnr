@@ -12,7 +12,7 @@ namespace RnR.Systems.D20.Base.Objects
 		{
         }
 
-		public override GameActor OnEquip (GameActor target)
+		public override IGameActor OnEquip (IGameActor target)
 		{
 			// Remove previously equiped earring effect
 			if (target.EquipedRing != null) {

@@ -5,6 +5,6 @@ namespace RnR.Systems.D20.Base.FloorElements
 {
 	public interface Stepable
 	{
-		GameActor OnStep (GameActor target);
+		IGameActor OnStep (IGameActor target);
 	}
 }

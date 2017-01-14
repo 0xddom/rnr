@@ -6,6 +6,6 @@ namespace RnR.Systems.D20.Base.Objects
 {
     public interface EquipableObject 
 	{
-		GameActor OnEquip(GameActor target);
+		IGameActor OnEquip(IGameActor target);
     }
 }

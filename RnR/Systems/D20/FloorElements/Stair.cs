@@ -30,7 +30,7 @@ namespace RnR.Systems.D20.FloorElements
 
 		#region OnStepListener implementation
 
-		public RnR.Systems.D20.Base.Actors.GameActor OnStep (RnR.Systems.D20.Base.Actors.GameActor target)
+		public RnR.Systems.D20.Base.Actors.IGameActor OnStep (RnR.Systems.D20.Base.Actors.IGameActor target)
 		{
 			throw new NotImplementedException ();
 		}

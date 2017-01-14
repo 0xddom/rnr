@@ -14,7 +14,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 			picked = false;
 		}
 
-		public GameActor OnStep (GameActor target)
+		public IGameActor OnStep (IGameActor target)
 		{
 			if (!picked && target is PlayerGameActor) {
 				ApplyAction (target);
@@ -23,7 +23,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 			return target;
 		}
 
-		protected abstract void ApplyAction (GameActor target);
+		protected abstract void ApplyAction (IGameActor target);
 
 		#region implemented abstract members of AbstractFloorElement
 

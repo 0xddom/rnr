@@ -4,9 +4,9 @@ using RnR.Systems.D20.Base.Objects;
 
 namespace RnR.Systems.D20.Base.Actors
 {
-	public abstract class GameActorDecorator : GameActor
+	public abstract class GameActorDecorator : IGameActor
 	{
-		public static void Remove (GameActor target, GameActorDecorator decorator)
+		public static void Remove (IGameActor target, GameActorDecorator decorator)
 		{
 			if (target is GameActorDecorator) {
 				var i = target;
@@ -17,9 +17,9 @@ namespace RnR.Systems.D20.Base.Actors
 			}
 		}
 
-		protected GameActor target;
+		protected IGameActor target;
 
-		public GameActorDecorator (GameActor target)
+		public GameActorDecorator (IGameActor target)
 		{
 			this.target = target;
 		}
@@ -28,7 +28,7 @@ namespace RnR.Systems.D20.Base.Actors
 		{
 		}
 
-		public GameActor Target {
+		public IGameActor Target {
 			get {
 				return target;
 			}
@@ -100,15 +100,6 @@ namespace RnR.Systems.D20.Base.Actors
 			//}
 		}
 
-		public AbstractAmmo EquipedAmmo {
-			get {
-				return target.EquipedAmmo;
-			}
-
-			set {
-				target.EquipedAmmo = value;
-			}
-		}
 
 		public AbstractWeapon EquipedWeapon {
 			get {
@@ -161,9 +152,25 @@ namespace RnR.Systems.D20.Base.Actors
 			}
 		}
 
-		public List<GameObject> Inventory {
+		public int Hunger {
 			get {
-				return target.Inventory;
+				return target.Hunger;
+			}
+
+			set {
+				target.Hunger = value;
+			}
+		}
+
+		public bool IsDead {
+			get {
+				return target.IsDead;
+			}
+		}
+
+		public int CA {
+			get {
+				return target.CA;
 			}
 		}
 
@@ -193,9 +200,29 @@ namespace RnR.Systems.D20.Base.Actors
 			return s;
 		}
 
-		public GameActor Equip (EquipableObject obj)
+		public IGameActor Equip (EquipableObject obj)
 		{
 			return target.Equip (obj);
+		}
+
+		public int GetChallengeRate ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		public SkillType GetSkillType ()
+		{
+			return target.GetSkillType();
+		}
+
+		public void ContestFinished (Challenger challenger, bool challengerWon)
+		{
+			throw new NotImplementedException ();
+		}
+
+		public bool CanParticipate (Challenger challenger)
+		{
+			throw new NotImplementedException ();
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace RnR.Systems.D20
 	public interface Challenge
 	{
 		int GetChallengeRate ();
-		SkillType GetSkill ();
+		SkillType GetSkillType ();
 		void ContestFinished (Challenger challenger, bool challengerWon);
 		bool CanParticipate (Challenger challenger);
 	}
