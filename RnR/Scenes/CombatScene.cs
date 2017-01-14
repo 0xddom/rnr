@@ -14,7 +14,9 @@ namespace RnR.Scenes
 
 		public override void OnCreate ()
 		{
-			var gameLogConsoleWidht = (int)Math.Floor (Configuration.GridWidth * 0.8);
+			var combatConsoleWidth = (int)Math.Floor (Configuration.GridWidth * 1.0);
+			var combatConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 0.8);
+			var gameLogConsoleWidht = (int)Math.Floor (Configuration.GridWidth * 1.0);
 			var gameLogConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 0.2);
 
 			log = new List<string> ();

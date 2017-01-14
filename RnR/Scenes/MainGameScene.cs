@@ -4,7 +4,6 @@ using RnR.Consoles;
 using Lain;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Lain.Utils;
 using System.Collections.Generic;
 using RnR.Actions;
 
@@ -48,12 +47,12 @@ namespace RnR.Scenes
 			(new LogCurrentFloor (gameState, log)).Execute ();
 
 			dungeonFloorConsole = new DungeonFloorConsole (gameState.Dungeon.CurrentFloor, dungeonConsoleWidth, dungeonConsoleHeight);
-			gameLogConsole = new GameLogConsole (log, Math.Min(gameLogConsoleHeight - 2, 11), gameLogConsoleWidht, gameLogConsoleHeight);
+			gameLogConsole = new GameLogConsole (log, Math.Min (gameLogConsoleHeight - 2, 11), gameLogConsoleWidht, gameLogConsoleHeight);
 			gameLogConsole.Position = new Point (0, dungeonConsoleHeight + 1);
 			Add (dungeonFloorConsole);
 			Add (gameLogConsole);
 
-			SetBackground (new Color(new Vector3(0x12, 0x13, 0x14)));
+			SetBackground (new Color (new Vector3 (0x12, 0x13, 0x14)));
 
 			gameState.Dungeon.Update (dungeonFloorConsole.Center);
 			dungeonFloorConsole.Update ();
@@ -84,7 +83,7 @@ namespace RnR.Scenes
 		/// Handles the input.
 		/// </summary>
 		/// <returns>An Action corresponding to the input.</returns>
-		private IAction HandleInput() 
+		private IAction HandleInput ()
 		{
 			KeyboardState state = Keyboard.GetState ();
 			IAction action = new FalseAction ();
@@ -99,9 +98,9 @@ namespace RnR.Scenes
 					action = new MoveLeftAction (gameState, dungeonFloorConsole);
 				} else if (state.IsKeyDown (Keys.Right)) {
 					action = new MoveRightAction (gameState, dungeonFloorConsole);
-				} else if (state.IsKeyDown (Keys.Up)) {					
+				} else if (state.IsKeyDown (Keys.Up)) {
 					action = new MoveUpAction (gameState, dungeonFloorConsole);
-				} else if (state.IsKeyDown (Keys.Down)) {					
+				} else if (state.IsKeyDown (Keys.Down)) {
 					action = new MoveDownAction (gameState, dungeonFloorConsole);
 				}
 			}
@@ -120,7 +119,7 @@ namespace RnR.Scenes
 			KeyboardState state = Keyboard.GetState ();
 			IAction action = HandleInput ();
 
-			if (action.Execute () && action is MoveAction) 
+			if (action.Execute () && action is MoveAction)
 				(new AndChain (new TryUseStairs (gameState, dungeonFloorConsole),
 					new LogCurrentFloor (gameState, log))).Execute ();
 

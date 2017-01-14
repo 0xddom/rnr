@@ -7,9 +7,10 @@ namespace RnR.Consoles
 	{
 		public Combat Combat { get; set; }
 
-		public CombatConsole (int w, int h)
+		public CombatConsole (Combat combat, int w, int h)
 			: base (w, h)
 		{
+			Combat = combat;
 		}
 
 		private void UpdateCombatData ()
