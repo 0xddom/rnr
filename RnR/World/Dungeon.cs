@@ -5,6 +5,8 @@ using Lain.Geometry;
 using RogueSharp;
 using RnR.Systems.D20.Base.FloorElements;
 using RnR.Systems.D20;
+using Lain;
+using RnR.Scenes;
 
 namespace RnR.World
 {
@@ -46,6 +48,10 @@ namespace RnR.World
 		}
 
 		public void Update(Party party, List<string> log) {
+
+
+
+
 			SetFovAsVisible (party.Leader.Position);
 			CheckIfActorSteped (party, log);
 		}

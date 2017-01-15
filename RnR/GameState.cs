@@ -56,6 +56,9 @@ namespace RnR
 			}
 			Party = new Party (cs);
 		}
+
+
+
 	}
 }
 

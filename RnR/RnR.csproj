@@ -42,6 +42,7 @@
     <Folder Include="Systems\D20\Objects\Foods\" />
     <Folder Include="Actions\" />
     <Folder Include="Systems\D20\Util\" />
+    <Folder Include="Systems\D20\Enemies\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -158,6 +159,14 @@
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Consoles\MenuConsole.cs" />
     <Compile Include="Consoles\MenuItem.cs" />
+    <Compile Include="Systems\D20\RandomEnemyFactory.cs" />
+    <Compile Include="Systems\D20\GameEnemyFactory.cs" />
+    <Compile Include="Systems\D20\Enemies\Rat.cs" />
+    <Compile Include="Systems\D20\EnemyCharacter.cs" />
+    <Compile Include="Systems\D20\Enemies\Dog.cs" />
+    <Compile Include="Systems\D20\Enemies\Skeleton.cs" />
+    <Compile Include="Systems\D20\Enemies\Snake.cs" />
+    <Compile Include="Actions\TryEncounterAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

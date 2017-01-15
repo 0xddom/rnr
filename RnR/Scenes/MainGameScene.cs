@@ -136,7 +136,8 @@ namespace RnR.Scenes
 			IAction action = HandleInput ();
 
 			if (action.Execute () && action is MoveAction)
-				(new AndChain (new TryUseStairs (gameState, dungeonFloorConsole),
+				(new AndChain (new TryEncounterAction() 
+				               ,new TryUseStairs (gameState, dungeonFloorConsole),
 					new LogCurrentFloor (gameState, log))).Execute ();
 
 			gameState.Dungeon.Update (gameState.Party, log);

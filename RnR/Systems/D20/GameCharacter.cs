@@ -12,7 +12,7 @@ namespace RnR.Systems.D20
 	// XXX: Put here delegation instead of inheritance?
 	public class GameCharacter : IGameActor, Positionable, Drawable
 	{
-		IGameActor innerActor;
+		protected IGameActor innerActor;
 		Point2D position;
 		Color color;
 
