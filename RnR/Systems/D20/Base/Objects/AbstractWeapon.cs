@@ -53,7 +53,7 @@ namespace RnR.Systems.D20.Base.Objects
 			}
         }
 
-		public virtual IGameActor OnEquip (IGameActor target)
+		public virtual IGameActor OnEquip (Actors.IGameActor target)
 		{
 			target.EquipedWeapon = this;
 			return target;

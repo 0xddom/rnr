@@ -63,5 +63,26 @@ namespace RnR.Systems.Dice
         public List<int> Dices {
             get { return dices; }
         }
+
+		/// <summary>
+		/// Discards the lower value of the roll.
+		/// </summary>
+		public void DiscardLower ()
+		{
+			int idx = -1;
+			int val = int.MaxValue;
+			int i = 0;
+			dices.ForEach ((diceVal) => {
+				if (diceVal < val) {
+					val = diceVal;
+					idx = i;
+				}
+
+				i++;
+			});
+
+			if (idx >= 0) 
+				dices.RemoveAt (idx);
+		}
     }
 }

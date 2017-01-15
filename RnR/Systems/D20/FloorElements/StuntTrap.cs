@@ -15,25 +15,24 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		protected override IGameActor ApplyEffect (IGameActor target)
+		protected override string ApplyEffect (GameCharacter target)
 		{
-			Effect.Target = target;
-			return Effect;
+			target.AddEffect (Effect);
+			return "You have been stunned by some magic";
 		}
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance (bool inFov)
+		public override CellAppearance Appearance (bool inFov)
 		{
 			if (inFov) {
-				if (this.Armed)
+				if (Armed)
 					return new FloorInFovAppearance ();
 				return new CellAppearance (Color.LightBlue, Color.Transparent, 116);
-			} else {
-				if (this.Armed)
-					return new FloorAppearance ();
-				return new CellAppearance (Color.LightBlue, Color.Transparent, 116);
 			}
+			if (Armed)
+				return new FloorAppearance ();
+			return new CellAppearance (Color.LightBlue, Color.Transparent, 116);
 		}
 
 		#endregion

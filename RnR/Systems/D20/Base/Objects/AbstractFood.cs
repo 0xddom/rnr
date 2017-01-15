@@ -13,7 +13,7 @@ namespace RnR.Systems.D20.Base.Objects
 			energyGain = eneryGain;
         }
 
-		public IGameActor OnEat (IGameActor target)
+		public IGameActor OnEat (Actors.IGameActor target)
 		{
 			if (target is GameCharacter){
 				(target as GameCharacter).Hunger += energyGain;

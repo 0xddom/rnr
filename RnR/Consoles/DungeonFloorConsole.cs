@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Lain.Utils;
 using Lain.Geometry;
 using RnR.Systems.D20.FloorElements;
+using RnR.Systems.D20;
 
 namespace RnR.Consoles
 {
@@ -21,6 +22,8 @@ namespace RnR.Consoles
 		/// </summary>
 		/// <value>The floor.</value>
 		public DungeonFloor Floor { get; set; }
+
+		public Party Party { get; set; }
 
 		/// <summary>
 		/// The width of the view.
@@ -45,7 +48,7 @@ namespace RnR.Consoles
 		/// <summary>
 		/// The center.
 		/// </summary>
-		private Point2D center;
+		//private Point2D center;
 
 		/// <summary>
 		/// Gets or sets the center.
@@ -53,10 +56,10 @@ namespace RnR.Consoles
 		/// <value>The center.</value>
 		public Point2D Center {
 			set {
-				center = value;
+				Party.Leader.Position = value;
 				UpdateMapData (value);
 			}
-			get { return center; }
+			get { return Party.Leader.Position; }
 		}
 
 		/// <summary>
@@ -65,12 +68,13 @@ namespace RnR.Consoles
 		/// <param name="floor">Floor.</param>
 		/// <param name="w">The width.</param>
 		/// <param name="h">The height.</param>
-		public DungeonFloorConsole (DungeonFloor floor, int w, int h)
+		public DungeonFloorConsole (DungeonFloor floor, Party party, int w, int h)
 			: base (Math.Max (floor.Width, w), Math.Max (floor.Height, h))
 		{
 			viewWidth = w;
 			viewHeight = h;
 			Floor = floor;
+			Party = party;
 
 			drawData = new CellAppearance [w, h];
 
@@ -78,7 +82,7 @@ namespace RnR.Consoles
 
 			foreach (RogueSharp.Cell cell in Floor.GetAllCells ()) {
 				if (cell.IsWalkable) {
-					center = new Point2D (cell.X, cell.Y);
+					Party.Leader.Position = new Point2D (cell.X, cell.Y);
 					break;
 				}
 			}
@@ -155,8 +159,8 @@ namespace RnR.Consoles
 		/// <param name="cell">Cell.</param>
 		CellAppearance GetAppearanceFromCell (RogueSharp.Cell cell)
 		{
-			if (center.X == cell.X && center.Y == cell.Y)
-				return CenterAppearance;
+			if (Center.X == cell.X && Center.Y == cell.Y)
+				return Party.Leader.Appearance(true);
 
 			if (cell.IsExplored) {
 				if (Floor.UpStair != null && StairIsAtCell (cell, Floor.UpStair))
@@ -230,7 +234,7 @@ namespace RnR.Consoles
 		public override void Update ()
 		{
 			base.Update ();
-			UpdateMapData (center);
+			UpdateMapData (Party.Leader.Position);
 		}
 	}
 }

@@ -41,6 +41,7 @@
     <Folder Include="Systems\D20\Objects\" />
     <Folder Include="Systems\D20\Objects\Foods\" />
     <Folder Include="Actions\" />
+    <Folder Include="Systems\D20\Util\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
@@ -138,9 +139,25 @@
     <Compile Include="Actions\MoveAction.cs" />
     <Compile Include="Systems\D20\Base\FloorElements\Stepable.cs" />
     <Compile Include="Scenes\CombatScene.cs" />
-    <Compile Include="Consoles\CombatConsole.cs" />
     <Compile Include="Systems\D20\Combat.cs" />
     <Compile Include="Systems\D20\Party.cs" />
+    <Compile Include="Systems\D20\Util\PartyMembersIterator.cs" />
+    <Compile Include="Systems\D20\Util\InitiativeOrderPartyMembersIterator.cs" />
+    <Compile Include="Consoles\AvailableActionsConsole.cs" />
+    <Compile Include="Consoles\AbstractCombatStatusConsole.cs" />
+    <Compile Include="Consoles\RightCombatStatusConsole.cs" />
+    <Compile Include="Consoles\LeftCombatStatusConsole.cs" />
+    <Compile Include="Systems\D20\GameCharacterBuilder.cs" />
+    <Compile Include="Scenes\CombatSceneState.cs" />
+    <Compile Include="Scenes\AskingForActionState.cs" />
+    <Compile Include="Scenes\AskingForTargetState.cs" />
+    <Compile Include="Scenes\DoTurnState.cs" />
+    <Compile Include="Actions\AttackAction.cs" />
+    <Compile Include="Scenes\CombatSceneContext.cs" />
+    <Compile Include="Consoles\PartyStatusConsole.cs" />
+    <Compile Include="Scenes\MainMenuScene.cs" />
+    <Compile Include="Consoles\MenuConsole.cs" />
+    <Compile Include="Consoles\MenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -167,6 +184,7 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

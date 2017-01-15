@@ -9,7 +9,7 @@ namespace RnR.Systems.D20.Base.FloorElements
 		private int challengeRate;
 		private bool applied;
 		private SkillType skill;
-		private IGameActor victim;
+		private Actors.IGameActor victim;
 
 		public AbstractTrap (SkillType skill, int challengeRate)
 		{
@@ -29,33 +29,33 @@ namespace RnR.Systems.D20.Base.FloorElements
 			armed = false;
 		}
 
-		public IGameActor OnStep (IGameActor target)
+		public string OnStep (Party target)
 		{
 			if (armed) {
-				Contest contest = new Contest (this, target);
+				var contest = new Contest (this, target.Leader);
 				contest.Resolve ();
 				Disarm ();
-				if (applied) {
-					return victim;
-				}
+				return resultMsg;
 			}
-			return target;
+			return null;
 		}
+
+		string resultMsg;
 
 		public bool Armed { get { return armed; } }
 
 		public void ContestFinished (Challenger challenger, bool challengerWon)
 		{
-			IGameActor aga = (IGameActor)challenger;
 			if (!challengerWon) {
-				victim = ApplyEffect (aga);
-				applied = true;
+				resultMsg = ApplyEffect (challenger as GameCharacter);
+			} else {
+				resultMsg = "You find a trap before it can harm you.";
 			}
 		}
 
 		public bool CanParticipate (Challenger challenger)
 		{
-			return challenger is IGameActor;
+			return challenger is GameCharacter;
 		}
 
 		public int GetChallengeRate () { return challengeRate; }
@@ -64,6 +64,6 @@ namespace RnR.Systems.D20.Base.FloorElements
 			return skill;
 		}
 
-		protected abstract IGameActor ApplyEffect (IGameActor target);
+		protected abstract string ApplyEffect (GameCharacter target);
 	}
 }

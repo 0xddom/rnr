@@ -13,9 +13,10 @@ namespace RnR.Systems.D20.FloorElements
 			this.food = food;
 		}
 
-		protected override void ApplyAction (IGameActor target)
+		protected override string ApplyAction (Party target)
 		{
-			//target.Inventory.Add (food);
+			target.Inventory.Add (food);
+			return $"Found: {food.Name}";
 		}
 	}
 }

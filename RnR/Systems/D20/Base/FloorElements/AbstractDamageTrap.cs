@@ -5,8 +5,8 @@ namespace RnR.Systems.D20.Base.FloorElements
 {
 	public abstract class AbstractDamageTrap : AbstractTrap
 	{
-		int dices;
-		int damage;
+		protected int dices;
+		protected int damage;
 
 		public AbstractDamageTrap (SkillType skill, int dices, int damage, int rate) : base (skill, rate)
 		{

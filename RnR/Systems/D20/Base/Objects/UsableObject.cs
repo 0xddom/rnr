@@ -6,6 +6,6 @@ namespace RnR.Systems.D20.Base.Objects
 {
     public interface UsableObject 
 	{
-		IGameActor OnUse(IGameActor target);
+		Party OnUse(Actors.IGameActor target);
     }
 }

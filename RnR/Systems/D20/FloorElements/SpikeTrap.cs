@@ -15,25 +15,25 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		protected override IGameActor ApplyEffect (IGameActor target)
+		protected override string ApplyEffect (GameCharacter target)
 		{
-			target.HitPoints -= CalculateDamage();
-			return target;
+			var dmg = CalculateDamage ();
+			target.HitPoints -= dmg;
+			return $"The spikes hurt you. You receive {dmg} ({dices}d{damage}) point of damage";
 		}
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance (bool inFov)
+		public override CellAppearance Appearance (bool inFov)
 		{
 			if (inFov) {
-				if (this.Armed)
+				if (Armed)
 					return new FloorInFovAppearance ();
 				return new CellAppearance (Color.Red, Color.Transparent, 116);
-			} else {
-				if (this.Armed)
-					return new FloorAppearance ();
-				return new CellAppearance (Color.Red, Color.Transparent, 116);
 			}
+			if (Armed)
+				return new FloorAppearance ();
+			return new CellAppearance (Color.Red, Color.Transparent, 116);
 		}
 
 		#endregion

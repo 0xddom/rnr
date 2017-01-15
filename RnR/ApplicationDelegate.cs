@@ -17,7 +17,9 @@ namespace RnR
 		/// </summary>
 		public void Run() {
 			var director = Director.Instance;
-			director.PushScene(new MainGameScene(), false);
+			//director.PushScene(new MainGameScene(), false);
+			director.PushScene(new MainMenuScene(), false);
+			//director.PushScene (new CombatScene (), false);
 			var loop = new GameLoop(director, WIDTH, HEIGHT);
 			loop.Run ();
 		}

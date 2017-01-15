@@ -45,6 +45,7 @@ namespace Lain.Views
 		/// </summary>
 		public override void OnCreate ()
 		{
+			base.OnCreate ();
 		}
 
 		/// <summary>
@@ -54,6 +55,7 @@ namespace Lain.Views
 		/// </summary>
 		public override void OnPause ()
 		{
+			base.OnPause ();
 		}
 
 		/// <summary>
@@ -63,6 +65,7 @@ namespace Lain.Views
 		/// </summary>
 		public override void OnResume ()
 		{
+			base.OnResume ();
 		}
 
 		/// <summary>
@@ -72,6 +75,7 @@ namespace Lain.Views
 		/// </summary>
 		public override void OnDestroy ()
 		{
+			base.OnDestroy ();
 		}
 
 		#endregion

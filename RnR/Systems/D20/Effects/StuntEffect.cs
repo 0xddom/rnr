@@ -5,7 +5,7 @@ namespace RnR.Systems.D20.Effects
 {
 	public class StuntEffect : GameActorDecorator
 	{
-		public StuntEffect (IGameActor target) 
+		public StuntEffect (Base.Actors.IGameActor target) 
 			: base(target)
 		{
 		}

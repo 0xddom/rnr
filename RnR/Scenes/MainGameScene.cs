@@ -18,6 +18,7 @@ namespace RnR.Scenes
 
 		DungeonFloorConsole dungeonFloorConsole;
 		GameLogConsole gameLogConsole;
+		PartyStatusConsole statusConsole;
 
 		#endregion
 
@@ -37,24 +38,32 @@ namespace RnR.Scenes
 		/// </summary>
 		public override void OnCreate ()
 		{
-			int dungeonConsoleWidth = (int)Math.Floor (Configuration.GridWidth * 0.8);
-			int dungeonConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 0.8);
-			int gameLogConsoleWidht = dungeonConsoleWidth;
-			int gameLogConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 0.2);
+			base.OnCreate ();
 
-			gameState = new GameState ();
+			var dungeonConsoleWidth = (int)Math.Floor (Configuration.GridWidth * 0.8);
+			var dungeonConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 0.8);
+			var gameLogConsoleWidht = dungeonConsoleWidth;
+			var gameLogConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 0.2);
+			var statusConsoleWidth = (int)Math.Floor (Configuration.GridWidth * 0.2);
+			var statusConsoleHeight = (int)Math.Floor (Configuration.GridHeight * 1.0);
+
+			gameState = GameState.Instance;
 			log = new List<string> ();
 			(new LogCurrentFloor (gameState, log)).Execute ();
 
-			dungeonFloorConsole = new DungeonFloorConsole (gameState.Dungeon.CurrentFloor, dungeonConsoleWidth, dungeonConsoleHeight);
+			dungeonFloorConsole = new DungeonFloorConsole (gameState.Dungeon.CurrentFloor, gameState.Party,  dungeonConsoleWidth, dungeonConsoleHeight);
 			gameLogConsole = new GameLogConsole (log, Math.Min (gameLogConsoleHeight - 2, 11), gameLogConsoleWidht, gameLogConsoleHeight);
 			gameLogConsole.Position = new Point (0, dungeonConsoleHeight + 1);
+			statusConsole = new PartyStatusConsole (gameState.Party, statusConsoleWidth, statusConsoleHeight);
+			statusConsole.Position = new Point (dungeonConsoleWidth + 1, 0);
+
 			Add (dungeonFloorConsole);
 			Add (gameLogConsole);
+			Add (statusConsole);
 
 			SetBackground (new Color (new Vector3 (0x12, 0x13, 0x14)));
 
-			gameState.Dungeon.Update (dungeonFloorConsole.Center);
+			gameState.Dungeon.Update (gameState.Party, log);
 			dungeonFloorConsole.Update ();
 		}
 
@@ -63,6 +72,7 @@ namespace RnR.Scenes
 		/// </summary>
 		public override void OnPause ()
 		{
+			base.OnPause ();
 		}
 
 		/// <summary>
@@ -70,6 +80,7 @@ namespace RnR.Scenes
 		/// </summary>
 		public override void OnResume ()
 		{
+			base.OnResume ();
 		}
 
 		/// <summary>
@@ -77,6 +88,7 @@ namespace RnR.Scenes
 		/// </summary>
 		public override void OnDestroy ()
 		{
+			base.OnDestroy ();
 		}
 
 		/// <summary>
@@ -89,7 +101,9 @@ namespace RnR.Scenes
 			IAction action = new FalseAction ();
 
 			if (state.IsKeyDown (Keys.Escape)) {
-				return new ExitAction (0);
+				//return new ExitAction (0);
+				Director.Instance.PopScene ();
+				return action;
 			}
 
 			if (delay == 0) {
@@ -116,6 +130,8 @@ namespace RnR.Scenes
 		/// <param name="delta">Delta.</param>
 		public override void Update (GameTime delta)
 		{
+			base.Update (delta);
+
 			KeyboardState state = Keyboard.GetState ();
 			IAction action = HandleInput ();
 
@@ -123,9 +139,7 @@ namespace RnR.Scenes
 				(new AndChain (new TryUseStairs (gameState, dungeonFloorConsole),
 					new LogCurrentFloor (gameState, log))).Execute ();
 
-			gameState.Dungeon.Update (dungeonFloorConsole.Center);
-
-			base.Update (delta);
+			gameState.Dungeon.Update (gameState.Party, log);
 		}
 	}
 }

@@ -114,14 +114,14 @@ namespace Lain
 		public void PushScene(IScene scene, bool create) {
 			var sceneNode = new SceneStackElement();
 
+			if (CurrentSceneWasCreated) CurrentScene.OnPause ();
+
 			if (create) {
 				scene.OnCreate ();
 				scene.OnResume ();
 			}
 			sceneNode.Scene = scene;
 			sceneNode.Created = create;
-
-			if(CurrentSceneWasCreated) CurrentScene.OnPause ();
 
 			sceneStack.Push (sceneNode);
 		}
@@ -134,9 +134,13 @@ namespace Lain
 				CurrentScene.OnPause ();
 				CurrentScene.OnDestroy ();
 			}
+
 			sceneStack.Pop ();
 
 			if (CurrentSceneWasCreated) {
+				CurrentScene.OnResume ();
+			} else {
+				CurrentScene.OnCreate ();
 				CurrentScene.OnResume ();
 			}
 		}

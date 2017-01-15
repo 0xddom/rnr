@@ -6,7 +6,7 @@ using Lain.Geometry;
 
 namespace RnR.Systems.D20.FloorElements
 {
-	public class Stair : Stepable, Drawable, Positionable
+	public class Stair : Drawable, Positionable
 	{
 		public StairDirection Direction { get; private set; }
 

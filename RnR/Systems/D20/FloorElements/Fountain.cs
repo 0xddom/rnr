@@ -8,22 +8,41 @@ namespace RnR.Systems.D20.FloorElements
 {
 	public class Fountain : AbstractFloorElement, Stepable
 	{
-		public IGameActor OnStep (IGameActor target)
+		bool exhausted;
+
+		public Fountain ()
 		{
-			if (target is GameCharacter) {
+			exhausted = false;
+		}
+
+		public string OnStep (Party target)
+		{
+			/*if (target is GameCharacter) {
 				target.HitPoints = target.MaxHitPoints;
 			}
-			return target;
+			return target;*/
+			if (!exhausted) {
+				foreach (GameCharacter c in target) {
+					c.HitPoints = c.MaxHitPoints;
+				}
+				exhausted = true;
+				return "Your party recovers all its health";
+			}
+			return null;
 		}
 
 		#region implemented abstract members of AbstractFloorElement
 
 		public override SadConsole.CellAppearance Appearance (bool inFov)
 		{
-			if (inFov) {
+			if (exhausted) {
+				if (inFov)
+					return new CellAppearance (Color.Beige, Color.Transparent, 102);
+				return new CellAppearance (Color.Brown, Color.Transparent, 102);
+			}
+			if (inFov) 
 				return new CellAppearance (Color.CornflowerBlue, Color.Transparent, 102);
-			} else
-				return new CellAppearance (Color.DarkBlue, Color.Transparent, 102);
+			return new CellAppearance (Color.DarkBlue, Color.Transparent, 102);
 		}
 
 		#endregion

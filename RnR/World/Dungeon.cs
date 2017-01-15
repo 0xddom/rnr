@@ -4,6 +4,7 @@ using RnR.World.Generators;
 using Lain.Geometry;
 using RogueSharp;
 using RnR.Systems.D20.Base.FloorElements;
+using RnR.Systems.D20;
 
 namespace RnR.World
 {
@@ -31,19 +32,22 @@ namespace RnR.World
 					CurrentFloor.SetCellProperties (c.X, c.Y, c.IsTransparent, c.IsWalkable, true);
 		}
 
-		private void CheckIfActorSteped(Point2D p) {
-			if (CurrentFloor.FloorElements.ContainsKey (p)) {
-				var e = CurrentFloor.FloorElements [p];
+		private void CheckIfActorSteped(Party p, List<string> log) {
+			if (CurrentFloor.FloorElements.ContainsKey (p.Leader.Position)) {
+				var e = CurrentFloor.FloorElements [p.Leader.Position];
 				if (e is Stepable) {
+					string msg = (e as Stepable).OnStep (p);
+					if (msg != null)
+						log.Add (msg);
 					//System.Console.WriteLine ($"Steped over a {e.GetType().Name}");
 					//(e as OnStepListener).OnStep (null);
 				}
 			}
 		}
 
-		public void Update(Point2D center) {
-			SetFovAsVisible (center);
-			CheckIfActorSteped (center);
+		public void Update(Party party, List<string> log) {
+			SetFovAsVisible (party.Leader.Position);
+			CheckIfActorSteped (party, log);
 		}
 
 		void AddNewFloor ()

@@ -4,15 +4,14 @@ using RnR.Systems.D20.Base.Objects;
 
 namespace RnR.Systems.D20.Base.Actors
 {
-	public abstract class GameActor : IGameActor
+	public class GameActor : IGameActor
 	{
 		#region Class attributes
 
 		protected readonly string name;
 		protected int money;
 		protected int hitPoints;
-		protected int maxHitPoints;
-		protected Dictionary<SkillType, Skill> skills;
+		public Dictionary<SkillType, Skill> Skills { get; private set; }
 		protected int hunger;
 
 		protected Attribute _STR, _DEX, _CON, _INT, _WIS, _CHA;
@@ -27,12 +26,14 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public GameActor ()
 		{
-			skills = new Dictionary<SkillType, Skill> ();
+			Skills = new Dictionary<SkillType, Skill> ();
 			equipedRing = null;
 			equipedArmor = null;
 			equipedWeapon = null;
 			equipedEarring = null;
 			equipedNecklace = null;
+
+
 		}
 
 		/// <summary>
@@ -52,6 +53,9 @@ namespace RnR.Systems.D20.Base.Actors
 			_INT = new Attribute (_int, Attributes.INT);
 			_WIS = new Attribute (wis, Attributes.WIS);
 			_CHA = new Attribute (cha, Attributes.CHA);
+
+			hitPoints = MaxHitPoints;
+			hunger = MaxHunger;
 		}
 
 		#region Getter & Setters
@@ -71,7 +75,7 @@ namespace RnR.Systems.D20.Base.Actors
 				hitPoints = Math.Max (0, Math.Min (value, MaxHitPoints));
 			}
 		}
-		public int MaxHitPoints { get { return maxHitPoints; } }
+		public int MaxHitPoints { get { return CON ().Value + CON ().Mod; } }
 
 
 		public AbstractWeapon EquipedWeapon {
@@ -145,7 +149,7 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public Skill GetSkill (SkillType type)
 		{
-			if (skills.ContainsKey (type)) return skills [type];
+			if (Skills.ContainsKey (type)) return Skills [type];
 			throw new CantParticipateInContestException (this);
 		}
 
@@ -161,7 +165,7 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public SkillType GetSkillType ()
 		{
-			throw new NotImplementedException ();
+			return SkillType.COMBAT;
 		}
 
 		public void ContestFinished (Challenger challenger, bool challengerWon)
@@ -171,7 +175,7 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public bool CanParticipate (Challenger challenger)
 		{
-			throw new NotImplementedException ();
+			return true;
 		}
 
 		public int CA

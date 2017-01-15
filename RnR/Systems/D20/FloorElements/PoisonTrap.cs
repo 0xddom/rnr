@@ -15,10 +15,10 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		protected override IGameActor ApplyEffect (IGameActor target)
+		protected override string ApplyEffect (GameCharacter target)
 		{
-			Effect.Target = target;
-			return Effect;
+			target.AddEffect (Effect);
+			return "You have been poisoned";
 		}
 
 		#region implemented abstract members of AbstractFloorElement

@@ -18,7 +18,7 @@ namespace RnR.Systems.D20.FloorElements
 
 		#region FloorElementFactory implementation
 
-		public RnR.Systems.D20.Base.FloorElements.AbstractFloorElement CreateFloorElement ()
+		public AbstractFloorElement CreateFloorElement ()
 		{
 			AbstractGrass newGrass = null;
 

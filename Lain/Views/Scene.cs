@@ -1,6 +1,7 @@
 ﻿using SadConsole.Consoles;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace Lain.Views
 {
@@ -17,6 +18,8 @@ namespace Lain.Views
 			consoles = new ConsoleList();
 			//SadConsole.Engine.ConsoleRenderStack = consoles;
 			nodes = new List<INode> ();
+			savedConsoles = new List<string> ();
+			savedConsolesToFile = false;
 		}
 
 		/// <summary>
@@ -28,6 +31,9 @@ namespace Lain.Views
 		/// The child nodes.
 		/// </summary>
 		private List<INode> nodes;
+
+		private List<string> savedConsoles;
+		private bool savedConsolesToFile;
 
 		#region INode implementation
 
@@ -90,22 +96,67 @@ namespace Lain.Views
 		/// <summary>
 		/// Called when the scene is created.
 		/// </summary>
-		public abstract void OnCreate ();
+		public virtual void OnCreate ()
+		{ 
+			System.Console.WriteLine ($"{this.GetType ().Name}::OnCreate");
+		}
 
 		/// <summary>
 		/// Called when the scene is paused.
 		/// </summary>
-		public abstract void OnPause ();
+		public virtual void OnPause ()
+		{
+			System.Console.WriteLine ($"{this.GetType ().Name}::OnPause");
+
+			/*var tmp = System.IO.Path.GetTempPath ();
+			System.Console.WriteLine ($"[{this.GetType ().Name}] Saving the scene consoles to {tmp}");
+
+			int i = 1;
+			savedConsoles.Clear ();
+			foreach (SadConsole.Consoles.Console c in consoles) {
+				var fileName = string.Format ("{1}_{0}.console", i, GetType ().Name);
+				c.Save (System.IO.Path.Combine (tmp, fileName), true, c.GetType());
+				savedConsoles.Add(System.IO.Path.Combine (tmp, fileName));
+				i++;
+			}
+			savedConsolesToFile = true;*/
+			SadConsole.Engine.ConsoleRenderStack = new ConsoleList ();
+		}
 
 		/// <summary>
 		/// Called when the scene is resumed.
 		/// </summary>
-		public abstract void OnResume ();
+		public virtual void OnResume ()
+		{
+			System.Console.WriteLine ($"{this.GetType ().Name}::OnResume");
+
+			if (savedConsolesToFile) {
+				System.Console.WriteLine ($"[{this.GetType ().Name}] Loading the scene consoles");
+				consoles = new ConsoleList ();
+				foreach (var path in savedConsoles) {
+					consoles.Add (SadConsole.Consoles.Console.Load (path));
+					System.IO.File.Delete (path);
+				}
+				SadConsole.Engine.ConsoleRenderStack = consoles;
+			} else {
+				SadConsole.Engine.ConsoleRenderStack = consoles;
+			}
+		}
 
 		/// <summary>
 		/// Called when the scene is destroyed and not needed anymore.
 		/// </summary>
-		public abstract void OnDestroy ();
+		public virtual void OnDestroy ()
+		{
+			System.Console.WriteLine ($"{this.GetType ().Name}::OnDestroy");
+
+			if (savedConsolesToFile) {
+				foreach (var path in savedConsoles) {
+					System.IO.File.Delete (path);
+				}
+				savedConsolesToFile = false;
+			}	
+		}
 
 		/// <summary>
 		/// Receives a message. This class don't accept any messages. So false is always returned

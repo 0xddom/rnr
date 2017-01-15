@@ -9,11 +9,11 @@ namespace RnR.Consoles
 	/// </summary>
 	public class GameLogConsole : SadConsole.Consoles.Console
 	{
-		private int STARTX = 1;
-		private int STARTY = 1;
+		int STARTX = 1;
+		int STARTY = 1;
 
-		private List<string> log;
-		private int lines;
+		readonly List<string> log;
+		readonly int lines;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:RnR.Consoles.GameLogConsole"/> class.
@@ -33,7 +33,7 @@ namespace RnR.Consoles
 		/// Writes a line.
 		/// </summary>
 		/// <param name="s">String.</param>
-		private void WriteLine(string s) 
+		void WriteLine (string s)
 		{
 			VirtualCursor.Print (s);
 			VirtualCursor.Position = new Point (STARTX, VirtualCursor.Position.Y + 1);
@@ -44,14 +44,14 @@ namespace RnR.Consoles
 		/// </summary>
 		public override void Update ()
 		{
-			Clear();
-			VirtualCursor.Position = new Point(STARTX, STARTY);
+			Clear ();
+			VirtualCursor.Position = new Point (STARTX, STARTY);
 
-			int start = Math.Max(0, log.Count - lines);
+			int start = Math.Max (0, log.Count - lines);
 			for (int i = start; i < log.Count; i++) {
-				WriteLine(log[i]);
+				WriteLine (log [i]);
 			}
-	
+
 			base.Update ();
 		}
 	}

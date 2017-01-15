@@ -13,14 +13,23 @@ namespace RnR.Systems.D20.FloorElements
 
 		Random r;
 
+		ChestFactory chestFactory;
+		RandomTrapFactory randomTrapFactory;
+		RandomGrassFactory randomGrassFactory;
+		FountainFactory fountainFactory;
+
 		public RandomFloorElementFactory ()
 		{
 			r = new Random ();
+			chestFactory = null;
+			randomTrapFactory = null;
+			randomGrassFactory = null;
+			fountainFactory = null;
 		}
 
 		#region FloorElementFactory implementation
 
-		public RnR.Systems.D20.Base.FloorElements.AbstractFloorElement CreateFloorElement ()
+		public AbstractFloorElement CreateFloorElement ()
 		{
 			FloorElementFactory realFactory;
 
@@ -30,14 +39,23 @@ namespace RnR.Systems.D20.FloorElements
 
 			double random = r.NextDouble ();
 
-			if (random < accChestProb)
-				realFactory = new ChestFactory ();
-			else if (random < accTrapProb)
-				realFactory = new RandomTrapFactory ();
-			else if (random < accGrassProb)
-				realFactory = new RandomGrassFactory ();
-			else
-				realFactory = new FountainFactory ();
+			if (random < accChestProb) {
+				if (chestFactory == null)
+					chestFactory = new ChestFactory ();
+				realFactory = chestFactory;
+			} else if (random < accTrapProb) {
+				if (randomTrapFactory == null)
+					randomTrapFactory = new RandomTrapFactory ();
+				realFactory = randomTrapFactory;
+			} else if (random < accGrassProb) {
+				if (randomGrassFactory == null)
+					randomGrassFactory = new RandomGrassFactory ();
+				realFactory = randomGrassFactory;
+			} else {
+				if (fountainFactory == null)
+					fountainFactory = new FountainFactory ();
+				realFactory = fountainFactory;
+			}
 
 			return realFactory.CreateFloorElement ();
 		}

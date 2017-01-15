@@ -15,28 +15,25 @@ namespace RnR.Systems.D20.FloorElements
 		{
 		}
 
-		protected override IGameActor ApplyEffect (IGameActor target)
+		protected override string ApplyEffect (GameCharacter target)
 		{
-			if (target is GameCharacter) {
-				var player = (GameCharacter)target;
-				player.Hunger -= CalculateDamage();
-			}
-			return target;
+			var dmg = CalculateDamage ();
+			target.Hunger -= dmg;
+			return $"The famine invades you and you gain {dmg} ({dices}d{damage}) point of hunger";
 		}
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance (bool inFov)
+		public override CellAppearance Appearance (bool inFov)
 		{
 			if (inFov) {
-				if (this.Armed)
+				if (Armed)
 					return new FloorInFovAppearance ();
 				return new CellAppearance (Color.YellowGreen, Color.Transparent, 116);
-			} else {
-				if (this.Armed)
-					return new FloorAppearance ();
-				return new CellAppearance (Color.YellowGreen, Color.Transparent, 116);
 			}
+			if (Armed)
+				return new FloorAppearance ();
+			return new CellAppearance (Color.YellowGreen, Color.Transparent, 116);
 		}
 
 		#endregion

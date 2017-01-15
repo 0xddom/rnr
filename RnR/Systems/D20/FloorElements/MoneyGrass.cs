@@ -13,9 +13,10 @@ namespace RnR.Systems.D20.FloorElements
 			this.amount = amount;
 		}
 
-		protected override void ApplyAction (IGameActor target)
+		protected override string ApplyAction (Party target)
 		{
-			target.Money += amount;
+			target.Leader.Money += amount;
+			return $"Found {amount} pieces of gold";
 		}
 	}
 }

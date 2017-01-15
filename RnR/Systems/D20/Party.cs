@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using RnR.Systems.D20.Base.Objects;
 
 namespace RnR.Systems.D20
 {
-	public class Party
+	public class Party : IEnumerable<GameCharacter>
 	{
 		int leaderPos;
+
+		public List<GameObject> Inventory { get; private set; }
 
 		public Party () 
 			: this (new List<GameCharacter>())
@@ -15,6 +19,7 @@ namespace RnR.Systems.D20
 		public Party (List<GameCharacter> members)
 		{
 			Members = members;
+			Inventory = new List<GameObject> ();
 			leaderPos = 0;
 		}
 
@@ -29,5 +34,15 @@ namespace RnR.Systems.D20
 		}
 
 		public List<GameCharacter> Members { get; private set; }
+
+		public IEnumerator<GameCharacter> GetEnumerator ()
+		{
+			return Members.GetEnumerator ();
+		}
+
+		IEnumerator IEnumerable.GetEnumerator ()
+		{
+			return Members.GetEnumerator ();
+		}
 	}
 }

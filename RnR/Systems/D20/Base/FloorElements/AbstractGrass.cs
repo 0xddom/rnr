@@ -14,25 +14,26 @@ namespace RnR.Systems.D20.Base.FloorElements
 			picked = false;
 		}
 
-		public IGameActor OnStep (IGameActor target)
+		public string OnStep (Party target)
 		{
-			if (!picked && target is GameCharacter) {
-				ApplyAction (target);
+			if (!picked) {
 				picked = true;
+				return ApplyAction (target);
 			}
-			return target;
+
+			return null;
 		}
 
-		protected abstract void ApplyAction (IGameActor target);
+		protected abstract string ApplyAction (Party target);
 
 		#region implemented abstract members of AbstractFloorElement
 
-		public override SadConsole.CellAppearance Appearance (bool inFov)
+		public override CellAppearance Appearance (bool inFov)
 		{
-			if (inFov) 
-				return new CellAppearance (Color.Green, Color.Transparent, 34);
-			else
-				return new CellAppearance (Color.DarkGreen, Color.Transparent, 34);
+			int glyph = picked ? 96 : 34;
+			if (inFov)
+				return new CellAppearance (Color.Green, Color.Transparent, glyph);
+			return new CellAppearance (Color.DarkGreen, Color.Transparent, glyph);
 		}
 
 		#endregion

@@ -31,7 +31,7 @@ namespace RnR.Systems.D20.Base.Objects
 			
 		}
 
-		public IGameActor OnEquip (IGameActor target)
+		public IGameActor OnEquip (Actors.IGameActor target)
 		{
 			target.EquipedArmor = this;
 			return target;

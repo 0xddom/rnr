@@ -71,6 +71,7 @@
     <Compile Include="TrueAction.cs" />
     <Compile Include="FalseAction.cs" />
     <Compile Include="AndChain.cs" />
+    <Compile Include="Utils\MaterialColors.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
