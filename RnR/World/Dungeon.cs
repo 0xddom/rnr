@@ -12,7 +12,7 @@ namespace RnR.World
 {
 	public class Dungeon
 	{
-		int FOV_RADIUS = 6;
+		const int FOV_RADIUS = 6;
 
 		List<DungeonFloor> floors;
 		int currentFloor;

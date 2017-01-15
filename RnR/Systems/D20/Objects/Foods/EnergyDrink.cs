@@ -6,8 +6,8 @@ namespace RnR.Systems.D20.Objects.Foods
 	public class EnergyDrink : AbstractFood
 	{
 		public EnergyDrink () 
-			: base("Bebida energética",
-				"No se como ha llegado esto aquí, pero no ha caducado, todavía",
+			: base("Bebida energetica",
+				"No se como ha llegado esto aqui, pero no ha caducado, todavia",
 				1, 30, 20)
 		{
 		}

@@ -6,21 +6,18 @@ using SadConsole;
 
 namespace RnR.Consoles
 {
-	[DataContract]
 	public class MenuConsole : SadConsole.Consoles.Console
 	{
-		[DataMember]
-		List<MenuItem> items;
+		public List<MenuItem> Items { get; set; }
 		const int STARTX = 1;
 		const int STARTY = 1;
 
-		[DataMember]
 		CellAppearance selectedCellAppearance;
 
 		public MenuConsole (List<MenuItem> items, int w, int h)
 			: base (w, h)
 		{
-			this.items = items;
+			Items = items;
 
 			selectedCellAppearance = new CellAppearance (Color.White, Color.Transparent, 16);
 		}
@@ -32,7 +29,7 @@ namespace RnR.Consoles
 			Clear ();
 
 			int i = STARTY;
-			foreach (MenuItem item in items) {
+			foreach (MenuItem item in Items) {
 				if (item.Selected) {
 					selectedCellAppearance.CopyAppearanceTo (this [STARTX, i]);
 				}

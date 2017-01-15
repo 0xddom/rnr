@@ -12,7 +12,6 @@ namespace RnR.World
 	{
 		List<Room> rooms;
 		Dictionary<Point2D, AbstractFloorElement> floorElements;
-	//	List<AbstractGameActor> npcs;
 		int level;
 		public Stair UpStair { get; set; }
 		public Stair DownStair { get; set; }
@@ -21,7 +20,6 @@ namespace RnR.World
 		{
 			rooms = new List<Room> ();
 			floorElements = new Dictionary<Point2D, AbstractFloorElement> ();
-	//		npcs = new List<AbstractGameActor> ();
 			this.level = level;
 			Initialize (width, height);
 		}

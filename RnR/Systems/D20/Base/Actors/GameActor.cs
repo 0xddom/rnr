@@ -127,7 +127,7 @@ namespace RnR.Systems.D20.Base.Actors
 		}
 
 		public int MaxHunger {
-			get { return CON().Mod*10; }
+			get { return (CON().Value + 1)*10; }
 		}
 
 		public int Hunger 

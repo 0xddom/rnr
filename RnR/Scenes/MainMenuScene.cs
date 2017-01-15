@@ -20,10 +20,18 @@ namespace RnR.Scenes
 		public override void OnCreate ()
 		{
 			base.OnCreate ();
-			menuItems = new List<MenuItem>(new MenuItem [] { 
-				new MenuItem(0, "New game", true),
-				new MenuItem(1, "Exit", false)
-			});
+			if (GameState.Instance.HasGameLoaded) {
+				menuItems = new List<MenuItem> (new MenuItem [] {
+					new MenuItem(0, "Continue", true),
+					new MenuItem(1, "New game", false),
+					new MenuItem(2, "Exit", false)
+				});
+			} else {
+				menuItems = new List<MenuItem> (new MenuItem [] {
+					new MenuItem(0, "New game", true),
+					new MenuItem(1, "Exit", false)
+				});
+			}
 
 			mainMenuConsole = new MenuConsole (menuItems, Configuration.GridWidth, Configuration.GridHeight);
 			Add (mainMenuConsole);
@@ -44,6 +52,21 @@ namespace RnR.Scenes
 		public override void OnResume ()
 		{
 			base.OnResume ();
+
+			if (GameState.Instance.HasGameLoaded) {
+				menuItems = new List<MenuItem> (new MenuItem [] {
+					new MenuItem(0, "Continue", true),
+					new MenuItem(1, "New game", false),
+					new MenuItem(2, "Exit", false)
+				});
+			} else {
+				menuItems = new List<MenuItem> (new MenuItem [] {
+					new MenuItem(0, "New game", true),
+					new MenuItem(1, "Exit", false)
+				});
+			}
+
+			mainMenuConsole.Items = menuItems;
 		}
 
 		public void HandleInput ()
@@ -77,18 +100,39 @@ namespace RnR.Scenes
 				menuItems [i].Selected = i == selectedItemIdx;
 
 			if (itemSelected) {
-				switch (selectedItemIdx) {
-				case 0:
-					LoadNewGame ();
-					break;
-				case 1:
-					(new ExitAction (0)).Execute ();
-					break;
+				if (GameState.Instance.HasGameLoaded) {
+					switch (selectedItemIdx) {
+					case 0:
+						LoadCurrentGame ();
+						break;
+					case 1:
+						LoadNewGame ();
+						break;
+					case 2:
+						(new ExitAction (0)).Execute ();
+						break;
+					}
+				} else {
+					switch (selectedItemIdx) {
+					case 0:
+						LoadNewGame ();
+						break;
+					case 1:
+						(new ExitAction (0)).Execute ();
+						break;
+					}
 				}
 			}
 		}
 
 		void LoadNewGame ()
+		{
+			itemSelected = false;
+			GameState.Instance.NewGame ();
+			Director.Instance.PushScene (new MainGameScene ());
+		}
+
+		void LoadCurrentGame ()
 		{
 			itemSelected = false;
 			Director.Instance.PushScene (new MainGameScene ());

@@ -16,6 +16,8 @@ namespace RnR
 		/// Starts the game
 		/// </summary>
 		public void Run() {
+			var unused = GameState.Instance; // Init instance
+
 			var director = Director.Instance;
 			//director.PushScene(new MainGameScene(), false);
 			director.PushScene(new MainMenuScene(), false);

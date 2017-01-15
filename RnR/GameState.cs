@@ -7,13 +7,13 @@ using RnR.World.Generators;
 
 namespace RnR
 {
-	public class GameState
+	public class GameState 
 	{
 		#region Singleton
 		/// <summary>
 		/// The singleton instance.
 		/// </summary>
-		private static GameState instance = null;
+		static GameState instance;
 
 		/// <summary>
 		/// Gets the instance.
@@ -34,7 +34,14 @@ namespace RnR
 			"Thomas", "Leonard", "Andre", "Dalton"
 		};
 
+		public bool HasGameLoaded { get; private set;}
+
 		public GameState ()
+		{
+			HasGameLoaded = false;
+		}
+
+		public void NewGame ()
 		{
 			Dungeon = new Dungeon (new SimpleFloorGenerationStrategy ());
 			var cs = new List<GameCharacter> ();
@@ -55,6 +62,7 @@ namespace RnR
 				cs.Add (gc);
 			}
 			Party = new Party (cs);
+			HasGameLoaded = false;
 		}
 
 
