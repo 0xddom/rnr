@@ -25,11 +25,16 @@ namespace RnR.Systems.D20
 
 		public void DoTurn (Dictionary<GameCharacter, IAction> actions)
 		{
+			System.Console.WriteLine ("Solving actions");
 			foreach (var character in this) {
+				System.Console.Write (character.Name);
 				if (actions.ContainsKey (character)) {
+					Console.Write (" has an action");
 					actions [character].Execute ();
 				}
+				Console.WriteLine ("");
 			}
+			System.Console.WriteLine ("Finished actions");
 		}
 
 		public IEnumerator<GameCharacter> GetEnumerator ()

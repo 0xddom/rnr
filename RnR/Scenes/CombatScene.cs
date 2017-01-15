@@ -23,7 +23,7 @@ namespace RnR.Scenes
 
 			context = new CombatSceneContext ();
 
-			context.Combat = new Combat (GameState.Instance.Party, GameState.Instance.Party);
+			context.Combat = new Combat (GameState.Instance.Party, EnemyPartyFactory.Create());
 			context.Actions = new Dictionary<GameCharacter, IAction> ();
 
 			var gameLogConsoleWidth = (int)Math.Floor (Configuration.GridWidth * 1.0);

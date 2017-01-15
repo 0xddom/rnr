@@ -6,7 +6,7 @@ namespace RnR.Systems.D20.Enemies
 	public class Snake:EnemyCharacter
 	{
 		public Snake ()
-			:base("snake", new GameActor(5, 10, 6, 2, 2, 1)) 
+			:base("Snake", new GameActor(5, 10, 6, 2, 2, 1)) 
 		{
 			(innerActor as GameActor).Skills.Add (SkillType.COMBAT, new Skill (SkillType.COMBAT, "COMBAT", 3, innerActor.STR ()));
 		}

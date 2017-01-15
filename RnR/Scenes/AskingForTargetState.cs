@@ -52,7 +52,7 @@ namespace RnR.Scenes
 
 		public void Update ()
 		{
-			System.Console.WriteLine ("AskingForTargetState::Update");
+			//System.Console.WriteLine ("AskingForTargetState::Update");
 			for (int i = 0; i < context.EnemyPartyStatusConsoles.Count; i++) {
 				context.EnemyPartyStatusConsoles [i].IsSelected = i == selectedTargetIdx;
 			}

@@ -19,8 +19,13 @@ namespace RnR.Actions
 
 		public bool Execute ()
 		{
-			log.Add (string.Format ("{0} has attacked {1}", Attacker.Name, Target.Name));
+			if (!Attacker.IsDead && !Target.IsDead) {
 
+				var contest = new Contest (Target, Attacker);
+				string result = contest.Resolve ();
+				if(result != null)
+					log.Add (result);
+			}
 			return true;
 		}
 	}

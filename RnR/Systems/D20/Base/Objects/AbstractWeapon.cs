@@ -53,6 +53,18 @@ namespace RnR.Systems.D20.Base.Objects
 			}
         }
 
+		public int Damage {
+			get {
+				return damage;
+			}
+		}
+
+		public int Dices {
+			get {
+				return dices;
+			}
+		}
+
 		public virtual IGameActor OnEquip (Actors.IGameActor target)
 		{
 			target.EquipedWeapon = this;

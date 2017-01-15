@@ -168,21 +168,24 @@ namespace RnR.Systems.D20.Base.Actors
 			return SkillType.COMBAT;
 		}
 
-		public void ContestFinished (Challenger challenger, bool challengerWon)
+		public string ContestFinished (Challenger challenger, bool challengerWon)
 		{
-			throw new NotImplementedException ();
+			return null;
 		}
 
 		public bool CanParticipate (Challenger challenger)
 		{
-			return true;
+			return challenger is GameCharacter;
 		}
 
 		public int CA
 		{
 			get 
 			{
-				return 10 + equipedArmor.Bonus + DEX ().Mod;	
+				if (equipedArmor != null)
+					return 10 + equipedArmor.Bonus + DEX ().Mod;
+				else
+					return 10 + DEX ().Mod;
 			}
 
 		}

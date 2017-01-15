@@ -167,6 +167,7 @@
     <Compile Include="Systems\D20\Enemies\Skeleton.cs" />
     <Compile Include="Systems\D20\Enemies\Snake.cs" />
     <Compile Include="Actions\TryEncounterAction.cs" />
+    <Compile Include="Systems\D20\EnemyPartyFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

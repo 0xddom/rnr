@@ -213,7 +213,7 @@ namespace RnR.Systems.D20.Base.Actors
 
 		public int GetChallengeRate ()
 		{
-			throw new NotImplementedException ();
+			return target.GetChallengeRate();
 		}
 
 		public SkillType GetSkillType ()
@@ -221,14 +221,14 @@ namespace RnR.Systems.D20.Base.Actors
 			return target.GetSkillType();
 		}
 
-		public void ContestFinished (Challenger challenger, bool challengerWon)
+		public string ContestFinished (Challenger challenger, bool challengerWon)
 		{
-			throw new NotImplementedException ();
+			return target.ContestFinished (challenger, challengerWon);
 		}
 
 		public bool CanParticipate (Challenger challenger)
 		{
-			throw new NotImplementedException ();
+			return target.CanParticipate (challenger);
 		}
 	}
 }

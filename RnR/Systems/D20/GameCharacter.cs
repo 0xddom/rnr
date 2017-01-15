@@ -154,9 +154,27 @@ namespace RnR.Systems.D20
 			return innerActor.CON ();
 		}
 
-		public void ContestFinished (Challenger challenger, bool challengerWon)
+		public string ContestFinished (Challenger challenger, bool challengerWon)
 		{
-			innerActor.ContestFinished (challenger, challengerWon);
+			var enemy = challenger as GameCharacter;
+			if (challengerWon) {
+				int dmg;
+				var weapon = enemy.EquipedWeapon;
+				bool hasWeapon = weapon != null;
+				if (!hasWeapon) {
+					dmg = Dice.Dice.Roll (1, 4).Sum;
+				} else {
+					dmg = Dice.Dice.Roll (weapon.Dices, weapon.Damage).Sum;
+				}
+
+				HitPoints -= dmg;
+				return string.Format ("{0} attacks {1} and deals {2} ({3}d{4}) points of damage", 
+				                      enemy.Name, 
+				                      Name, dmg, 
+				                      hasWeapon ? weapon.Dices : 1, 
+				                      hasWeapon ? weapon.Damage : 4);
+			}
+			return string.Format ("{0} attacks {1}, but fails", enemy.Name, Name);
 		}
 
 		public Base.Actors.Attribute DEX ()
@@ -208,7 +226,6 @@ namespace RnR.Systems.D20
 		{
 			effect.Target = innerActor;
 			innerActor = effect;
-
 		}
 
 		public void RemoveEffect (GameActorDecorator effect)

@@ -44,13 +44,12 @@ namespace RnR.Systems.D20.Base.FloorElements
 
 		public bool Armed { get { return armed; } }
 
-		public void ContestFinished (Challenger challenger, bool challengerWon)
+		public string ContestFinished (Challenger challenger, bool challengerWon)
 		{
 			if (!challengerWon) {
-				resultMsg = ApplyEffect (challenger as GameCharacter);
-			} else {
-				resultMsg = "You find a trap before it can harm you.";
+				return ApplyEffect (challenger as GameCharacter);
 			}
+			return "You find a trap before it can harm you.";
 		}
 
 		public bool CanParticipate (Challenger challenger)

@@ -22,7 +22,7 @@ namespace RnR.Systems.D20
 			r = new Random ();
 		}
 
-		EnemyCharacter GameEnemyFactory.CreateEnemyObject ()
+		public EnemyCharacter CreateEnemyObject ()
 		{
 			var list = new List<Type> (availableEnemies);
 

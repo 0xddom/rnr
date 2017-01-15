@@ -25,10 +25,13 @@ namespace RnR.Systems.D20.Base.FloorElements
 			return true;
 		}
 
-		public void ContestFinished (Challenger challenger, bool challengerWon)
+		public string ContestFinished (Challenger challenger, bool challengerWon)
 		{
-			if (challengerWon)
+			if (challengerWon) {
 				UnLock ();
+				return "You have unlocked it!";
+			}
+			return "No luck";
 		}
 
 		public int GetChallengeRate ()

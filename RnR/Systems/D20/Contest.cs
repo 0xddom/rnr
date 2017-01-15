@@ -14,16 +14,17 @@ namespace RnR.Systems.D20
 			this.challenger = challenger;
 		}
 
-		public void Resolve ()
+		public string Resolve ()
 		{
 			try {
 				if (challenge.CanParticipate (challenger)) {
 					int result = Dice.Dice.Roll (1, 20).Sum + challenger.GetSkill (challenge.GetSkillType ()).Value;
-					challenge.ContestFinished (challenger, result > challenge.GetChallengeRate ());
+					return challenge.ContestFinished (challenger, result > challenge.GetChallengeRate ());
 				}
 			} catch (CantParticipateInContestException) {
 				// Ignore
 			}
+			return null;
 		}
 	}
 }

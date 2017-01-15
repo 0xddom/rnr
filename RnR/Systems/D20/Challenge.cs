@@ -7,7 +7,7 @@ namespace RnR.Systems.D20
 	{
 		int GetChallengeRate ();
 		SkillType GetSkillType ();
-		void ContestFinished (Challenger challenger, bool challengerWon);
+		string ContestFinished (Challenger challenger, bool challengerWon);
 		bool CanParticipate (Challenger challenger);
 	}
 }
